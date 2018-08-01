@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/spfa/">Hello World</a>
+      <a class="article-title" href="/2018/08/01/spfa/">求单源最短路——spfa</a>
     </h1>
   
 
@@ -84,20 +84,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="和广搜bfs的区别："><a href="#和广搜bfs的区别：" class="headerlink" title="和广搜bfs的区别："></a>和广搜bfs的区别：</h2><p>SPFA 在形式上和广度(宽度)优先搜索非常类似，不同的是bfs中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是一个点改进过其它的点之后，过了一段时间可能本身被改进(重新入队)，于是再次用来改进其它的点，这样反复迭代下去。</p>
+<h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void  spfa(s);  //求单源点s到其它各顶点的最短距离</span><br><span class="line">    <span class="keyword">for</span> i=1 to n <span class="keyword">do</span> &#123; dis[i]=∞; vis[i]=<span class="literal">false</span>; &#125;   //初始化每点到s的距离，不在队列</span><br><span class="line">    dis[s]=0;  //将dis[源点]设为0</span><br><span class="line">    vis[s]=<span class="literal">true</span>; //源点s入队列</span><br><span class="line">    head=0; tail=1; q[tail]=s; //源点s入队, 头尾指针赋初值</span><br><span class="line">    <span class="keyword">while</span> head&lt;tail <span class="keyword">do</span> &#123;</span><br><span class="line">       head+1;  //队首出队</span><br><span class="line">       v=q[head];  //队首结点v</span><br><span class="line">       vis[v]=<span class="literal">false</span>;  //释放对v的标记，可以重新入队</span><br><span class="line">       <span class="keyword">for</span> 每条边(v,i)  //对于与队首v相连的每一条边</span><br><span class="line">  	  <span class="keyword">if</span> (dis[i]&gt;dis[v]+a[v][i])  //如果不满足三角形性质</span><br><span class="line">	 	dis[i] = dis[v] + a[v][i]   //松弛dis[i]</span><br><span class="line">		<span class="keyword">if</span> (vis[i]=<span class="literal">false</span>) &#123;tail+1; q[tail]=i; vis[i]=<span class="literal">true</span>;&#125; //不在队列，则加入队列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://FanCYu.coding.me/2018/08/01/spfa/" data-id="cjkb6wfne00011w74zb4e4cot" class="article-share-link">Share</a>
+      <a data-url="http://FanCYu.coding.me/2018/08/01/spfa/" data-id="cjkb6ysea000060746a2sl2ah" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://FanCYu.coding.me/2018/08/01/hello-world/" data-id="cjkb6wfn800001w74vb87pq68" class="article-share-link">Share</a>
+      <a data-url="http://FanCYu.coding.me/2018/08/01/hello-world/" data-id="cjkb6ysef00016074ne0fnm80" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +175,7 @@
       <ul>
         
           <li>
-            <a href="/2018/08/01/spfa/">Hello World</a>
+            <a href="/2018/08/01/spfa/">求单源最短路——spfa</a>
           </li>
         
           <li>
