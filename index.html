@@ -200,7 +200,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。</p>
-<h3 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路 "></a>算法的思路
+<h3 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路"></a>算法的思路</h3><p>Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接到达的边（s,m），则把dis[m]设为w（s, m）,同时把所有其他（s不能直接到达的）顶点的路径长度设为无穷大。初始时，集合T只有顶点s。<br>
         
           <a class="article-more-a" href="/2018/09/02/Dijkstra/#more">more >></a>
         
