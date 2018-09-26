@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[加速——卡常]]></title>
+    <url>%2F2018%2F09%2F26%2F%E5%BF%AB%E9%80%9F%E5%B9%82%2F</url>
+    <content type="text"><![CDATA[快速幂12345678long long power(ll a, ll b, ll p) &#123; ll ans = 1 % p; for(; b; b &gt;&gt;= 1) &#123; if(b &amp; 1) ans = quick(ans,a,p); a = quick(a,a,p); &#125; return ans;&#125; 快速乘12345678long long quick(int a,int b,int p)&#123; int w=0; while(b)&#123; if(b&amp;1)w=(w+a)%p; b&gt;&gt;=1;a=(a+a)%p; &#125; return w;&#125;]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[乌云里的阳光]]></title>
     <url>%2F2018%2F09%2F19%2F%E4%B9%8C%E4%BA%91%E9%87%8C%E7%9A%84%E9%98%B3%E5%85%89%2F</url>
     <content type="text"><![CDATA[其实自己写文章这东西，写的好不好无所谓，只要自己开心就好 正文乌云里的阳光 乌云飘向各地也许它已无处栖息却给予万物生机阳光问乌云能不能侵吞灰色人间的阴森 别交替吧阴晴一切的年轻迟早是梦境 来自天堂的绝交书侵蚀着它的肌肤扬首向天不让自己哭 阳光不停照耀也许眼泪被蒸发掉却俯瞰世界欢笑 乌云问阳光能不能饶放没有空气的地方 别交替吧阴晴大地的眼睛早已经结冰 去往凌霄的离别信它无名无字无心跨过时间倾听那哭泣 其他所有标签为原创的文章均为博主原创，未经同意不可抄袭，侵权必究，转载请注明出处]]></content>
@@ -25,8 +37,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[各种加速]]></title>
-    <url>%2F2018%2F08%2F22%2F%E5%90%84%E7%A7%8D%E5%8A%A0%E9%80%9F%2F</url>
+    <title><![CDATA[加速——卡常]]></title>
+    <url>%2F2018%2F08%2F22%2F%E5%8D%A1%E5%B8%B8%E5%8A%A0%E9%80%9F%2F</url>
     <content type="text"><![CDATA[代码中加速非常重要 废话然而我入坑了才意识到 首先是应付卡常的加速jzyzOJ 1295通过这道题我终于体会到了输入输出优化的重要性。。。其实主要就是快读1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;algorithm&gt;#include&lt;cstdio&gt;#include&lt;cmath&gt;using namespace std;int a[3000][3000]=&#123;&#125;;int f[3000][3000]=&#123;&#125;;int Up[3000][3000]=&#123;&#125;;int Right[3000][3000]=&#123;&#125;;int Left[3000][3000]=&#123;&#125;;inline int read()&#123; int n=1,num=0; char ch=getchar(); while(!isdigit(ch)) &#123; if(ch=='-')n=-1; ch=getchar(); &#125; while(isdigit(ch)) &#123; num=(num&lt;&lt;1)+(num&lt;&lt;3)+ch-'0'; ch=getchar(); &#125; return n*num;&#125;int main()&#123; int n,m,ans=0; n=read();m=read(); for(register int i=1;i&lt;=n;i++) for(register int j=1;j&lt;=m;j++) &#123; a[i][j]=read(); if(a[i][j]==0) &#123; Up[i+1][j]=Up[i][j]+1; Left[i][j+1]=Left[i][j]+1; &#125; &#125; for(register int i=1;i&lt;=n;++i) for(register int j=m;j&gt;=1;--j) if(a[i][j]==0) Right[i][j-1]=Right[i][j]+1; for(register int i=1;i&lt;=n;++i) for(register int j=1;j&lt;=m;++j) if(a[i][j]==1) &#123; f[i][j]=min(f[i-1][j-1],Left[i][j]); f[i][j]=min(f[i][j],Up[i][j])+1; ans=max(ans,f[i][j]); &#125; memset(f,0,sizeof(f)); for(register int i=1;i&lt;=n;++i) for(register int j=m;j&gt;=1;--j) if(a[i][j]==1) &#123; f[i][j]=min(f[i-1][j+1],Right[i][j]); f[i][j]=min(f[i][j],Up[i][j])+1; ans=max(ans,f[i][j]); &#125; printf("%d\n",ans); return 0;&#125; 题目贴出来。。 这个是只用流输入输出的优化这道题给我这个教训以前，我曾以为这个优化很牛逼 这个是前面贴出代码的效果 其他优化日后更新 相信我]]></content>
       <categories>
         <category>编程</category>
@@ -50,14 +62,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[hexo的一些操作]]></title>
-    <url>%2F2018%2F08%2F01%2Fhexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[迁移我找到了两个网站 click here click here不过都看不懂。。最后这个详细点click here 插入媒体可以插入图片，音乐，视频click here 这个厉害click here 相册功能看起来好难弄click here]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[关于hexo的主题]]></title>
     <url>%2F2018%2F08%2F01%2F%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[这里有个网站，推荐了几个不错的主题，还有预览click here有两个我很喜欢yiliaTranquilpeak初步打算弄成yilia然后配置yilia主题的步骤在这里click here]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo的一些操作]]></title>
+    <url>%2F2018%2F08%2F01%2Fhexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[迁移我找到了两个网站 click here click here不过都看不懂。。最后这个详细点click here 插入媒体可以插入图片，音乐，视频click here 这个厉害click here 相册功能看起来好难弄click here]]></content>
   </entry>
   <entry>
     <title><![CDATA[Violin]]></title>

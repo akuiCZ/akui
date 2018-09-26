@@ -156,6 +156,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-快速幂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/快速幂/">加速——卡常</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/26/快速幂/" class="archive-article-date">
+  	<time datetime="2018-09-26T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long power(ll a, ll b, ll p) &#123;</span><br><span class="line">	ll ans = 1 % p;</span><br><span class="line">	<span class="keyword">for</span>(; b; b &gt;&gt;= 1) &#123;</span><br><span class="line">		<span class="keyword">if</span>(b &amp; 1) ans = quick(ans,a,p);</span><br><span class="line">		a = quick(a,a,p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/09/26/快速幂/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/26/快速幂/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-乌云里的阳光" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -341,19 +432,19 @@
 
 
   
-    <article id="post-各种加速" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-卡常加速" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/22/各种加速/">各种加速</a>
+      <a class="article-title" href="/2018/08/22/卡常加速/">加速——卡常</a>
     </h1>
   
 
         
-        <a href="/2018/08/22/各种加速/" class="archive-article-date">
+        <a href="/2018/08/22/卡常加速/" class="archive-article-date">
   	<time datetime="2018-08-22T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
 </a>
         
@@ -364,7 +455,7 @@
         <p>代码中加速非常重要 <del>废话</del><br>然而我入坑了才意识到</p>
 <h2 id="首先是应付卡常的加速"><a href="#首先是应付卡常的加速" class="headerlink" title="首先是应付卡常的加速"></a>首先是应付卡常的加速</h2><h3 id="jzyzOJ-1295"><a href="#jzyzOJ-1295" class="headerlink" title="jzyzOJ 1295"></a>jzyzOJ 1295</h3><p>通过这道题我终于体会到了输入输出优化的重要性。。。<br>其实主要就是快读<br>
         
-          <a class="article-more-a" href="/2018/08/22/各种加速/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/22/卡常加速/#more">more >></a>
         
       
 
@@ -403,7 +494,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/22/各种加速/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/22/卡常加速/">展开全文 >></a>
         </p>
       
 
@@ -528,73 +619,6 @@
 
 
   
-    <article id="post-hexo的一些操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/hexo的一些操作/">hexo的一些操作</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/01/hexo的一些操作/" class="archive-article-date">
-  	<time datetime="2018-08-01T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>我找到了两个网站</p>
-<p><a href="https://blog.csdn.net/Zhangxiaorui_9/article/details/79723288" target="_blank" rel="noopener">click here</a></p>
-<p><a href="https://blog.csdn.net/dxxzst/article/details/76135750" target="_blank" rel="noopener">click here</a><br>
-        
-          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-关于hexo的主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -660,28 +684,32 @@
 
 
   
-    <article id="post-Violin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo的一些操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Violin/">Violin</a>
+      <a class="article-title" href="/2018/08/01/hexo的一些操作/">hexo的一些操作</a>
     </h1>
   
 
         
-        <a href="/2018/08/01/Violin/" class="archive-article-date">
-  	<time datetime="2018-08-01T00:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+        <a href="/2018/08/01/hexo的一些操作/" class="archive-article-date">
+  	<time datetime="2018-08-01T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3882876&auto=1&height=66"></iframe>
-
+        <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>我找到了两个网站</p>
+<p><a href="https://blog.csdn.net/Zhangxiaorui_9/article/details/79723288" target="_blank" rel="noopener">click here</a></p>
+<p><a href="https://blog.csdn.net/dxxzst/article/details/76135750" target="_blank" rel="noopener">click here</a><br>
+        
+          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/#more">more >></a>
+        
       
 
       
@@ -693,7 +721,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/Violin/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/">展开全文 >></a>
         </p>
       
 

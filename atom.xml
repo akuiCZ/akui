@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://FanCYu.coding.me/"/>
-  <updated>2018-09-19T13:54:53.906Z</updated>
+  <updated>2018-09-26T13:07:19.617Z</updated>
   <id>http://FanCYu.coding.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>加速——卡常</title>
+    <link href="http://FanCYu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+    <id>http://FanCYu.coding.me/2018/09/26/快速幂/</id>
+    <published>2018-09-26T13:00:00.000Z</published>
+    <updated>2018-09-26T13:07:19.617Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long power(ll a, ll b, ll p) &#123;</span><br><span class="line">ll ans = 1 % p;</span><br><span class="line"><span class="keyword">for</span>(; b; b &gt;&gt;= 1) &#123;</span><br><span class="line"><span class="keyword">if</span>(b &amp; 1) ans = quick(ans,a,p);</span><br><span class="line">a = quick(a,a,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a>快速乘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long quick(int a,int b,int p)&#123;</span><br><span class="line">    int w=0;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;1)w=(w+a)%p;</span><br><span class="line">        b&gt;&gt;=1;a=(a+a)%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;快速幂&quot;&gt;&lt;a href=&quot;#快速幂&quot; class=&quot;headerlink&quot; title=&quot;快速幂&quot;&gt;&lt;/a&gt;快速幂&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;long long power(ll a, ll b, ll p) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	ll ans = 1 % p;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(; b; b &amp;gt;&amp;gt;= 1) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(b &amp;amp; 1) ans = quick(ans,a,p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		a = quick(a,a,p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; ans;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="编程" scheme="http://FanCYu.coding.me/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="C++" scheme="http://FanCYu.coding.me/tags/C/"/>
+    
+      <category term="优化" scheme="http://FanCYu.coding.me/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>乌云里的阳光</title>
@@ -68,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>各种加速</title>
-    <link href="http://FanCYu.coding.me/2018/08/22/%E5%90%84%E7%A7%8D%E5%8A%A0%E9%80%9F/"/>
-    <id>http://FanCYu.coding.me/2018/08/22/各种加速/</id>
+    <title>加速——卡常</title>
+    <link href="http://FanCYu.coding.me/2018/08/22/%E5%8D%A1%E5%B8%B8%E5%8A%A0%E9%80%9F/"/>
+    <id>http://FanCYu.coding.me/2018/08/22/卡常加速/</id>
     <published>2018-08-22T10:06:02.000Z</published>
-    <updated>2018-09-21T13:43:12.104Z</updated>
+    <updated>2018-09-26T13:04:18.405Z</updated>
     
     <content type="html"><![CDATA[<p>代码中加速非常重要 <del>废话</del><br>然而我入坑了才意识到</p><h2 id="首先是应付卡常的加速"><a href="#首先是应付卡常的加速" class="headerlink" title="首先是应付卡常的加速"></a>首先是应付卡常的加速</h2><h3 id="jzyzOJ-1295"><a href="#jzyzOJ-1295" class="headerlink" title="jzyzOJ 1295"></a>jzyzOJ 1295</h3><p>通过这道题我终于体会到了输入输出优化的重要性。。。<br>其实主要就是快读<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstring&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cmath&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int a[3000][3000]=&#123;&#125;;</span><br><span class="line">int f[3000][3000]=&#123;&#125;;</span><br><span class="line">int Up[3000][3000]=&#123;&#125;;</span><br><span class="line">int Right[3000][3000]=&#123;&#125;;</span><br><span class="line">int Left[3000][3000]=&#123;&#125;;</span><br><span class="line">inline int <span class="built_in">read</span>()</span><br><span class="line">&#123;</span><br><span class="line">int n=1,num=0;</span><br><span class="line">char ch=getchar();</span><br><span class="line"><span class="keyword">while</span>(!isdigit(ch))</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(ch==<span class="string">'-'</span>)n=-1;</span><br><span class="line">ch=getchar();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(isdigit(ch))</span><br><span class="line">&#123;</span><br><span class="line">num=(num&lt;&lt;1)+(num&lt;&lt;3)+ch-<span class="string">'0'</span>;</span><br><span class="line">ch=getchar();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> n*num;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int n,m,ans=0;</span><br><span class="line">    n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(register int i=1;i&lt;=n;i++)</span><br><span class="line"><span class="keyword">for</span>(register int j=1;j&lt;=m;j++)</span><br><span class="line">&#123;</span><br><span class="line">a[i][j]=<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">if</span>(a[i][j]==0)</span><br><span class="line">&#123;</span><br><span class="line">Up[i+1][j]=Up[i][j]+1;</span><br><span class="line">Left[i][j+1]=Left[i][j]+1;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">for</span>(register int i=1;i&lt;=n;++i)</span><br><span class="line"><span class="keyword">for</span>(register int j=m;j&gt;=1;--j)</span><br><span class="line"><span class="keyword">if</span>(a[i][j]==0)</span><br><span class="line">Right[i][j-1]=Right[i][j]+1;</span><br><span class="line"><span class="keyword">for</span>(register int i=1;i&lt;=n;++i)</span><br><span class="line"><span class="keyword">for</span>(register int j=1;j&lt;=m;++j)</span><br><span class="line"><span class="keyword">if</span>(a[i][j]==1)</span><br><span class="line">&#123;</span><br><span class="line">f[i][j]=min(f[i-1][j-1],Left[i][j]);</span><br><span class="line">f[i][j]=min(f[i][j],Up[i][j])+1;</span><br><span class="line">ans=max(ans,f[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">memset(f,0,sizeof(f));</span><br><span class="line">    <span class="keyword">for</span>(register int i=1;i&lt;=n;++i)</span><br><span class="line"><span class="keyword">for</span>(register int j=m;j&gt;=1;--j)</span><br><span class="line"><span class="keyword">if</span>(a[i][j]==1)</span><br><span class="line">&#123;</span><br><span class="line">f[i][j]=min(f[i-1][j+1],Right[i][j]);</span><br><span class="line">f[i][j]=min(f[i][j],Up[i][j])+1;</span><br><span class="line">ans=max(ans,f[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>题目贴出来。。<br><img src="/img/2018/0823/201808233.jpg" alt="一道大水题"></p><p>这个是只用流输入输出的优化<br><img src="/img/2018/0823/201808231.jpg" alt="欲哭无泪"><br><del>这道题给我这个教训以前，我曾以为这个优化很牛逼</del></p><p>这个是前面贴出代码的效果<br><img src="/img/2018/0823/201808232.jpg" alt="快了五倍"></p><h3 id="其他优化日后更新-相信我"><a href="#其他优化日后更新-相信我" class="headerlink" title="其他优化日后更新 相信我"></a>其他优化日后更新 <del>相信我</del></h3>]]></content>
     
@@ -119,6 +143,24 @@
   </entry>
   
   <entry>
+    <title>关于hexo的主题</title>
+    <link href="http://FanCYu.coding.me/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/"/>
+    <id>http://FanCYu.coding.me/2018/08/01/关于hexo的主题/</id>
+    <published>2018-08-01T10:06:02.000Z</published>
+    <updated>2018-09-04T14:00:00.887Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里有个网站，推荐了几个不错的主题，还有预览<br><a href="https://www.jianshu.com/p/bcdbe7347c8d" target="_blank" rel="noopener">click here</a><br><a id="more"></a><br>有两个我很喜欢<br><a href="http://litten.me/" target="_blank" rel="noopener">yilia</a><br><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">Tranquilpeak</a><br>初步打算弄成yilia<br>然后配置yilia主题的步骤在这里<br><a href="http://www.lookk.cn/2017/12/08/hexo-%E9%85%8D%E7%BD%AEyilia%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">click here</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里有个网站，推荐了几个不错的主题，还有预览&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/bcdbe7347c8d&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>hexo的一些操作</title>
     <link href="http://FanCYu.coding.me/2018/08/01/hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
     <id>http://FanCYu.coding.me/2018/08/01/hexo的一些操作/</id>
@@ -132,24 +174,6 @@
       &lt;h2 id=&quot;迁移&quot;&gt;&lt;a href=&quot;#迁移&quot; class=&quot;headerlink&quot; title=&quot;迁移&quot;&gt;&lt;/a&gt;迁移&lt;/h2&gt;&lt;p&gt;我找到了两个网站&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Zhangxiaorui_9/article/details/79723288&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/dxxzst/article/details/76135750&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于hexo的主题</title>
-    <link href="http://FanCYu.coding.me/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/"/>
-    <id>http://FanCYu.coding.me/2018/08/01/关于hexo的主题/</id>
-    <published>2018-08-01T10:06:02.000Z</published>
-    <updated>2018-09-04T14:00:00.887Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里有个网站，推荐了几个不错的主题，还有预览<br><a href="https://www.jianshu.com/p/bcdbe7347c8d" target="_blank" rel="noopener">click here</a><br><a id="more"></a><br>有两个我很喜欢<br><a href="http://litten.me/" target="_blank" rel="noopener">yilia</a><br><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">Tranquilpeak</a><br>初步打算弄成yilia<br>然后配置yilia主题的步骤在这里<br><a href="http://www.lookk.cn/2017/12/08/hexo-%E9%85%8D%E7%BD%AEyilia%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">click here</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里有个网站，推荐了几个不错的主题，还有预览&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/bcdbe7347c8d&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
