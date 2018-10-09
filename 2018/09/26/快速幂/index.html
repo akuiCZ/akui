@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
   <title>加速——快速幂 | 凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="快速幂12345678long long power(ll a, ll b, ll p) &amp;#123;	ll ans = 1 % p;	for(; b; b &amp;gt;&amp;gt;= 1) &amp;#123;		if(b &amp;amp; 1) ans = quick(ans,a,p);		a = quick(a,a,p);	&amp;#125;	return ans;&amp;#125;">
+  <meta name="description" content="可能我的码风有些奇特吧。。。可我觉得挺好的呀 快速幂+快速乘">
 <meta name="keywords" content="C++,优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="加速——快速幂">
 <meta property="og:url" content="http://FanCYu.coding.me/2018/09/26/快速幂/index.html">
 <meta property="og:site_name" content="凉城听暖">
-<meta property="og:description" content="快速幂12345678long long power(ll a, ll b, ll p) &amp;#123;	ll ans = 1 % p;	for(; b; b &amp;gt;&amp;gt;= 1) &amp;#123;		if(b &amp;amp; 1) ans = quick(ans,a,p);		a = quick(a,a,p);	&amp;#125;	return ans;&amp;#125;">
+<meta property="og:description" content="可能我的码风有些奇特吧。。。可我觉得挺好的呀 快速幂+快速乘">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-26T13:09:14.450Z">
+<meta property="og:updated_time" content="2018-10-09T10:41:57.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="加速——快速幂">
-<meta name="twitter:description" content="快速幂12345678long long power(ll a, ll b, ll p) &amp;#123;	ll ans = 1 % p;	for(; b; b &amp;gt;&amp;gt;= 1) &amp;#123;		if(b &amp;amp; 1) ans = quick(ans,a,p);		a = quick(a,a,p);	&amp;#125;	return ans;&amp;#125;">
+<meta name="twitter:description" content="可能我的码风有些奇特吧。。。可我觉得挺好的呀 快速幂+快速乘">
   
     <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
   
@@ -176,9 +176,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long power(ll a, ll b, ll p) &#123;</span><br><span class="line">	ll ans = 1 % p;</span><br><span class="line">	<span class="keyword">for</span>(; b; b &gt;&gt;= 1) &#123;</span><br><span class="line">		<span class="keyword">if</span>(b &amp; 1) ans = quick(ans,a,p);</span><br><span class="line">		a = quick(a,a,p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a>快速乘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long quick(int a,int b,int p)&#123;</span><br><span class="line">    int w=0;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;1)w=(w+a)%p;</span><br><span class="line">        b&gt;&gt;=1;a=(a+a)%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>可能我的码风有些奇特吧。。。<br>可我觉得挺好的呀</p>
+<h3 id="快速幂-快速乘"><a href="#快速幂-快速乘" class="headerlink" title="快速幂+快速乘"></a>快速幂+快速乘</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const int p = 1000000007;</span><br><span class="line"></span><br><span class="line">long long quick(long long xt,long long yt)</span><br><span class="line">&#123;</span><br><span class="line">    long long summ=0;</span><br><span class="line">    <span class="keyword">while</span>(yt)</span><br><span class="line">	&#123;</span><br><span class="line">        <span class="keyword">if</span>(yt&amp;1) summ=(summ+xt)%p;</span><br><span class="line">        xt=(xt+xt)%p;</span><br><span class="line">        yt&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> summ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">long long pow(long long ax,long long bx)</span><br><span class="line">&#123;</span><br><span class="line">    long long anss=1;</span><br><span class="line">    <span class="keyword">while</span>(bx)</span><br><span class="line">	&#123;</span><br><span class="line">        <span class="keyword">if</span>(bx&amp;1) anss=quick(anss,ax);//ans=ans*a%p;</span><br><span class="line">        ax=quick(ax,ax);//a=a*a%p;</span><br><span class="line">        bx&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> anss;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -278,8 +278,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2018/09/19/乌云里的阳光/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">乌云里的阳光</div>
+    <a href="/2018/09/02/Dijkstra/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">求单源最短路——Dijkstra</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -414,10 +414,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">单源最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
               </li>
              
               <li class="article-tag-list-item">

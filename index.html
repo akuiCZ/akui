@@ -176,7 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long power(ll a, ll b, ll p) &#123;</span><br><span class="line">	ll ans = 1 % p;</span><br><span class="line">	<span class="keyword">for</span>(; b; b &gt;&gt;= 1) &#123;</span><br><span class="line">		<span class="keyword">if</span>(b &amp; 1) ans = quick(ans,a,p);</span><br><span class="line">		a = quick(a,a,p);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>可能我的码风有些奇特吧。。。<br>可我觉得挺好的呀</p>
+<h3 id="快速幂-快速乘"><a href="#快速幂-快速乘" class="headerlink" title="快速幂+快速乘"></a>快速幂+快速乘</h3>
         
           <a class="article-more-a" href="/2018/09/26/快速幂/#more">more >></a>
         
@@ -218,95 +219,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/26/快速幂/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-乌云里的阳光" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/19/乌云里的阳光/">乌云里的阳光</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/19/乌云里的阳光/" class="archive-article-date">
-  	<time datetime="2018-09-19T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其实自己写文章这东西，写的好不好无所谓，只要自己开心就好</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><strong>乌云里的阳光</strong></p>
-<p>乌云飘向各地<br>也许它已无处栖息<br>却给予万物生机<br>
-        
-          <a class="article-more-a" href="/2018/09/19/乌云里的阳光/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原创</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/19/乌云里的阳光/">展开全文 >></a>
         </p>
       
 
@@ -544,7 +456,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br>
+        <p>SPFA好像被证明出是错的，再加上复杂度并不是很优，所以个人推荐用Dijkstra求单源最短路<br><a href="https://fancyu.coding.me/2018/09/02/Dijkstra/">传送门</a></p>
+<p>什么是SPFA算法呢？<br>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br>
         
           <a class="article-more-a" href="/2018/08/12/SPFA/#more">more >></a>
         
@@ -751,10 +664,70 @@
 
 
   
+    <article id="post-Hello the cruel world!" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/Hello the cruel world!/">Hello the cruel world!</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/Hello the cruel world!/" class="archive-article-date">
+  	<time datetime="2018-07-31T11:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/2018/life.jpg" alt="Life is colorfull,Do you agree?"></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3882876&auto=1&height=66"></iframe>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/Hello the cruel world!/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -857,10 +830,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">单源最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
               </li>
              
               <li class="article-tag-list-item">

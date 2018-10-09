@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://FanCYu.coding.me/"/>
-  <updated>2018-09-26T13:09:14.450Z</updated>
+  <updated>2018-10-09T10:41:57.268Z</updated>
   <id>http://FanCYu.coding.me/</id>
   
   <author>
@@ -21,13 +21,14 @@
     <link href="http://FanCYu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
     <id>http://FanCYu.coding.me/2018/09/26/快速幂/</id>
     <published>2018-09-26T13:00:00.000Z</published>
-    <updated>2018-09-26T13:09:14.450Z</updated>
+    <updated>2018-10-09T10:41:57.268Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long power(ll a, ll b, ll p) &#123;</span><br><span class="line">ll ans = 1 % p;</span><br><span class="line"><span class="keyword">for</span>(; b; b &gt;&gt;= 1) &#123;</span><br><span class="line"><span class="keyword">if</span>(b &amp; 1) ans = quick(ans,a,p);</span><br><span class="line">a = quick(a,a,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a>快速乘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">long long quick(int a,int b,int p)&#123;</span><br><span class="line">    int w=0;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;1)w=(w+a)%p;</span><br><span class="line">        b&gt;&gt;=1;a=(a+a)%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>可能我的码风有些奇特吧。。。<br>可我觉得挺好的呀</p><h3 id="快速幂-快速乘"><a href="#快速幂-快速乘" class="headerlink" title="快速幂+快速乘"></a>快速幂+快速乘</h3><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const int p = 1000000007;</span><br><span class="line"></span><br><span class="line">long long quick(long long xt,long long yt)</span><br><span class="line">&#123;</span><br><span class="line">    long long summ=0;</span><br><span class="line">    <span class="keyword">while</span>(yt)</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">if</span>(yt&amp;1) summ=(summ+xt)%p;</span><br><span class="line">        xt=(xt+xt)%p;</span><br><span class="line">        yt&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> summ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">long long pow(long long ax,long long bx)</span><br><span class="line">&#123;</span><br><span class="line">    long long anss=1;</span><br><span class="line">    <span class="keyword">while</span>(bx)</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">if</span>(bx&amp;1) anss=quick(anss,ax);//ans=ans*a%p;</span><br><span class="line">        ax=quick(ax,ax);//a=a*a%p;</span><br><span class="line">        bx&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> anss;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;快速幂&quot;&gt;&lt;a href=&quot;#快速幂&quot; class=&quot;headerlink&quot; title=&quot;快速幂&quot;&gt;&lt;/a&gt;快速幂&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;long long power(ll a, ll b, ll p) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	ll ans = 1 % p;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(; b; b &amp;gt;&amp;gt;= 1) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(b &amp;amp; 1) ans = quick(ans,a,p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		a = quick(a,a,p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; ans;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;可能我的码风有些奇特吧。。。&lt;br&gt;可我觉得挺好的呀&lt;/p&gt;
+&lt;h3 id=&quot;快速幂-快速乘&quot;&gt;&lt;a href=&quot;#快速幂-快速乘&quot; class=&quot;headerlink&quot; title=&quot;快速幂+快速乘&quot;&gt;&lt;/a&gt;快速幂+快速乘&lt;/h3&gt;
     
     </summary>
     
@@ -37,30 +38,6 @@
       <category term="C++" scheme="http://FanCYu.coding.me/tags/C/"/>
     
       <category term="优化" scheme="http://FanCYu.coding.me/tags/%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>乌云里的阳光</title>
-    <link href="http://FanCYu.coding.me/2018/09/19/%E4%B9%8C%E4%BA%91%E9%87%8C%E7%9A%84%E9%98%B3%E5%85%89/"/>
-    <id>http://FanCYu.coding.me/2018/09/19/乌云里的阳光/</id>
-    <published>2018-09-19T13:00:00.000Z</published>
-    <updated>2018-09-19T13:54:53.906Z</updated>
-    
-    <content type="html"><![CDATA[<p>其实自己写文章这东西，写的好不好无所谓，只要自己开心就好</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><strong>乌云里的阳光</strong></p><p>乌云飘向各地<br>也许它已无处栖息<br>却给予万物生机<br><a id="more"></a><br>阳光问乌云<br>能不能侵吞<br>灰色人间的阴森</p><p>别交替吧阴晴<br>一切的年轻<br>迟早是梦境</p><p>来自天堂的绝交书<br>侵蚀着它的肌肤<br>扬首向天不让自己哭</p><p>阳光不停照耀<br>也许眼泪被蒸发掉<br>却俯瞰世界欢笑</p><p>乌云问阳光<br>能不能饶放<br>没有空气的地方</p><p>别交替吧阴晴<br>大地的眼睛<br>早已经结冰</p><p>去往凌霄的离别信<br>它无名无字无心<br>跨过时间倾听那哭泣</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>所有标签为原创的文章均为博主原创，未经同意不可抄袭，侵权必究，<br><strong>转载请注明出处</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;其实自己写文章这东西，写的好不好无所谓，只要自己开心就好&lt;/p&gt;
-&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;乌云里的阳光&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;乌云飘向各地&lt;br&gt;也许它已无处栖息&lt;br&gt;却给予万物生机&lt;br&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://FanCYu.coding.me/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="原创" scheme="http://FanCYu.coding.me/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -121,13 +98,14 @@
     <link href="http://FanCYu.coding.me/2018/08/12/SPFA/"/>
     <id>http://FanCYu.coding.me/2018/08/12/SPFA/</id>
     <published>2018-08-12T10:06:02.000Z</published>
-    <updated>2018-09-21T13:43:08.512Z</updated>
+    <updated>2018-10-09T10:47:06.554Z</updated>
     
-    <content type="html"><![CDATA[<p>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br><a id="more"></a><br>松弛操作的原理是著名的定理：“三角形两边之和大于第三边”，在信息学中我们叫它三角不等式。所谓对结点i,j进行松弛，就是判定是否dis[j]&gt;dis[i]+w[i,j]，如果该式成立则将dis[j]减小到dis[i]+w[i,j]，否则不动。</p><h2 id="和广搜bfs的区别："><a href="#和广搜bfs的区别：" class="headerlink" title="和广搜bfs的区别："></a>和广搜bfs的区别：</h2><p>SPFA 在形式上和广度(宽度)优先搜索非常类似，不同的是bfs中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是一个点改进过其它的点之后，过了一段时间可能本身被改进(重新入队)，于是再次用来改进其它的点，这样反复迭代下去。</p><h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void  spfa(s);  //求单源点s到其它各顶点的最短距离</span><br><span class="line">    <span class="keyword">for</span> i=1 to n <span class="keyword">do</span> &#123; dis[i]=∞; vis[i]=<span class="literal">false</span>; &#125;   //初始化每点到s的距离，不在队列</span><br><span class="line">    dis[s]=0;  //将dis[源点]设为0</span><br><span class="line">    vis[s]=<span class="literal">true</span>; //源点s入队列</span><br><span class="line">    head=0; tail=1; q[tail]=s; //源点s入队, 头尾指针赋初值</span><br><span class="line">    <span class="keyword">while</span> head&lt;tail <span class="keyword">do</span> &#123;</span><br><span class="line">       head+1;  //队首出队</span><br><span class="line">       v=q[head];  //队首结点v</span><br><span class="line">       vis[v]=<span class="literal">false</span>;  //释放对v的标记，可以重新入队</span><br><span class="line">       <span class="keyword">for</span> 每条边(v,i)  //对于与队首v相连的每一条边</span><br><span class="line">    <span class="keyword">if</span> (dis[i]&gt;dis[v]+a[v][i])  //如果不满足三角形性质</span><br><span class="line"> dis[i] = dis[v] + a[v][i]   //松弛dis[i]</span><br><span class="line"><span class="keyword">if</span> (vis[i]=<span class="literal">false</span>) &#123;tail+1; q[tail]=i; vis[i]=<span class="literal">true</span>;&#125; //不在队列，则加入队列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>SPFA好像被证明出是错的，再加上复杂度并不是很优，所以个人推荐用Dijkstra求单源最短路<br><a href="https://fancyu.coding.me/2018/09/02/Dijkstra/">传送门</a></p><p>什么是SPFA算法呢？<br>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br><a id="more"></a><br>松弛操作的原理是著名的定理：“三角形两边之和大于第三边”，在信息学中我们叫它三角不等式。所谓对结点i,j进行松弛，就是判定是否dis[j]&gt;dis[i]+w[i,j]，如果该式成立则将dis[j]减小到dis[i]+w[i,j]，否则不动。</p><h2 id="和广搜bfs的区别："><a href="#和广搜bfs的区别：" class="headerlink" title="和广搜bfs的区别："></a>和广搜bfs的区别：</h2><p>SPFA 在形式上和广度(宽度)优先搜索非常类似，不同的是bfs中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是一个点改进过其它的点之后，过了一段时间可能本身被改进(重新入队)，于是再次用来改进其它的点，这样反复迭代下去。</p><h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void  spfa(s);  //求单源点s到其它各顶点的最短距离</span><br><span class="line">    <span class="keyword">for</span> i=1 to n <span class="keyword">do</span> &#123; dis[i]=∞; vis[i]=<span class="literal">false</span>; &#125;   //初始化每点到s的距离，不在队列</span><br><span class="line">    dis[s]=0;  //将dis[源点]设为0</span><br><span class="line">    vis[s]=<span class="literal">true</span>; //源点s入队列</span><br><span class="line">    head=0; tail=1; q[tail]=s; //源点s入队, 头尾指针赋初值</span><br><span class="line">    <span class="keyword">while</span> head&lt;tail <span class="keyword">do</span> &#123;</span><br><span class="line">       head+1;  //队首出队</span><br><span class="line">       v=q[head];  //队首结点v</span><br><span class="line">       vis[v]=<span class="literal">false</span>;  //释放对v的标记，可以重新入队</span><br><span class="line">       <span class="keyword">for</span> 每条边(v,i)  //对于与队首v相连的每一条边</span><br><span class="line">    <span class="keyword">if</span> (dis[i]&gt;dis[v]+a[v][i])  //如果不满足三角形性质</span><br><span class="line"> dis[i] = dis[v] + a[v][i]   //松弛dis[i]</span><br><span class="line"><span class="keyword">if</span> (vis[i]=<span class="literal">false</span>) &#123;tail+1; q[tail]=i; vis[i]=<span class="literal">true</span>;&#125; //不在队列，则加入队列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。&lt;br&gt;
+      &lt;p&gt;SPFA好像被证明出是错的，再加上复杂度并不是很优，所以个人推荐用Dijkstra求单源最短路&lt;br&gt;&lt;a href=&quot;https://fancyu.coding.me/2018/09/02/Dijkstra/&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;什么是SPFA算法呢？&lt;br&gt;设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。&lt;br&gt;
     
     </summary>
     
@@ -181,27 +159,6 @@
   </entry>
   
   <entry>
-    <title>Violin</title>
-    <link href="http://FanCYu.coding.me/2018/08/01/Violin/"/>
-    <id>http://FanCYu.coding.me/2018/08/01/Violin/</id>
-    <published>2018-08-01T00:06:02.000Z</published>
-    <updated>2018-09-21T13:14:23.433Z</updated>
-    
-    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3882876&auto=1&height=66"></iframe>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello the cruel world!</title>
     <link href="http://FanCYu.coding.me/2018/07/31/Hello%20the%20cruel%20world!/"/>
     <id>http://FanCYu.coding.me/2018/07/31/Hello the cruel world!/</id>
@@ -217,42 +174,6 @@
         &lt;p&gt;&lt;img src=&quot;/img/2018/life.jpg&quot; alt=&quot;Life is colorfull,Do you agree?&quot;&gt;&lt;/p&gt;
 &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight
       
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>fcy click here</title>
-    <link href="http://FanCYu.coding.me/2018/07/31/fcy%20click%20here/"/>
-    <id>http://FanCYu.coding.me/2018/07/31/fcy click here/</id>
-    <published>2018-07-31T10:06:02.000Z</published>
-    <updated>2018-09-19T13:50:13.364Z</updated>
-    
-    <content type="html"><![CDATA[<p>博客出了一点问题<br><a id="more"></a><br>整修中，不久一定会发布这篇。。。<br>不是文章内容整修。。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;博客出了一点问题&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://FanCYu.coding.me/2018/07/31/hello-world/"/>
-    <id>http://FanCYu.coding.me/2018/07/31/hello-world/</id>
-    <published>2018-07-31T04:06:02.000Z</published>
-    <updated>2018-09-21T13:14:12.884Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p><p><img src="/img/2018/life.jpg" alt="Life is colorfull,Do you agree?"></p><p>#<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3882876&auto=1&height=66"></iframe></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
     
     </summary>
     
