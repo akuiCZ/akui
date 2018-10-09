@@ -156,92 +156,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="false-2048" class="article article-type-false  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/09/2048/">2048</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/09/2048/" class="archive-article-date">
-  	<time datetime="2018-10-09T10:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&lt;!DOCTYPE html&gt;</p>
-<html><br><head><br> <title> 2048-game </title><br> <meta charset="utf-8"><br> <style media="screen"><br> #game {<br> display: none;<br> position: absolute;<br> left: 0px;<br> top: 0px;<br> right: 0px;<br> bottom: 0px;<br> background-color: #9DA5C3;<br> opacity: 0.5;<br> z-index: 1;<br> }<br> .clear:after {<br> content: “”;<br> display: table;<br> clear: both;<br> }<br> .left {<br> float: left;<br> }<br> .right {<br> float: right;<br> }<br> .scoreShow {<br> height: 50px;<br> text-align: center;<br> line-height: 50px;<br> }<br> .model {<br> text-decoration: none;<br> color: white;<br> background-color: #bbada0;<br> font-size: 36px;<br> border-radius: 10px;<br> }<br> .head {<br> width: 480px;<br> height: 50px;<br> margin: 0 auto;<br> font-size: 25px;<br> }<br> #gridPanel {<br> width: 480px;<br> height: 480px;<br> margin: 0 auto;<br> background-color: #bbada0;<br> border-radius: 10px;<br> position: relative;<br> z-index: 1;<br> }<br> .grid,<br> .cell {<br> width: 100px;<br> height: 100px;<br> border-radius: 6px;<br> }<br> .grid {<br> background-color: #ccc0b3;<br> float: left;<br> margin: 16px 0 0 16px;<br> }<br> .cell {<br> position: absolute;<br> font-size: 60px;<br> text-align: center;<br> line-height: 100px;<br> color: #fff;<br> }<br> .n2 {<br> background-color: #eee3da<br> }<br> .n4 {<br> background-color: #ede0c8<br> }<br> .n8 {<br> background-color: #f2b179<br> }<br> .n16 {<br> background-color: #f59563<br> }<br> .n32 {<br> background-color: #f67c5f<br> }<br> .n64 {<br> background-color: #f65e3b<br> }<br> .n128 {<br> background-color: #edcf72<br> }<br> .n256 {<br> background-color: #edcc61<br> }<br> .n512 {<br> background-color: #9c0<br> }<br> .n1024 {<br> background-color: #33b5e5<br> }<br> .n2048 {<br> background-color: #09c<br> }<br> .n4096 {<br> background-color: #a6c<br> }<br> .n8192 {<br> background-color: #93c<br> }<br> .n2,<br> .n4 {<br> color: #776e65<br> }<br> #gameover {<br> width: 100%;<br> display: none;<br> position: fixed;<br> left: 50%;<br> right: 50%;<br> top: 148px;<br> width: 220px;<br> height: 200px;<br> border-radius: 10px;<br> background-color: white;<br> margin-left: -110px;<br> text-align: center;<br> z-index: 5;<br> }<br> #gameover&gt;a {<br> display: inline-block;<br> width: 170px;<br> height: 50px;<br> border-radius: 10px;<br> text-decoration: none;<br> background-color: #9F8D77;<br> color: white;<br> font-size: 36px;<br> }<br> </style><br></head><br><body><br> <div id="game"><br> </div><br> <div class="head clear"><br> <div class="scoreShow left"><br> <span>Score:</span><br> <span id="score"></span><br> </div><br> <div class="selction right" onclick="getModel(event)"><br> <a href="#" rel="external nofollow" class="model" value="3">3X3</a><br> <a href="#" rel="external nofollow" class="model" value="4">4X4</a><br> <a href="#" rel="external nofollow" class="model" type="button">5X5</a><br> <a href="#" rel="external nofollow" class="model" type="button">6X6</a><br> <!-- <input type="text" id="model"> --><br> <!-- <button type="button" name="button" id="set">设置游戏</button> --><br> </div><br> </div><br> <div id="gridPanel"><br> </div><br> <div id="gameover"><br> <h1 id="Score"></h1><br> <a href="#" rel="external nofollow" id="again" onclick="obj.gameStart()">Try again</a><br> </div><br> <script type="text/javascript"><br> var arr = [];<br> function $(id) {<br> return document.getElementById(id);<br> }<br> function C(cls) {<br> return document.getElementsByClassName(cls);<br> }<br> var obj = {<br> ROW: 4,<br> CELL: 4,<br> r: 0,<br> c: 0,<br> f: 0, //r行 c列 f查找的下一位置<br> keyCd: 0,<br> score: 0,<br> createEle: 0, //是否需要创建元素<br> eleFragment: “”, //文档片段变量<br> //游戏开始<br> gameStart: function() {<br> obj.init();<br> document.onkeydown = function(e) { //自动获得事件对象<br> switch (e.keyCode) { //判断按键号<br> case 37:<br> obj.keyCd = 1;<br> obj.moveLeft();<br> break;<br> case 38:<br> obj.keyCd = 2;<br> obj.moveUp();<br> break;<br> case 39:<br> obj.keyCd = 1;<br> obj.moveRight();<br> break;<br> case 40:<br> obj.keyCd = 2;<br> obj.moveDown();<br> break;<br> }<br> $(“score”).innerHTML = obj.score; //更新分数<br> }<br> },<br> //初始化<br> init: function() {<br> obj.eleFragment = document.createDocumentFragment();<br> for (r = 0; r &lt; obj.ROW; r++) {<br> arr.push([]);<br> for (c = 0; c &lt; obj.CELL; c++) {<br> arr[r][c] = 0;<br> if (obj.createEle == 1) {<br> obj.create(r, c);<br> }<br> }<br> }<br> if (obj.createEle == 1) {<br> obj.createEle = 0;<br> $(“gridPanel”).innerHTML = “”; //清空原有的元素<br> $(“gridPanel”).appendChild(obj.eleFragment); //添加元素<br> }<br> obj.score = 0;<br> $(“score”).innerHTML = obj.score;<br> $(“game”).style.display = “none”;<br> $(“gameover”).style.display = “none”;<br> obj.random(); //开始游戏随机生成两个数<br> obj.random();<br> obj.updateView();<br> },<br> //创建div元素，添加到gridPanel中<br> create: function(r, c) {<br> var grid, cell;<br> var increment = 14,<br> grWidth, grHeight, grMarginTop, grMarginLeft, ceWidth, ceHight;<br> grid = document.createElement(“div”);<br> cell = document.createElement(“div”);<br> grid.id = “g” + r + c;<br> grid.className = “grid”;<br> cell.id = “c” + r + c;<br> cell.className = “cell”;<br><br> if (obj.ROW == 3) {<br> increment = 24;<br> } else if (obj.ROW == 4) {<br> increment = 18;<br> }<br> grWidth = grHeight = ceWidth = ceHight = 66 + (6 - obj.ROW) <em> increment; //优化后<br> grMarginTop = grMarginLeft = (480 - grWidth </em> obj.ROW) / (obj.ROW + 1);<br> grid.style.width = grWidth + “px”;<br> grid.style.height = grHeight + “px”;<br> grid.style.marginTop = grMarginTop + “px”;<br> grid.style.marginLeft = grMarginLeft + “px”;<br> cell.style.width = ceWidth + “px”;<br> cell.style.height = ceHight + “px”;<br> cell.style.top = grMarginTop + r <em> (grMarginTop + ceWidth) + “px”;<br> cell.style.left = grMarginLeft + c </em> (grMarginLeft + ceHight) + “px”;<br> cell.style.lineHeight = ceHight + “px”;<br> cell.style.fontSize = 30 + (6 - obj.ROW) <em> 10 + “px”;<br> //优化前<br> /</em>if (obj.ROW == 3) {<br> grid.style.width = “140px”;<br> grid.style.height = “140px”;<br> grid.style.margin = “15px 0 0 15px”;<br> cell.style.width = “140px”;<br> cell.style.height = “140px”;<br> cell.style.top = 15 + r <em> 155 + “px”; //设置距离上一位置的高度<br> cell.style.left = 15 + c </em> 155 + “px”; //设置离左一位置的距离<br> cell.style.lineHeight = “140px”;<br> } else if (obj.ROW == 4) {<br> grid.style.width = “100px”;<br> grid.style.height = “100px”;<br> grid.style.margin = “16px 0 0 16px”;<br> cell.style.width = “100px”;<br> cell.style.height = “100px”;<br> cell.style.top = 16 + r <em> 116 + “px”;<br> cell.style.left = 16 + c </em> 116 + “px”;<br> cell.style.lineHeight = “100px”;<br> } else if (obj.ROW == 5) {<br> grid.style.width = “75px”;<br> grid.style.height = “75px”;<br> grid.style.margin = “17.5px 0 0 17.5px”;<br> cell.style.width = “75px”;<br> cell.style.height = “75px”;<br> cell.style.top = 17.5 + r <em> 92.5 + “px”;<br> cell.style.left = 17.5 + c </em> 92.5 + “px”;<br> cell.style.fontSize = “40px”;<br> cell.style.lineHeight = “75px”;<br> } else if (obj.ROW == 6) {<br> grid.style.width = “66px”;<br> grid.style.height = “66px”;<br> grid.style.margin = “12px 0 0 12px”;<br> cell.style.width = “66px”;<br> cell.style.height = “66px”;<br> cell.style.top = 12 + r <em> 78 + “px”;<br> cell.style.left = 12 + c </em> 78 + “px”;<br> cell.style.fontSize = “30px”;<br> cell.style.lineHeight = “66px”;<br> }<em>/<br> obj.eleFragment.appendChild(grid);<br> obj.eleFragment.appendChild(cell);<br> },<br> //随机产生一个新的数<br> random: function() {<br> while (1) {<br> var row = Math.floor(Math.random() </em> obj.ROW);<br> var cell = Math.floor(Math.random() <em> obj.CELL);<br> if (arr[row][cell] == 0) { //判断生成的随机数位置为0才随机生成2或4<br> arr[row][cell] = (Math.random() &gt; 0.5) ? 4 : 2;<br> break;<br> }<br> }<br> // var row = Math.floor(Math.random() </em> 4);<br> // var cell = Math.floor(Math.random() <em> 4);<br> // if (arr[row][cell] == 0) { //判断生成的随机数位置为0才随机生成2或4<br> // arr[row][cell] = (Math.random() &gt; 0.5) ? 4 : 2;<br> // return;<br> // }<br> // obj.random();//递归影响执行效率<br> },<br> //更新页面<br> updateView: function() {<br> var win = 0;<br> for (r = 0; r &lt; obj.ROW; r++) {<br> for (c = 0; c &lt; obj.CELL; c++) {<br> if (arr[r][c] == 0) { //值为0的不显示<br> $(“c” + r + c).innerHTML = “”; //0不显示<br> $(“c” + r + c).className = “cell” //清除样式<br> } else {<br> $(“c” + r + c).innerHTML = arr[r][c];<br> $(“c” + r + c).className = “cell n” + arr[r][c]; //添加不同数字的颜色<br> if (obj.ROW == 3 &amp;&amp; arr[r][c] == 1024) {<br> win = 1;<br> } else if (obj.ROW == 4 &amp;&amp; arr[r][c] == 2048) {<br> win = 1;<br> } else if (obj.ROW == 5 &amp;&amp; arr[r][c] == 4096) {<br> win = 1;<br> } else if (obj.ROW == 6 &amp;&amp; arr[r][c] == 8192) {<br> win = 1;<br> }<br> }<br> }<br> }<br> if (win == 1) { //通关<br> $(“game”).style.display = “block”;<br> $(“gameover”).style.display = “block”;<br> $(“Score”).innerHTML = “You win!<br>Score:” + obj.score;<br> }<br> if (obj.isGameOver()) { //游戏失败<br> $(“game”).style.display = “block”;<br> $(“gameover”).style.display = “block”;<br> $(“Score”).innerHTML = “GAME OVER!<br>Score:” + obj.score;<br> console.log(“gameover”);<br> }<br> },<br> //游戏失败<br> isGameOver: function() {<br> for (r = 0; r &lt; obj.ROW; r++) {<br> for (c = 0; c &lt; obj.CELL; c++) {<br> if (arr[r][c] == 0) { //有0还不是gameover<br> return false;<br> } else if (c != obj.CELL - 1 &amp;&amp; arr[r][c] == arr[r][c + 1]) { //左往右 前一个和下一个不相等<br> return false;<br> } else if (r != obj.ROW - 1 &amp;&amp; arr[r][c] == arr[r + 1][c]) { //上往下 上一个和下一个不相等<br> return false;<br> }<br> }<br> }<br> return true;<br> },<br> //查找下一个不为0的数值的位置<br> find: function(r, c, start, condition, direction) {<br> if (obj.keyCd == 2) { //上下按键<br> if (direction == 1) { //向上按键 f++<br> for (var f = start; f &lt; condition; f += direction) {<br> if (arr[f][c] != 0) {<br> return f;<br> }<br> }<br> } else { //向下按键 f–<br> for (var f = start; f &gt;= condition; f += direction) {<br> if (arr[f][c] != 0) {<br> return f;<br> }<br> }<br> }<br> } else { //左右按键<br> if (direction == 1) { //左按键 f++<br> for (var f = start; f &lt; condition; f += direction) {<br> if (arr[r][f] != 0) {<br> return f;<br> }<br> }<br> } else { //右按键 f–<br> for (var f = start; f &gt;= condition; f += direction) {<br> if (arr[r][f] != 0) {<br> return f;<br> }<br> }<br> }<br> }<br> return null; //循环结束仍然没有找到！=0的数值，返回null<br> },<br> //左按键的处理<br> dealToLeft: function(r) {<br> var next;<br> for (c = 0; c &lt; obj.ROW; c++) {<br> next = obj.find(r, c, c + 1, obj.CELL, 1); //找出第一个不为0的位置<br> if (next == null) break; //没有找到就返回<br> //如果当前位置为0<br> if (arr[r][c] == 0) {<br> arr[r][c] = arr[r][next]; //把找到的不为0的数值替换为当前位置的值<br> arr[r][next] = 0; //找到的位置清0<br> c–; //再次循环多一次，查看后面否有值与替换后的值相同，<br> } else if (arr[r][c] == arr[r][next]) { //如果当前位置与找到的位置数值相等，则相加<br> arr[r][c] </em>= 2;<br> arr[r][next] = 0;<br> obj.score += arr[r][c];<br> }<br> }<br> },<br> move: function(itertor) {<br> var before, //没处理前<br> after; //after处理后<br> before = arr.toString();<br> itertor(); //执行for函数<br> after = arr.toString();<br> if (before != after) { //前后对比，如果不同就update<br> obj.random();<br> obj.updateView();<br> }<br> },<br> moveLeft: function() {<br> obj.move(function() {<br> for (r = 0; r &lt; obj.ROW; r++) {<br> obj.dealToLeft(r);<br> }<br> })<br> // if 当前位置 不为零<br> // 从当前位置，下一个成员开始，遍历，<br> // 如果找到，与当前位置相等的数，<br> // 两者相加，并把不为零的成员，设置为零<br> // 如果 当前位置是 零<br> // 从当前位置下一个成员开始遍历<br> // 如果找到 第一个不为零的成员<br> // 当前位置数值设置为这个不为零的成员的值 ，并且把那个不为零的成员设置为 0<br> },<br> //右按键处理<br> dealToRight: function(r) {<br> var next;<br> for (c = obj.CELL - 1; c &gt;= 0; c–) {<br> next = obj.find(r, c, c - 1, 0, -1); //找出第一个不为0的位置<br> if (next == null) break; //没有找到就返回<br> //如果当前位置为0<br> if (arr[r][c] == 0) {<br> arr[r][c] = arr[r][next]; //把找到的不为0的数值替换为当前位置的值<br> arr[r][next] = 0; //找到的位置清0<br> c++; //再次循环多一次，查看后面否有值与替换后的值相同，<br> } else if (arr[r][c] == arr[r][next]) { //如果当前位置与找到的位置数值相等，则相加<br> arr[r][c] <em>= 2;<br> arr[r][next] = 0;<br> obj.score += arr[r][c];<br> }<br> }<br> },<br> moveRight: function() {<br> obj.move(function() {<br> for (r = 0; r &lt; obj.ROW; r++) {<br> obj.dealToRight(r);<br> }<br> })<br> },<br> //上按键处理<br> dealToUp: function(c) {<br> var next;<br> for (r = 0; r &lt; obj.ROW; r++) {<br> next = obj.find(r, c, r + 1, obj.ROW, 1); //找出第一个不为0的位置<br> if (next == null) break;<br> //如果当前位置为0<br> if (arr[r][c] == 0) {<br> arr[r][c] = arr[next][c]; //把找到的不为0的数值替换为当前位置的值<br> arr[next][c] = 0; //找到的位置清0<br> r–; //再次循环多一次，查看后面否有值与替换后的值相同<br> } else if (arr[r][c] == arr[next][c]) { //如果当前位置与找到的位置数值相等，则相加<br> arr[r][c] </em>= 2;<br> arr[next][c] = 0;<br> obj.score += arr[r][c];<br> }<br> }<br> },<br> moveUp: function() {<br> obj.move(function() {<br> for (c = 0; c &lt; obj.CELL; c++) {<br> obj.dealToUp(c);<br> }<br> })<br> },<br> //下按键处理<br> dealToDown: function(c) {<br> var next;<br> for (r = obj.ROW - 1; r &gt;= 0; r–) {<br> next = obj.find(r, c, r - 1, 0, -1); //找出第一个不为0的位置<br> if (next == null) {<br> break;<br> }<br> //如果当前位置为0<br> if (arr[r][c] == 0) {<br> arr[r][c] = arr[next][c]; //把找到的不为0的数值替换为当前位置的值<br> arr[next][c] = 0; //找到的位置清0<br> r++; //再次循环多一次，查看后面否有值与替换后的值相同<br> } else if (arr[r][c] == arr[next][c]) { //如果当前位置与找到的位置数值相等，则相加<br> arr[r][c] <em>= 2;<br> arr[next][c] = 0;<br> obj.score += arr[r][c];<br> }<br> }<br> },<br> moveDown: function() {<br> obj.move(function() {<br> for (c = 0; c &lt; obj.CELL; c++) {<br> obj.dealToDown(c);<br> }<br> })<br> }<br> }<br> window.onload = function() {<br> obj.createEle = 1;<br> obj.gameStart();<br> }<br> //切换模式<br> function getModel(e) { //事件冒泡获取a元素<br> var a = e.target,<br> modelValue = 4;<br> if (a.nodeName == “A”) {<br> if (a.innerHTML == “3X3”) {<br> modelValue = 3;<br> } else if (a.innerHTML == “4X4”) {<br> modelValue = 4;<br> } else if (a.innerHTML == “5X5”) {<br> modelValue = 5;<br> } else if (a.innerHTML == “6X6”) {<br> modelValue = 6;<br> }<br> obj.ROW = obj.CELL = modelValue;<br> obj.createEle = 1; //需要创建格子div元素的标志<br> obj.gameStart();<br> }<br> }<br> // var modelValue = parseInt($(“model”).value);<br> // if (isNaN(modelValue)) {<br> // modelValue = 4; //默认是4</em>4<br> // }<br> // if (modelValue &lt;= 2 || modelValue &gt; 6) return; //2格或者大于6格无效<br> // obj.ROW = modelValue;<br> // obj.CELL = modelValue;<br> // obj.createEle = 1;<br> // obj.gameStart();<br> // console.log(modelValue);<br> // }<br> </script><br></body><br></html>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/游戏//" class="article-tag-list-link color3">游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/09/2048/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-卡特兰数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -775,6 +689,73 @@
 
 
   
+    <article id="post-hexo的一些操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/hexo的一些操作/">hexo的一些操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/hexo的一些操作/" class="archive-article-date">
+  	<time datetime="2018-08-01T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>我找到了两个网站</p>
+<p><a href="https://blog.csdn.net/Zhangxiaorui_9/article/details/79723288" target="_blank" rel="noopener">click here</a></p>
+<p><a href="https://blog.csdn.net/dxxzst/article/details/76135750" target="_blank" rel="noopener">click here</a><br>
+        
+          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -870,10 +851,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小游戏</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>

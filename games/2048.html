@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
-  <title>Tag: 小游戏 | 凉城听暖</title>
+  <title>凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do What You Love,Love What You Do">
+  <meta name="description" content="2048-game       #game {  display: none;  position: absolute;  left: 0px;  top: 0px;  right: 0px;  bottom: 0px;  background-color: #9DA5C3;  opacity: 0.5;  z-index: 1;  }  .clear:after {  content:">
 <meta property="og:type" content="website">
 <meta property="og:title" content="凉城听暖">
-<meta property="og:url" content="http://FanCYu.coding.me/tags/小游戏/index.html">
+<meta property="og:url" content="http://FanCYu.coding.me/games/2048.html">
 <meta property="og:site_name" content="凉城听暖">
-<meta property="og:description" content="Do What You Love,Love What You Do">
+<meta property="og:description" content="2048-game       #game {  display: none;  position: absolute;  left: 0px;  top: 0px;  right: 0px;  bottom: 0px;  background-color: #9DA5C3;  opacity: 0.5;  z-index: 1;  }  .clear:after {  content:">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-09T12:22:56.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="凉城听暖">
-<meta name="twitter:description" content="Do What You Love,Love What You Do">
+<meta name="twitter:description" content="2048-game       #game {  display: none;  position: absolute;  left: 0px;  top: 0px;  right: 0px;  bottom: 0px;  background-color: #9DA5C3;  opacity: 0.5;  z-index: 1;  }  .clear:after {  content:">
   
     <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
   
@@ -154,71 +155,674 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+ <title> 2048-game </title>
+ <meta charset="utf-8">
+ <style media="screen">
+ #game {
+ display: none;
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ right: 0px;
+ bottom: 0px;
+ background-color: #9DA5C3;
+ opacity: 0.5;
+ z-index: 1;
+ }
+ .clear:after {
+ content: "";
+ display: table;
+ clear: both;
+ }
+ .left {
+ float: left;
+ }
+ .right {
+ float: right;
+ }
+ .scoreShow {
+ height: 50px;
+ text-align: center;
+ line-height: 50px;
+ }
+ .model {
+ text-decoration: none;
+ color: white;
+ background-color: #bbada0;
+ font-size: 36px;
+ border-radius: 10px;
+ }
+ .head {
+ width: 480px;
+ height: 50px;
+ margin: 0 auto;
+ font-size: 25px;
+ }
+ #gridPanel {
+ width: 480px;
+ height: 480px;
+ margin: 0 auto;
+ background-color: #bbada0;
+ border-radius: 10px;
+ position: relative;
+ z-index: 1;
+ }
+ .grid,
+ .cell {
+ width: 100px;
+ height: 100px;
+ border-radius: 6px;
+ }
+ .grid {
+ background-color: #ccc0b3;
+ float: left;
+ margin: 16px 0 0 16px;
+ }
+ .cell {
+ position: absolute;
+ font-size: 60px;
+ text-align: center;
+ line-height: 100px;
+ color: #fff;
+ }
+ .n2 {
+ background-color: #eee3da
+ }
+ .n4 {
+ background-color: #ede0c8
+ }
+ .n8 {
+ background-color: #f2b179
+ }
+ .n16 {
+ background-color: #f59563
+ }
+ .n32 {
+ background-color: #f67c5f
+ }
+ .n64 {
+ background-color: #f65e3b
+ }
+ .n128 {
+ background-color: #edcf72
+ }
+ .n256 {
+ background-color: #edcc61
+ }
+ .n512 {
+ background-color: #9c0
+ }
+ .n1024 {
+ background-color: #33b5e5
+ }
+ .n2048 {
+ background-color: #09c
+ }
+ .n4096 {
+ background-color: #a6c
+ }
+ .n8192 {
+ background-color: #93c
+ }
+ .n2,
+ .n4 {
+ color: #776e65
+ }
+ #gameover {
+ width: 100%;
+ display: none;
+ position: fixed;
+ left: 50%;
+ right: 50%;
+ top: 148px;
+ width: 220px;
+ height: 200px;
+ border-radius: 10px;
+ background-color: white;
+ margin-left: -110px;
+ text-align: center;
+ z-index: 5;
+ }
+ #gameover>a {
+ display: inline-block;
+ width: 170px;
+ height: 50px;
+ border-radius: 10px;
+ text-decoration: none;
+ background-color: #9F8D77;
+ color: white;
+ font-size: 36px;
+ }
+ </style>
+</head>
+<body>
+ <div id="game">
+ </div>
+ <div class="head clear">
+ <div class="scoreShow left">
+ <span>Score:</span>
+ <span id="score"></span>
+ </div>
+ <div class="selction right" onclick="getModel(event)">
+ <a href="#" rel="external nofollow" class="model" value="3">3X3</a>
+ <a href="#" rel="external nofollow" class="model" value="4">4X4</a>
+ <a href="#" rel="external nofollow" class="model" type="button">5X5</a>
+ <a href="#" rel="external nofollow" class="model" type="button">6X6</a>
+ <!-- <input type="text" id="model"> -->
+ <!-- <button type="button" name="button" id="set">������Ϸ</button> -->
+ </div>
+ </div>
+ <div id="gridPanel">
+ </div>
+ <div id="gameover">
+ <h1 id="Score"></h1>
+ <a href="#" rel="external nofollow" id="again" onclick="obj.gameStart()">Try again</a>
+ </div>
+ <script type="text/javascript">
+ var arr = [];
+ function $(id) {
+ return document.getElementById(id);
+ }
+ function C(cls) {
+ return document.getElementsByClassName(cls);
+ }
+ var obj = {
+ ROW: 4,
+ CELL: 4,
+ r: 0,
+ c: 0,
+ f: 0, //r�� c�� f���ҵ���һλ��
+ keyCd: 0,
+ score: 0,
+ createEle: 0, //�Ƿ���Ҫ����Ԫ��
+ eleFragment: "", //�ĵ�Ƭ�α���
+ //��Ϸ��ʼ
+ gameStart: function() {
+ obj.init();
+ document.onkeydown = function(e) { //�Զ������¼�����
+ switch (e.keyCode) { //�жϰ�����
+ case 37:
+ obj.keyCd = 1;
+ obj.moveLeft();
+ break;
+ case 38:
+ obj.keyCd = 2;
+ obj.moveUp();
+ break;
+ case 39:
+ obj.keyCd = 1;
+ obj.moveRight();
+ break;
+ case 40:
+ obj.keyCd = 2;
+ obj.moveDown();
+ break;
+ }
+ $("score").innerHTML = obj.score; //���·���
+ }
+ },
+ //��ʼ��
+ init: function() {
+ obj.eleFragment = document.createDocumentFragment();
+ for (r = 0; r < obj.ROW; r++) {
+ arr.push([]);
+ for (c = 0; c < obj.CELL; c++) {
+ arr[r][c] = 0;
+ if (obj.createEle == 1) {
+ obj.create(r, c);
+ }
+ }
+ }
+ if (obj.createEle == 1) {
+ obj.createEle = 0;
+ $("gridPanel").innerHTML = ""; //����ԭ�е�Ԫ��
+ $("gridPanel").appendChild(obj.eleFragment); //����Ԫ��
+ }
+ obj.score = 0;
+ $("score").innerHTML = obj.score;
+ $("game").style.display = "none";
+ $("gameover").style.display = "none";
+ obj.random(); //��ʼ��Ϸ��������������
+ obj.random();
+ obj.updateView();
+ },
+ //����divԪ�أ����ӵ�gridPanel��
+ create: function(r, c) {
+ var grid, cell;
+ var increment = 14,
+ grWidth, grHeight, grMarginTop, grMarginLeft, ceWidth, ceHight;
+ grid = document.createElement("div");
+ cell = document.createElement("div");
+ grid.id = "g" + r + c;
+ grid.className = "grid";
+ cell.id = "c" + r + c;
+ cell.className = "cell";
+ 
+ if (obj.ROW == 3) {
+ increment = 24;
+ } else if (obj.ROW == 4) {
+ increment = 18;
+ }
+ grWidth = grHeight = ceWidth = ceHight = 66 + (6 - obj.ROW) * increment; //�Ż���
+ grMarginTop = grMarginLeft = (480 - grWidth * obj.ROW) / (obj.ROW + 1);
+ grid.style.width = grWidth + "px";
+ grid.style.height = grHeight + "px";
+ grid.style.marginTop = grMarginTop + "px";
+ grid.style.marginLeft = grMarginLeft + "px";
+ cell.style.width = ceWidth + "px";
+ cell.style.height = ceHight + "px";
+ cell.style.top = grMarginTop + r * (grMarginTop + ceWidth) + "px";
+ cell.style.left = grMarginLeft + c * (grMarginLeft + ceHight) + "px";
+ cell.style.lineHeight = ceHight + "px";
+ cell.style.fontSize = 30 + (6 - obj.ROW) * 10 + "px";
+ //�Ż�ǰ
+ /*if (obj.ROW == 3) {
+ grid.style.width = "140px";
+ grid.style.height = "140px";
+ grid.style.margin = "15px 0 0 15px";
+ cell.style.width = "140px";
+ cell.style.height = "140px";
+ cell.style.top = 15 + r * 155 + "px"; //���þ�����һλ�õĸ߶�
+ cell.style.left = 15 + c * 155 + "px"; //��������һλ�õľ���
+ cell.style.lineHeight = "140px";
+ } else if (obj.ROW == 4) {
+ grid.style.width = "100px";
+ grid.style.height = "100px";
+ grid.style.margin = "16px 0 0 16px";
+ cell.style.width = "100px";
+ cell.style.height = "100px";
+ cell.style.top = 16 + r * 116 + "px";
+ cell.style.left = 16 + c * 116 + "px";
+ cell.style.lineHeight = "100px";
+ } else if (obj.ROW == 5) {
+ grid.style.width = "75px";
+ grid.style.height = "75px";
+ grid.style.margin = "17.5px 0 0 17.5px";
+ cell.style.width = "75px";
+ cell.style.height = "75px";
+ cell.style.top = 17.5 + r * 92.5 + "px";
+ cell.style.left = 17.5 + c * 92.5 + "px";
+ cell.style.fontSize = "40px";
+ cell.style.lineHeight = "75px";
+ } else if (obj.ROW == 6) {
+ grid.style.width = "66px";
+ grid.style.height = "66px";
+ grid.style.margin = "12px 0 0 12px";
+ cell.style.width = "66px";
+ cell.style.height = "66px";
+ cell.style.top = 12 + r * 78 + "px";
+ cell.style.left = 12 + c * 78 + "px";
+ cell.style.fontSize = "30px";
+ cell.style.lineHeight = "66px";
+ }*/
+ obj.eleFragment.appendChild(grid);
+ obj.eleFragment.appendChild(cell);
+ },
+ //��������һ���µ���
+ random: function() {
+ while (1) {
+ var row = Math.floor(Math.random() * obj.ROW);
+ var cell = Math.floor(Math.random() * obj.CELL);
+ if (arr[row][cell] == 0) { //�ж����ɵ�������λ��Ϊ0����������2��4
+ arr[row][cell] = (Math.random() > 0.5) ? 4 : 2;
+ break;
+ }
+ }
+ // var row = Math.floor(Math.random() * 4);
+ // var cell = Math.floor(Math.random() * 4);
+ // if (arr[row][cell] == 0) { //�ж����ɵ�������λ��Ϊ0����������2��4
+ // arr[row][cell] = (Math.random() > 0.5) ? 4 : 2;
+ // return;
+ // }
+ // obj.random();//�ݹ�Ӱ��ִ��Ч��
+ },
+ //����ҳ��
+ updateView: function() {
+ var win = 0;
+ for (r = 0; r < obj.ROW; r++) {
+ for (c = 0; c < obj.CELL; c++) {
+ if (arr[r][c] == 0) { //ֵΪ0�Ĳ���ʾ
+ $("c" + r + c).innerHTML = ""; //0����ʾ
+ $("c" + r + c).className = "cell" //������ʽ
+ } else {
+ $("c" + r + c).innerHTML = arr[r][c];
+ $("c" + r + c).className = "cell n" + arr[r][c]; //���Ӳ�ͬ���ֵ���ɫ
+ if (obj.ROW == 3 && arr[r][c] == 1024) {
+ win = 1;
+ } else if (obj.ROW == 4 && arr[r][c] == 2048) {
+ win = 1;
+ } else if (obj.ROW == 5 && arr[r][c] == 4096) {
+ win = 1;
+ } else if (obj.ROW == 6 && arr[r][c] == 8192) {
+ win = 1;
+ }
+ }
+ }
+ }
+ if (win == 1) { //ͨ��
+ $("game").style.display = "block";
+ $("gameover").style.display = "block";
+ $("Score").innerHTML = "You win!<br>Score:" + obj.score;
+ }
+ if (obj.isGameOver()) { //��Ϸʧ��
+ $("game").style.display = "block";
+ $("gameover").style.display = "block";
+ $("Score").innerHTML = "GAME OVER!<br>Score:" + obj.score;
+ console.log("gameover");
+ }
+ },
+ //��Ϸʧ��
+ isGameOver: function() {
+ for (r = 0; r < obj.ROW; r++) {
+ for (c = 0; c < obj.CELL; c++) {
+ if (arr[r][c] == 0) { //��0������gameover
+ return false;
+ } else if (c != obj.CELL - 1 && arr[r][c] == arr[r][c + 1]) { //������ ǰһ������һ��������
+ return false;
+ } else if (r != obj.ROW - 1 && arr[r][c] == arr[r + 1][c]) { //������ ��һ������һ��������
+ return false;
+ }
+ }
+ }
+ return true;
+ },
+ //������һ����Ϊ0����ֵ��λ��
+ find: function(r, c, start, condition, direction) {
+ if (obj.keyCd == 2) { //���°���
+ if (direction == 1) { //���ϰ��� f++
+ for (var f = start; f < condition; f += direction) {
+ if (arr[f][c] != 0) {
+ return f;
+ }
+ }
+ } else { //���°��� f--
+ for (var f = start; f >= condition; f += direction) {
+ if (arr[f][c] != 0) {
+ return f;
+ }
+ }
+ }
+ } else { //���Ұ���
+ if (direction == 1) { //�󰴼� f++
+ for (var f = start; f < condition; f += direction) {
+ if (arr[r][f] != 0) {
+ return f;
+ }
+ }
+ } else { //�Ұ��� f--
+ for (var f = start; f >= condition; f += direction) {
+ if (arr[r][f] != 0) {
+ return f;
+ }
+ }
+ }
+ }
+ return null; //ѭ��������Ȼû���ҵ���=0����ֵ������null
+ },
+ //�󰴼��Ĵ���
+ dealToLeft: function(r) {
+ var next;
+ for (c = 0; c < obj.ROW; c++) {
+ next = obj.find(r, c, c + 1, obj.CELL, 1); //�ҳ���һ����Ϊ0��λ��
+ if (next == null) break; //û���ҵ��ͷ���
+ //������ǰλ��Ϊ0
+ if (arr[r][c] == 0) {
+ arr[r][c] = arr[r][next]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
+ arr[r][next] = 0; //�ҵ���λ����0
+ c--; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ��
+ } else if (arr[r][c] == arr[r][next]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ arr[r][c] *= 2;
+ arr[r][next] = 0;
+ obj.score += arr[r][c];
+ }
+ }
+ },
+ move: function(itertor) {
+ var before, //û����ǰ
+ after; //after������
+ before = arr.toString();
+ itertor(); //ִ��for����
+ after = arr.toString();
+ if (before != after) { //ǰ���Աȣ�������ͬ��update
+ obj.random();
+ obj.updateView();
+ }
+ },
+ moveLeft: function() {
+ obj.move(function() {
+ for (r = 0; r < obj.ROW; r++) {
+ obj.dealToLeft(r);
+ }
+ })
+ // if ��ǰλ�� ��Ϊ��
+ // �ӵ�ǰλ�ã���һ����Ա��ʼ��������
+ // �����ҵ����뵱ǰλ�����ȵ�����
+ // �������ӣ����Ѳ�Ϊ���ĳ�Ա������Ϊ��
+ // ���� ��ǰλ���� ��
+ // �ӵ�ǰλ����һ����Ա��ʼ����
+ // �����ҵ� ��һ����Ϊ���ĳ�Ա
+ // ��ǰλ����ֵ����Ϊ������Ϊ���ĳ�Ա��ֵ �����Ұ��Ǹ���Ϊ���ĳ�Ա����Ϊ 0
+ },
+ //�Ұ�������
+ dealToRight: function(r) {
+ var next;
+ for (c = obj.CELL - 1; c >= 0; c--) {
+ next = obj.find(r, c, c - 1, 0, -1); //�ҳ���һ����Ϊ0��λ��
+ if (next == null) break; //û���ҵ��ͷ���
+ //������ǰλ��Ϊ0
+ if (arr[r][c] == 0) {
+ arr[r][c] = arr[r][next]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
+ arr[r][next] = 0; //�ҵ���λ����0
+ c++; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ��
+ } else if (arr[r][c] == arr[r][next]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ arr[r][c] *= 2;
+ arr[r][next] = 0;
+ obj.score += arr[r][c];
+ }
+ }
+ },
+ moveRight: function() {
+ obj.move(function() {
+ for (r = 0; r < obj.ROW; r++) {
+ obj.dealToRight(r);
+ }
+ })
+ },
+ //�ϰ�������
+ dealToUp: function(c) {
+ var next;
+ for (r = 0; r < obj.ROW; r++) {
+ next = obj.find(r, c, r + 1, obj.ROW, 1); //�ҳ���һ����Ϊ0��λ��
+ if (next == null) break;
+ //������ǰλ��Ϊ0
+ if (arr[r][c] == 0) {
+ arr[r][c] = arr[next][c]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
+ arr[next][c] = 0; //�ҵ���λ����0
+ r--; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ
+ } else if (arr[r][c] == arr[next][c]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ arr[r][c] *= 2;
+ arr[next][c] = 0;
+ obj.score += arr[r][c];
+ }
+ }
+ },
+ moveUp: function() {
+ obj.move(function() {
+ for (c = 0; c < obj.CELL; c++) {
+ obj.dealToUp(c);
+ }
+ })
+ },
+ //�°�������
+ dealToDown: function(c) {
+ var next;
+ for (r = obj.ROW - 1; r >= 0; r--) {
+ next = obj.find(r, c, r - 1, 0, -1); //�ҳ���һ����Ϊ0��λ��
+ if (next == null) {
+ break;
+ }
+ //������ǰλ��Ϊ0
+ if (arr[r][c] == 0) {
+ arr[r][c] = arr[next][c]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
+ arr[next][c] = 0; //�ҵ���λ����0
+ r++; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ
+ } else if (arr[r][c] == arr[next][c]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ arr[r][c] *= 2;
+ arr[next][c] = 0;
+ obj.score += arr[r][c];
+ }
+ }
+ },
+ moveDown: function() {
+ obj.move(function() {
+ for (c = 0; c < obj.CELL; c++) {
+ obj.dealToDown(c);
+ }
+ })
+ }
+ }
+ window.onload = function() {
+ obj.createEle = 1;
+ obj.gameStart();
+ }
+ //�л�ģʽ
+ function getModel(e) { //�¼�ð�ݻ�ȡaԪ��
+ var a = e.target,
+ modelValue = 4;
+ if (a.nodeName == "A") {
+ if (a.innerHTML == "3X3") {
+ modelValue = 3;
+ } else if (a.innerHTML == "4X4") {
+ modelValue = 4;
+ } else if (a.innerHTML == "5X5") {
+ modelValue = 5;
+ } else if (a.innerHTML == "6X6") {
+ modelValue = 6;
+ }
+ obj.ROW = obj.CELL = modelValue;
+ obj.createEle = 1; //��Ҫ��������divԪ�صı�־
+ obj.gameStart();
+ }
+ }
+ // var modelValue = parseInt($("model").value);
+ // if (isNaN(modelValue)) {
+ // modelValue = 4; //Ĭ����4*4
+ // }
+ // if (modelValue <= 2 || modelValue > 6) return; //2�����ߴ���6����Ч
+ // obj.ROW = modelValue;
+ // obj.CELL = modelValue;
+ // obj.createEle = 1;
+ // obj.gameStart();
+ // console.log(modelValue);
+ // }
+ </script>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-false">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/2048/" class="archive-article-date">
-  	<time datetime="2018-10-09T10:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/2048/">2048</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://FanCYu.coding.me/games/2048.html" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/游戏//" class="article-tag-list-link color3">游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -243,7 +847,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -309,10 +913,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小游戏</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
