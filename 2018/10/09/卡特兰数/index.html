@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/1009/2018100901.jpg">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/1009/2018100902.jpg">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/1009/2018100903.jpg">
-<meta property="og:updated_time" content="2018-10-09T11:51:19.764Z">
+<meta property="og:updated_time" content="2018-10-10T13:25:54.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡特兰数">
 <meta name="twitter:description" content="不知道为啥，总觉得数论很难，而noip2017的day1 t1给了我很大的心里阴影不管怎么样，也不能不管数论啊。。。 介绍首先，什么是卡特兰数呢">
@@ -196,6 +196,8 @@
 <p>令h(0)=1,h(1)=1，catalan数满足递推式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C(n)= C(0)*C(n-1)+C(1)*C(n-2)+...+C(n-1)*C(0) (n&gt;=2)</span><br></pre></td></tr></table></figure></p>
 <p>不过有个更简单的式子，我一般用这个:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C(n)=C(n-1)*(4*n-2)/(n+1)</span><br></pre></td></tr></table></figure></p>
 <p>第一个递推式很容易推出来，第二个我不知道怎么推的，可能是第一个式子的简化吧，我不知道。</p>
+<p>题目要求计算卡特兰数的时候通常要取模，这个时候就用到了费马小定理，假设模数为P(P为质数，否则要用欧拉定理)，则<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C(n)=C(n-1)*(4*n-2)*(n+1)^(P-2)</span><br></pre></td></tr></table></figure></p>
+<p>这时候快速幂是必要的，快速乘可有可无<br><a href="https://fancyu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/">快速幂传送门</a></p>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>用到某些找规律题还是很舒服的，枚举前几个数，如果是1,2,5,14,42，要是我，我会毫不犹豫地敲卡特兰数列的。<br>今天就遇到这样一道题<br><img src="/img/2018/1009/2018100902.jpg" alt="我想起了一首中国风吉他曲《无题》"></p>
 <p>100%的数据是T≤50000，n≤200000</p>
 <p>很明显是道数论题，然后我直接就懵了，暴力都不会打，我想可能会有公式，然后我就尝试着推一推，（也是受noip2017小凯的疑惑影响才要推公式，以下是我的错误推论，怕被我误导的跳过这一点）我手推把第四项算出来是14，第五项是42，然后计算了一下第六项是146（正确的是132，我也没法检验对错啊）然后就有了下面的思路：<br><img src="/img/2018/1009/2018100903.jpg" alt="想想我推出来这个式子还挺不容易的"></p>
@@ -299,6 +301,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/10/10/组合数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          组合数
+        
+      </div>
+    </a>
   
   
     <a href="/2018/09/26/快速幂/" id="article-nav-older" class="article-nav-link-wrap">

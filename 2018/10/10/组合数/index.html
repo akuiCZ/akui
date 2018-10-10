@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
-  <title>Tag: C++ | 凉城听暖</title>
+  <title>组合数 | 凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do What You Love,Love What You Do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="凉城听暖">
-<meta property="og:url" content="http://FanCYu.coding.me/tags/C/index.html">
+  <meta name="description" content="又是数论的东西。。 介绍什么是组合数呢？很简单，也别问神奇海螺了。 从n个不同元素中，任取m(m≤n)个元素并成一组，叫做从n个不同元素中取出m个元素的一个组合；从n个不同元素中取出m(m≤n)个元素的所有组合的个数，叫做从n个不同元素中取出m个元素的组合数。 计算看起来很有用的样子，怎么求组合数呢？从n中取m个数写作C(n,m)，并且显然C(n,m)=C(n,n-m)。">
+<meta name="keywords" content="C++,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数">
+<meta property="og:url" content="http://FanCYu.coding.me/2018/10/10/组合数/index.html">
 <meta property="og:site_name" content="凉城听暖">
-<meta property="og:description" content="Do What You Love,Love What You Do">
+<meta property="og:description" content="又是数论的东西。。 介绍什么是组合数呢？很简单，也别问神奇海螺了。 从n个不同元素中，任取m(m≤n)个元素并成一组，叫做从n个不同元素中取出m个元素的一个组合；从n个不同元素中取出m(m≤n)个元素的所有组合的个数，叫做从n个不同元素中取出m个元素的组合数。 计算看起来很有用的样子，怎么求组合数呢？从n中取m个数写作C(n,m)，并且显然C(n,m)=C(n,n-m)。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://fancyu.coding.me/img/2018/1010/2018101001.jpg">
+<meta property="og:image" content="http://fancyu.coding.me/img/2018/1010/2018101002.jpg">
+<meta property="og:updated_time" content="2018-10-10T23:04:40.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="凉城听暖">
-<meta name="twitter:description" content="Do What You Love,Love What You Do">
+<meta name="twitter:title" content="组合数">
+<meta name="twitter:description" content="又是数论的东西。。 介绍什么是组合数呢？很简单，也别问神奇海螺了。 从n个不同元素中，任取m(m≤n)个元素并成一组，叫做从n个不同元素中取出m个元素的一个组合；从n个不同元素中取出m(m≤n)个元素的所有组合的个数，叫做从n个不同元素中取出m个元素的组合数。 计算看起来很有用的样子，怎么求组合数呢？从n中取m个数写作C(n,m)，并且显然C(n,m)=C(n,n-m)。">
+<meta name="twitter:image" content="http://fancyu.coding.me/img/2018/1010/2018101001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
   
@@ -160,36 +165,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-组合数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      组合数
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/10/组合数/" class="archive-article-date">
+
+        
+        <a href="/2018/10/10/组合数/" class="archive-article-date">
   	<time datetime="2018-10-10T13:13:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/10/组合数/">组合数</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又是数论的东西。。</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>什么是组合数呢？<br>很简单，也别问神奇海螺了。</p>
+<p>从n个不同元素中，任取m(m≤n)个元素并成一组，叫做从n个不同元素中取出m个元素的一个组合；从n个不同元素中取出m(m≤n)个元素的所有组合的个数，叫做从n个不同元素中取出m个元素的组合数。</p>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><p>看起来很有用的样子，怎么求组合数呢？<br>从n中取m个数写作C(n,m)，并且显然C(n,m)=C(n,n-m)。<br><a id="more"></a><br><img src="/img/2018/1010/2018101001.jpg" alt="嗯。。很好算"></p>
+<p>算法不难，公式哪来的我也不知道，拿去用就行了。<br>应付阶乘记得加上快速乘<a href="https://fancyu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/">传送门</a></p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>为什么每天的模拟题都要有数论啊。。。</p>
+<p><img src="/img/2018/1010/2018101002.jpg" alt="jjh dalao出的题"></p>
+<p>毫无头绪，暴力都不会打，可最后还是骗了20分。。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int p,q,k,n,maxx,ans;</span><br><span class="line">void dfs(int d,int w,int sum)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(sum==d&amp;&amp;w==n) &#123;ans++;<span class="built_in">return</span>;&#125;</span><br><span class="line">	<span class="keyword">if</span>(w&gt;n) <span class="built_in">return</span>;</span><br><span class="line">	maxx=d+n*k;</span><br><span class="line">	<span class="keyword">for</span>(register int i=-k;i&lt;=maxx;++i)</span><br><span class="line">		dfs(d,w+1,sum+i);</span><br><span class="line">	<span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们来思考一下正解：</p>
+<p>我们先想一下，如果这个数列是递增的该怎么做？<br>除去首项与末项，我们还有n-2项需要填，需要我们去挑选不同的数字，<br>因为这个数列是递增的，所以我们只有q-p-1项去挑选<br>（举个栗子，比如p=3，q=9，我们只有4~8一共5个数来选）<br>所以针对这个简化的问题，答案是 C(q-p-1，n-2)</p>
+<p>接着我们考虑，如果把递增改为不递减呢？<br>上面那个问题的每一项减去前一项（题目上的k）都是大于0的，<br>这个问题无非就是上面的问题加了一个k=0，<br>所以可供我们选择的数多了n-1个，因为每个数都可以重复选<br>所以，此时的答案是  C ( q-p+(n-1)-1 ，n-2 )<br>（举个栗子，比如p=3，q=9，n=5，我们要选3个数，我们除了4~8共5个数可选之外，我们还能选与前一项一样的数,比如选的第一个数是4，上一题中只能从5,6,7,8四个数里面选，现在你还可以选4，因为你要选n-2个数，你要选的那一项前面最多有n-3个数，再加上你可以选p，q的边界，所以你的选择一共多了n-1种）</p>
+<p>然后呢，k=0的情况可供选择的数多了n-1个，我们不难发现，k每增加1，情况可供选择的数就会增加n-1个，所以最终答案就是  C ( q-p+(k+1)*(n-1)-1 ，n-2 )</p>
+<p>如果看的不是很懂，具体参考维基的介绍<a href="https://zh.wikipedia.org/wiki/%E9%9A%94%E6%9D%BF%E6%B3%95" target="_blank" rel="noopener">隔板法</a>，记得翻墙去看。</p>
+<p>好，公式推出来以后，问题就解决了，直接用组合数的计算公式计算答案就行了。因为要对除法取模，所以又要用费马小定理，再加上快速幂，快速乘就可以了。</p>
+<p>代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">inline int <span class="built_in">read</span>()</span><br><span class="line">&#123;</span><br><span class="line">	int nnn=1,numm=0;</span><br><span class="line">	char ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!isdigit(ch))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">'-'</span>)nnn=-1;</span><br><span class="line">		ch=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(isdigit(ch))</span><br><span class="line">	&#123;</span><br><span class="line">		numm=(numm&lt;&lt;1)+(numm&lt;&lt;3)+ch-<span class="string">'0'</span>;</span><br><span class="line">		ch=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> nnn*numm;</span><br><span class="line">&#125;</span><br><span class="line">const int P=998244353;</span><br><span class="line"></span><br><span class="line">long long quick(long long xt,long long yt)</span><br><span class="line">&#123;</span><br><span class="line">    long long summ=0;</span><br><span class="line">    <span class="keyword">while</span>(yt)</span><br><span class="line">	&#123;</span><br><span class="line">        <span class="keyword">if</span>(yt&amp;1) summ=(summ+xt)%P;</span><br><span class="line">        xt=(xt+xt)%P;</span><br><span class="line">        yt&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> summ;</span><br><span class="line">&#125;</span><br><span class="line">long long pow(long long ax,long long bx)</span><br><span class="line">&#123;</span><br><span class="line">    long long anss=1;</span><br><span class="line">    <span class="keyword">while</span>(bx)</span><br><span class="line">	&#123;</span><br><span class="line">        <span class="keyword">if</span>(bx&amp;1) anss=quick(anss,ax);</span><br><span class="line">        ax=quick(ax,ax);</span><br><span class="line">        bx&gt;&gt;=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> anss;</span><br><span class="line">&#125;</span><br><span class="line">long long p,q,k,n,x1,x2,x3,ans;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	freopen(<span class="string">"sequence.in"</span>,<span class="string">"r"</span>,stdin);</span><br><span class="line">	freopen(<span class="string">"sequence.out"</span>,<span class="string">"w"</span>,stdout);</span><br><span class="line">	register int t=<span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">for</span>(register int o=1;o&lt;=t;++o)</span><br><span class="line">	&#123;</span><br><span class="line">		p=<span class="built_in">read</span>(),q=<span class="built_in">read</span>(),k=<span class="built_in">read</span>(),n=<span class="built_in">read</span>();</span><br><span class="line">		x1=1,x2=1,x3=1;</span><br><span class="line">		<span class="keyword">for</span>(register int i=2;i&lt;=n-2;++i)</span><br><span class="line">			x1=quick(x1,i);</span><br><span class="line">		<span class="keyword">for</span>(register int i=2;i&lt;=q-p+(k+1)*(n-1)-1;++i)</span><br><span class="line">			x2=quick(x2,i);</span><br><span class="line">		<span class="keyword">for</span>(register int i=2;i&lt;=q-p+(k+1)*(n-1)-n+1;++i)</span><br><span class="line">			x3=quick(x3,i);</span><br><span class="line">		ans=quick(x2,pow(quick(x1,x3),P-2));</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这道题我感觉难度还是挺大的，noip有出组合数的可能，但是应该不会出这种难度的题。但是会做这道题了，还怕noip考你组合数吗？</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,7 +224,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -218,290 +237,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://FanCYu.coding.me/2018/10/10/组合数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/卡特兰数/" class="archive-article-date">
-  	<time datetime="2018-10-09T10:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/09/卡特兰数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">卡特兰数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/卡特兰数/">卡特兰数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/26/快速幂/" class="archive-article-date">
-  	<time datetime="2018-09-26T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/26/快速幂/">加速——快速幂</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/02/Dijkstra/" class="archive-article-date">
-  	<time datetime="2018-09-02T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/02/Dijkstra/">求单源最短路——Dijkstra</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">单源最短路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/22/卡常加速/" class="archive-article-date">
-  	<time datetime="2018-08-22T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/22/卡常加速/">加速——卡常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/12/SPFA/" class="archive-article-date">
-  	<time datetime="2018-08-12T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/12/SPFA/">求单源最短路——SPFA</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">单源最短路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -524,9 +357,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
