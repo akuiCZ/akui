@@ -162,6 +162,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Prim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/12/Prim/">求单源最短路——Dijkstra</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/12/Prim/" class="archive-article-date">
+  	<time datetime="2018-10-12T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。<del>废话</del><br>其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。<del>这一小段粘自百度百科</del><br><del>真的没啥可说的</del></p>
+<h2 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路"></a>算法的思路</h2><p><del>我真的不想多说，跟Dijkstra一个样</del><br><a href="https://fancyu.coding.me/2018/09/02/Dijkstra/">Dijkstra</a></p>
+<p>Dijkstra记录距离的数组更新查找的是所有点到源点的距离，而Prim记录距离的数组更新查找的是所有点到 源点已经连接到的点的距离<br>而且这两种算法每次往堆里添加的都是 所有已连接点 所能到达的所有边，并且都是每个点只能到达一次，总之，除了上面那一段讲述的 更新查找的东西不同以外，其余的一模一样。</p>
+<p>值得一提的一点：一定一定记得用堆优化，不用堆的话时间复杂度非常吓人。</p>
+<p>具体实现方法和示例演示就不再啰嗦了，懂Dijkstra的看完上面一段一定能懂Prim，下面只贴出代码。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>细心的同学可以发现，连代码都跟Dijkstra差不了多少<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># include &lt;queue&gt;</span></span><br><span class="line"><span class="comment"># include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment"># include &lt;string.h&gt;</span></span><br><span class="line"><span class="comment"># include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment"># include &lt;algorithm&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line">typedef unsigned long long ull;</span><br><span class="line">typedef long double ld;</span><br><span class="line"></span><br><span class="line">const int M = 5e5 + 10;</span><br><span class="line">const int mod = 1e9 + 7;</span><br><span class="line"></span><br><span class="line">int n, m;</span><br><span class="line"></span><br><span class="line">int head[M], nxt[M], to[M], w[M], tot = 0;</span><br><span class="line"></span><br><span class="line">inline void add(int u, int v, int _w) &#123;</span><br><span class="line">	++tot; nxt[tot] = head[u]; head[u] = tot; to[tot] = v; w[tot] = _w;</span><br><span class="line">&#125;</span><br><span class="line">inline void adde(int u, int v, int _w) &#123;</span><br><span class="line">	add(u, v, _w), add(v, u, _w);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">struct node &#123;</span><br><span class="line">	int w, v;</span><br><span class="line">	<span class="function"><span class="title">node</span></span>() &#123;&#125;</span><br><span class="line">	node(int w, int v) : w(w), v(v) &#123;&#125;</span><br><span class="line">	friend bool operator &lt;(node a, node b) &#123;</span><br><span class="line">		<span class="built_in">return</span> a.w &gt; b.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bool vis[M];</span><br><span class="line">priority_queue &lt;struct node&gt; q;</span><br><span class="line"></span><br><span class="line">inline int <span class="function"><span class="title">prim</span></span>() &#123;</span><br><span class="line">	int ans = 0;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty()) q.pop();</span><br><span class="line">	vis[1] = 1;</span><br><span class="line">	<span class="keyword">for</span> (int i=head[1]; i; i=nxt[i]) q.push(node(w[i], to[i]));</span><br><span class="line">	<span class="keyword">for</span> (int e=1; e&lt;n; ++e) &#123;</span><br><span class="line">		node tp = q.top(); q.pop();</span><br><span class="line">		<span class="keyword">while</span>(vis[tp.v]) &#123;</span><br><span class="line">			tp = q.top();</span><br><span class="line">			q.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		vis[tp.v] = 1; ans += tp.w;</span><br><span class="line">		<span class="keyword">for</span> (int i=head[tp.v]; i; i=nxt[i]) <span class="keyword">if</span>(!vis[to[i]]) q.push(node(w[i], to[i]));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span> (int i=1, u, v, _w; i&lt;=m; ++i) &#123;</span><br><span class="line">		scanf(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;_w);</span><br><span class="line">		adde(u, v, _w);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; prim();</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于最小生成树来说，Prim和Kruskal都很优秀，但Prim用在稠密图（点少边多的图）有奇效，两者都很优秀，一般会一种即可，有追求的当然都要掌握，毕竟并查集也是一个重点。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">最小生成树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/12/Prim/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-组合数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -460,7 +559,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。</p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。</p>
 <h3 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路"></a>算法的思路</h3><p>Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接到达的边（s,m），则把dis[m]设为w（s, m）,同时把所有其他（s不能直接到达的）顶点的路径长度设为无穷大。初始时，集合T只有顶点s。<br>
         
           <a class="article-more-a" href="/2018/09/02/Dijkstra/#more">more >></a>
@@ -724,73 +823,6 @@
 
 
   
-    <article id="post-hexo的一些操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/hexo的一些操作/">hexo的一些操作</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/01/hexo的一些操作/" class="archive-article-date">
-  	<time datetime="2018-08-01T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>我找到了两个网站</p>
-<p><a href="https://blog.csdn.net/Zhangxiaorui_9/article/details/79723288" target="_blank" rel="noopener">click here</a></p>
-<p><a href="https://blog.csdn.net/dxxzst/article/details/76135750" target="_blank" rel="noopener">click here</a><br>
-        
-          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/hexo的一些操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -897,6 +929,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">单源最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
