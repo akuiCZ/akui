@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[最小生成树——Prim]]></title>
     <url>%2F2018%2F10%2F12%2FPrim%2F</url>
-    <content type="text"><![CDATA[介绍首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。废话其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。这一小段粘自百度百科真的没啥可说的 算法的思路我真的不想多说，跟Dijkstra一个样DijkstraDijkstra记录距离的数组更新查找的是所有点到源点的距离，而Prim记录距离的数组更新查找的是所有点到 源点已经连接到的点的距离.而且这两种算法每次往堆里添加的都是 所有已连接点 所能到达的所有边，并且都是每个点只能到达一次，总之，除了上面那一段讲述的 更新查找的东西不同以外，其余的一模一样。 值得一提的一点：一定一定记得用堆优化，不用堆的话时间复杂度非常吓人。 具体实现方法和示例演示就不再啰嗦了，懂Dijkstra的看完上面一段一定能懂Prim，下面只贴出代码。 代码实现细心的同学可以发现，连代码都跟Dijkstra差不了多少1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465# include &lt;queue&gt;# include &lt;stdio.h&gt;# include &lt;string.h&gt;# include &lt;iostream&gt;# include &lt;algorithm&gt;using namespace std;typedef long long ll;typedef unsigned long long ull;typedef long double ld;const int M = 5e5 + 10;const int mod = 1e9 + 7;int n, m;int head[M], nxt[M], to[M], w[M], tot = 0;inline void add(int u, int v, int _w) &#123; ++tot; nxt[tot] = head[u]; head[u] = tot; to[tot] = v; w[tot] = _w;&#125;inline void adde(int u, int v, int _w) &#123; add(u, v, _w), add(v, u, _w);&#125;struct node &#123; int w, v; node() &#123;&#125; node(int w, int v) : w(w), v(v) &#123;&#125; friend bool operator &lt;(node a, node b) &#123; return a.w &gt; b.w; &#125;&#125;;bool vis[M];priority_queue &lt;struct node&gt; q;inline int prim() &#123; int ans = 0; while(!q.empty()) q.pop(); vis[1] = 1; for (int i=head[1]; i; i=nxt[i]) q.push(node(w[i], to[i])); for (int e=1; e&lt;n; ++e) &#123; node tp = q.top(); q.pop(); while(vis[tp.v]) &#123; tp = q.top(); q.pop(); &#125; vis[tp.v] = 1; ans += tp.w; for (int i=head[tp.v]; i; i=nxt[i]) if(!vis[to[i]]) q.push(node(w[i], to[i])); &#125; return ans;&#125;int main() &#123; cin &gt;&gt; n &gt;&gt; m; for (int i=1, u, v, _w; i&lt;=m; ++i) &#123; scanf("%d%d%d", &amp;u, &amp;v, &amp;_w); adde(u, v, _w); &#125; cout &lt;&lt; prim(); return 0;&#125; 总结对于最小生成树来说，Prim和Kruskal都很优秀，但Prim用在稠密图（点少边多的图）有奇效，两者都很优秀，一般会一种即可，有追求的当然都要掌握，毕竟并查集也是一个重点。]]></content>
+    <content type="text"><![CDATA[介绍首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。废话其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。这一小段粘自百度百科真的没啥可说的 算法的思路我真的不想多说，跟Dijkstra一个样DijkstraDijkstra记录距离的数组更新查找的是所有点到源点的距离，而Prim记录距离的数组更新查找的是所有点到 源点已经连接到的点的距离.而且这两种算法每次往堆里添加的都是 所有已连接点 所能到达的所有边，并且都是每个点只能到达一次，总之，除了上面那一段讲述的 更新查找的东西不同以外，其余的一模一样。 值得一提的一点：一定一定记得用堆优化，不用堆的话时间复杂度非常吓人。 下面给出来一个步骤演示 具体实现方法就不再啰嗦了，懂Dijkstra的看完上面一段一定能懂Prim，下面只贴出代码。 代码实现细心的同学可以发现，连代码都跟Dijkstra差不了多少1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465# include &lt;queue&gt;# include &lt;stdio.h&gt;# include &lt;string.h&gt;# include &lt;iostream&gt;# include &lt;algorithm&gt;using namespace std;typedef long long ll;typedef unsigned long long ull;typedef long double ld;const int M = 5e5 + 10;const int mod = 1e9 + 7;int n, m;int head[M], nxt[M], to[M], w[M], tot = 0;inline void add(int u, int v, int _w) &#123; ++tot; nxt[tot] = head[u]; head[u] = tot; to[tot] = v; w[tot] = _w;&#125;inline void adde(int u, int v, int _w) &#123; add(u, v, _w), add(v, u, _w);&#125;struct node &#123; int w, v; node() &#123;&#125; node(int w, int v) : w(w), v(v) &#123;&#125; friend bool operator &lt;(node a, node b) &#123; return a.w &gt; b.w; &#125;&#125;;bool vis[M];priority_queue &lt;struct node&gt; q;inline int prim() &#123; int ans = 0; while(!q.empty()) q.pop(); vis[1] = 1; for (int i=head[1]; i; i=nxt[i]) q.push(node(w[i], to[i])); for (int e=1; e&lt;n; ++e) &#123; node tp = q.top(); q.pop(); while(vis[tp.v]) &#123; tp = q.top(); q.pop(); &#125; vis[tp.v] = 1; ans += tp.w; for (int i=head[tp.v]; i; i=nxt[i]) if(!vis[to[i]]) q.push(node(w[i], to[i])); &#125; return ans;&#125;int main() &#123; cin &gt;&gt; n &gt;&gt; m; for (int i=1, u, v, _w; i&lt;=m; ++i) &#123; scanf("%d%d%d", &amp;u, &amp;v, &amp;_w); adde(u, v, _w); &#125; cout &lt;&lt; prim(); return 0;&#125; 总结对于最小生成树来说，Prim和Kruskal都很优秀，但Prim用在稠密图（点少边多的图）有奇效，两者都很优秀，一般会一种即可，有追求的当然都要掌握，毕竟并查集也是一个重点。]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -85,14 +85,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[hexo的一些操作]]></title>
-    <url>%2F2018%2F08%2F01%2Fhexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[迁移我找到了两个网站 click here click here不过都看不懂。。最后这个详细点click here 插入媒体可以插入图片，音乐，视频click here 这个厉害click here 相册功能看起来好难弄click here]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[关于hexo的主题]]></title>
     <url>%2F2018%2F08%2F01%2F%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[这里有个网站，推荐了几个不错的主题，还有预览click here有两个我很喜欢yiliaTranquilpeak初步打算弄成yilia然后配置yilia主题的步骤在这里click here]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo的一些操作]]></title>
+    <url>%2F2018%2F08%2F01%2Fhexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[迁移我找到了两个网站 click here click here不过都看不懂。。最后这个详细点click here 插入媒体可以插入图片，音乐，视频click here 这个厉害click here 相册功能看起来好难弄click here]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello the cruel world!]]></title>
