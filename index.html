@@ -299,6 +299,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">例题</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -390,6 +394,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">例题</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -410,6 +418,111 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/09/卡特兰数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数学期望" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/数学期望/">数学期望</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/26/数学期望/" class="archive-article-date">
+  	<time datetime="2018-09-26T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不知道这算不算数论的东西，不过我个人觉得挺简单的</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>什么是数学期望呢？<br>就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。</p>
+<p><img src="/img/2018/1015/2018101501.jpg" alt="真的不难"><br>100%的数据范围是n&lt;=1e7</p>
+<p>看完题目有什么想法呢？我要先吐槽一下。题目是求一个期望值，所以答案一定是个小数，对小数取模要用到乘法逆元，所以结果是一个巨大无比的数，而只有n=2对应的答案是很小的，综上所述，样例没有什么用，也就是让大家理解题意而已了。</p>
+<p>其实不是的，样例非常非常非常有用。</p>
+<p>我先说说我的算法吧。<br>我这种写法对于这个题要有一定的逆向思维，我先正着讲，让你们理解一下。你们看完以后可以思考你们自己用这种方法写的话，思路的先后顺序是个什么样。</p>
+<p>首先要弄懂样例的意思，n=2时答案的2是哪来的呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第一次有0.5的概率跳到1，共跳了1次，所以值为0.5*1</span><br><span class="line">第二次有0.25的概率跳到1，共跳了2次，所以值为0.25*2</span><br><span class="line">第三次有0.5的概率跳到1，共跳了3次，所以值为0.125*3</span><br><span class="line">...</span><br><span class="line">所以n=2时，答案是0.5+0.25*2+0.125*3+.....</span><br><span class="line">一直加下去，答案就无限接近2</span><br></pre></td></tr></table></figure></p>
+<p>对于这个样例，你原本就在2这个位置，那么我问大家一个问题：如果你是跳了1步到的2这个位置，那么答案是多少？如果你是跳了2步到的2这个位置，那么答案是多少？如果你是跳了x步到的2这个位置，那么答案是多少？<br>很显然，答案是2+x。<br>举个栗子吧，跳1步到2的时候，答案是0.5<em>2+0.25</em>3+0.125*4+….. ，比原来直接在2的答案多了0.5+0.25+0.125+…. ，多加的值无限趋近于1，所以跳1步到达2的答案就是3。为了验证这个结论，我还打了暴力试了一下呢。</p>
+<p>我们再手推一下n=3的答案，因为n=2具有一定的迷惑性（非A则B，并且概率相同，不具有普遍性）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第一次有1/3的概率跳到1，共跳了1次，所以值为1/3*1</span><br><span class="line">      有1/3的概率跳到2，共跳了1次，所以值为1/3*(2+1)</span><br><span class="line">      (这里就用到了刚刚我们推的结论，</span><br><span class="line">      跳了一步到2的答案为2+1，而一步跳到2的概率为1/3)</span><br><span class="line">第二次有（1/3）^2的概率跳到1，共跳了2次，所以值为(1/9)*2</span><br><span class="line">      有（1/3）^2的概率跳到2，共跳了2次，所以值为(1/9)*(2+2)</span><br><span class="line">第三次有（1/3）^3的概率跳到1，共跳了3次，所以值为(1/27)*3</span><br><span class="line">      有（1/3）^3的概率跳到2，共跳了3次，所以值为(1/27)*(2+3)</span><br><span class="line">...</span><br><span class="line">所以n=3时，答案是 1/3*1 +1/3*(2+1) +(1/9)*2 +(1/9)*(2+2)+(1/27)*3+(1/27)*(2+3)+.....</span><br><span class="line">化简一下： 1/3*(1+3) +(1/3)^2*(2+4) +(1/3)^3*(3+5) +.....</span><br><span class="line">一直加下去，答案就无限接近2.5（先不计算取模）</span><br></pre></td></tr></table></figure></p>
+<p>现在大家应该明白了这种算法的真正思路，然后我们来推公式。<br>想想我们有什么条件，怕大家不懂，稍微啰嗦了一下，其实很简单。<br>共有n扇门。<br>因为上面的加法是一直加的，因为他可以一直跳下去，所以要算出准确答案，我们就设他跳了s次，s趋近于无穷大。（我也不知道怎么描述s，不明白s的含义的没关系，看到后面的公式就明白了，我只是想利用s表达求和式子的最后一项）<br>设答案为S。（相当于数列的前n项和，高中数学知识）<br>设t=1+3+3.5+…+S[n-1]。（这是一个递推的思想，因为计算第n项要用到前面推出的1~n-1的答案，我们先把这些答案都+1,不加也可以，不加的话后面的公式稍微变一下就行了，一样的，我们先把这些前面推出的答案都+1）<br>那么公式来了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">S=1/n*t +(1/n)^2*(t+n-1) +(1/n)^3*[t+2*(n-1)]+....  +(1/n)^s*(t+(s-1)*(n-1))</span><br><span class="line">这里用到了数列求和的错位相减法：标记上面等式为①，等号两边同时乘(1/n)得到②：</span><br><span class="line">(1/n)*S=(1/n)^2*t +(1/n)^3*(t+n-1) +(1/n)^4*[t+2*(n-1)]+...+(1/n)^(s+1)*[t+(s-1)*(n-1)]</span><br><span class="line">①-②再化简得：(n-1)/n *S=(1/n)*t+ (n-1)*[(1/n)^2+(1/n)^3+...(1/n)^s] -(1/n)^(s+1) *[t+(s-1)(n-1)]</span><br><span class="line">第一个中括号里是一个等比数列，对这个等比数列进行就和来化简：</span><br><span class="line">这个中括号里的值的分子=(1/n)^2 *(1-(1-n)^s)，</span><br><span class="line">因为s趋近于无穷大，所以(1-n)^s趋近于0，所以(1-(1-n)^s)趋近于1，所以分子就=(1/n)^2</span><br><span class="line">这个值的分母是1- 1/n，化简一下这个分数，最后中括号里的值是 1/ n(n-1)</span><br><span class="line">再回到整个式子：(n-1)/n *S=(1/n)*t + 1/ n(n-1) -(1/n)^(s+1) *[t+(s-1)(n-1)]</span><br><span class="line">再看一下减号后面的一堆内容，因为s趋近于正无穷，所以s+1也是正无穷，所以(1/n)^(s+1)=0，然后减号后面的一堆东西就没了。</span><br><span class="line">所以整个式子化简成了：(n-1)/n *S=(1/n)*t + 1/ n(n-1)</span><br><span class="line">再化简：S=(t+1)/(n-1)</span><br><span class="line">公式就成功推出来了。</span><br></pre></td></tr></table></figure></p>
+<p>所以样例给的2可能就是给我们初始值让我们递推的。<br>代码实现就很简单了，从3开始计算，一直到n，每次更新t的值，对于模运算呢还要再加上线性求逆元，用快速幂的话只能拿70分。(线性求逆元传送门)[<a href="https://fancyu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/]">https://fancyu.coding.me/2018/09/26/%E5%BF%AB%E9%80%9F%E5%B9%82/]</a></p>
+<p>下面贴上我的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;ctime&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">inline int <span class="built_in">read</span>()</span><br><span class="line">&#123;</span><br><span class="line">	int nnn=1,numm=0;</span><br><span class="line">	char ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!isdigit(ch))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">'-'</span>)nnn=-1;</span><br><span class="line">		ch=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(isdigit(ch))</span><br><span class="line">	&#123;</span><br><span class="line">		numm=(numm&lt;&lt;1)+(numm&lt;&lt;3)+ch-<span class="string">'0'</span>;</span><br><span class="line">		ch=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> nnn*numm;</span><br><span class="line">&#125;</span><br><span class="line">const int P=1000000007;</span><br><span class="line">long long n,ans,k=4,t,w,x,xx;</span><br><span class="line">long long inv[10000005];</span><br><span class="line">inline void init_inv()</span><br><span class="line">&#123;</span><br><span class="line">	inv[1]=1;</span><br><span class="line">	<span class="keyword">for</span>(register int i=2;i&lt;=n;++i)</span><br><span class="line">		inv[i]=(P-P/i)*inv[P%i]%P;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	freopen(<span class="string">"life.in"</span>,<span class="string">"r"</span>,stdin);</span><br><span class="line">	freopen(<span class="string">"life.out"</span>,<span class="string">"w"</span>,stdout);</span><br><span class="line">	n=<span class="built_in">read</span>();</span><br><span class="line">	init_inv();</span><br><span class="line">	<span class="keyword">if</span>(n==1)&#123;cout&lt;&lt;0;<span class="built_in">return</span> 0;&#125;</span><br><span class="line">	<span class="keyword">if</span>(n==2)&#123;cout&lt;&lt;2;<span class="built_in">return</span> 0;&#125;</span><br><span class="line">	<span class="keyword">for</span>(register int i=3;i&lt;=n;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		x=(k+1)*inv[i-1]%P;</span><br><span class="line">		k+=x+1;</span><br><span class="line">		k%=P;</span><br><span class="line">		<span class="keyword">if</span>(i==n)</span><br><span class="line">			ans=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其实代码刚敲好我的心里是没底的，因为推数列的计算量不小，如果我哪一步稍有差错那么整道题就全WA了，因为我也不喜欢检查，这样容易晕，所以我每一步计算都要确认好几遍。直到mdb同学推出了一个跟我不同的公式，（其实跟我的一样，形式不同罢了）跟我对答案发现结果一样的时候，我感觉才稳了一点。</p>
+<p>其实这道题的正解是期望DP，也不难，不过我更喜欢我这一种<br><img src="/img/2018/1015/2018101502.jpg" alt="不要为常规思维所限制"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我的算法讲完了，代码也贴出来了，我前面有说过，我是顺着讲的，如果没有真正理解，你自己写是写不出来的，所以大家要试着理解我为什么要先算这些东西。<br>其实也没什么，先弄懂样例（为什么n=2时，答案为2），类比具有普遍特征的数（手推n=3的情况），然后意识到要用前面的答案（有概率跳到一个点再从这个点到1），然后研究怎么用前面的答案（第x步跳到某个点，那就是x+该点的期望值），接着推公式，然后化简，就这样就搞定了。</p>
+<p>对于数学期望的题，基本上全都可以用期望DP来写，但是有不少题都可以推公式，而且能推公式的题基本都跟这道题差不多，知识点只需要高中关于数列的知识就行了（逆元无论什么算法都是必要的），那么对于不擅长DP、不喜欢DP的同学呢，这种方法是你很好的选择。<br>但是有的数学期望题不能推公式，特别是那种输入不是简简单单的一个数，而是某个场景的数据的题，就比如NOIP2016的换教室，像那种题一看就知道推公式不可行。<br>我不敢保证每道输入简单的数学期望题都可以推公式，但是遇到那种数学期望题不妨试着推一推，都是一些数列的东西，推着难度也不大，思路清晰是必要的，而思路清晰以后推公式也用不了多长时间，对吧？</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">例题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/26/数学期望/">展开全文 >></a>
         </p>
       
 
@@ -715,98 +828,6 @@
 
 
   
-    <article id="post-SPFA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/SPFA/">求单源最短路——SPFA</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/12/SPFA/" class="archive-article-date">
-  	<time datetime="2018-08-12T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SPFA好像被证明出是错的，再加上复杂度并不是很优，所以个人推荐用Dijkstra求单源最短路<br><a href="https://fancyu.coding.me/2018/09/02/Dijkstra/">传送门</a></p>
-<p>什么是SPFA算法呢？<br>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br>
-        
-          <a class="article-more-a" href="/2018/08/12/SPFA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/12/SPFA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -917,6 +938,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">例题</a>
               </li>
             
             <div class="clearfix"></div>
