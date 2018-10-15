@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
   <title>数学期望 | 凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。 100%的数据范围是n&amp;lt;=1e7 看完题目有什么想法呢？我要先吐槽一下。题目是求一个期望值，所以答案一定是个小数，对小数取模要用到乘法逆元，所以结果是">
+  <meta name="description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。">
 <meta name="keywords" content="C++,例题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数学期望">
 <meta property="og:url" content="http://FanCYu.coding.me/2018/10/15/数学期望/index.html">
 <meta property="og:site_name" content="凉城听暖">
-<meta property="og:description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。 100%的数据范围是n&amp;lt;=1e7 看完题目有什么想法呢？我要先吐槽一下。题目是求一个期望值，所以答案一定是个小数，对小数取模要用到乘法逆元，所以结果是">
+<meta property="og:description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/1015/2018101501.jpg">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/1015/2018101502.jpg">
-<meta property="og:updated_time" content="2018-10-15T11:11:53.509Z">
+<meta property="og:updated_time" content="2018-10-15T11:13:13.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学期望">
-<meta name="twitter:description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。 100%的数据范围是n&amp;lt;=1e7 看完题目有什么想法呢？我要先吐槽一下。题目是求一个期望值，所以答案一定是个小数，对小数取模要用到乘法逆元，所以结果是">
+<meta name="twitter:description" content="不知道这算不算数论的东西，不过我个人觉得挺简单的 介绍什么是数学期望呢？就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德 例题有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。">
 <meta name="twitter:image" content="http://fancyu.coding.me/img/2018/1015/2018101501.jpg">
   
     <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
@@ -187,8 +187,7 @@
       
         <p>不知道这算不算数论的东西，不过我个人觉得挺简单的</p>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>什么是数学期望呢？<br>就是所有结果的概率乘该结果的值的总和。——沃·兹基硕德</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。</p>
-<p><img src="/img/2018/1015/2018101501.jpg" alt="真的不难"><br>100%的数据范围是n&lt;=1e7</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>有种神奇的东西叫做期望DP，用起来很简单，理解起来也很简单，不过对于下面这道例题，我更喜欢用一种更简单的方法。<br><a id="more"></a><br><img src="/img/2018/1015/2018101501.jpg" alt="真的不难"><br>100%的数据范围是n&lt;=1e7</p>
 <p>看完题目有什么想法呢？我要先吐槽一下。题目是求一个期望值，所以答案一定是个小数，对小数取模要用到乘法逆元，所以结果是一个巨大无比的数，而只有n=2对应的答案是很小的，综上所述，样例没有什么用，也就是让大家理解题意而已了。</p>
 <p>其实不是的，样例非常非常非常有用。</p>
 <p>我先说说我的算法吧。<br>我这种写法对于这个题要有一定的逆向思维，我先正着讲，让你们理解一下。你们看完以后可以思考你们自己用这种方法写的话，思路的先后顺序是个什么样。</p>
@@ -436,15 +435,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">例题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
             
             <div class="clearfix"></div>
