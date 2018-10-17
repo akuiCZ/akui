@@ -223,6 +223,32 @@
   </entry>
   
   <entry>
+    <title>实用的网站</title>
+    <link href="http://FanCYu.coding.me/2018/08/12/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    <id>http://FanCYu.coding.me/2018/08/12/实用工具/</id>
+    <published>2018-08-12T10:00:00.000Z</published>
+    <updated>2018-10-17T08:54:20.848Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里盘点一些博主收集的几个很不错的网站。<br>对程序员来说真的能省掉许多不必要的功夫。<br><em>我真的不是在打广告，没有任何人给我钱的。</em></p><h3 id="图论构图"><a href="#图论构图" class="headerlink" title="图论构图"></a>图论构图</h3><p><a href="https://csacademy.com/app/graph_editor/" target="_blank" rel="noopener">传送门</a><br>PS:这是个歪果网站，所以翻墙食用更佳。</p><p>操作简单，对于图论画图这方面非常非常非常好用。<br><del>也挺好玩的</del><br>预览:<br><img src="/img/2018/1017/2018101701.jpg" alt="鼠标左键点击一个点可以把它固定，不让它乱跑"></p><h3 id="数论公式-amp-amp-函数图像"><a href="#数论公式-amp-amp-函数图像" class="headerlink" title="数论公式&amp;&amp;函数图像"></a>数论公式&amp;&amp;函数图像</h3><p><a href="https://www.wolframalpha.com/" target="_blank" rel="noopener">传送门</a><br>PS:这也是个歪果网站，所以翻墙食用更佳。</p><p>这个网站是真的强大。<br>对于一个函数呢，它能给你变形和它的几组解，还能把图像给你画出来。<br>对于一个数列呢，它能往后给出好多项，还能把通项公式告诉你。<br>除了这些，还会给你一大堆你看不懂的东西。<em>好吧，是我看不懂。</em><br><del>也是好玩又好用。</del><br>预览:<br><img src="/img/2018/1017/2018101702.jpg" alt="小心心~"><br><img src="/img/2018/1017/2018101703.jpg" alt="不要被我的截图限制了想象，下面还有"><br><img src="/img/2018/1017/2018101704.jpg" alt="输入卡特兰数的前几项会出来什么呢"></p><h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>目前博主手里也就这些<del>好玩</del>好用的网站。<em>真的没有更多了。</em><br>以后再发现其它<del>好玩</del>好用的网站呢，我一定会更新的。<br>所以，记得时不时来这里看一看哦。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这里盘点一些博主收集的几个很不错的网站。&lt;br&gt;对程序员来说真的能省掉许多不必要的功夫。&lt;br&gt;&lt;em&gt;我真的不是在打广告，没有任何人给我钱的。&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;图论构图&quot;&gt;&lt;a href=&quot;#图论构图&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="http://FanCYu.coding.me/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="工具" scheme="http://FanCYu.coding.me/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于hexo的主题</title>
     <link href="http://FanCYu.coding.me/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/"/>
     <id>http://FanCYu.coding.me/2018/08/01/关于hexo的主题/</id>
