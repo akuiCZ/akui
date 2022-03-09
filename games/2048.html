@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
   <title>凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="凉城听暖">
 <meta property="og:description" content="2048-game       #game {  display: none;  position: absolute;  left: 0px;  top: 0px;  right: 0px;  bottom: 0px;  background-color: #9DA5C3;  opacity: 0.5;  z-index: 1;  }  .clear:after {  content:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T12:22:56.099Z">
+<meta property="og:updated_time" content="2018-10-09T12:22:56.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="凉城听暖">
 <meta name="twitter:description" content="2048-game       #game {  display: none;  position: absolute;  left: 0px;  top: 0px;  right: 0px;  bottom: 0px;  background-color: #9DA5C3;  opacity: 0.5;  z-index: 1;  }  .clear:after {  content:">
@@ -37,7 +37,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -57,8 +57,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/categories/随笔/">随笔</a></li>
 	        
 				<li><a href="/categories/编程/">编程</a></li>
 	        
@@ -87,6 +85,8 @@
 			<div class="social">
 				
 					<a class="qq" target="_blank" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=365066894&website=www.oicqzone.com" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="http://akui.me/me/WeChat.html/" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=egITGxUlGxEPEzoLC1QZFRc" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -122,14 +122,14 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
 						<a class="qq" target="_blank" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=365066894&website=www.oicqzone.com" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="weixin" target="_blank" href="http://akui.me/me/WeChat.html/" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=egITGxUlGxEPEzoLC1QZFRc" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -140,13 +140,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/编程/">编程</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/编程/">编程</a></li>
-		        
-					<li style="width: 25%"><a href="/games/">游戏</a></li>
+					<li style="width: 33.333333333333336%"><a href="/games/">游戏</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,7 +166,7 @@
       
         <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
  <title> 2048-game </title>
  <meta charset="utf-8">
  <style media="screen">
@@ -353,7 +351,7 @@
  //��Ϸ��ʼ
  gameStart: function() {
  obj.init();
- document.onkeydown = function(e) { //�Զ������¼�����
+ document.onkeydown = function(e) { //�Զ�����¼�����
  switch (e.keyCode) { //�жϰ�����
  case 37:
  obj.keyCd = 1;
@@ -389,14 +387,14 @@
  }
  if (obj.createEle == 1) {
  obj.createEle = 0;
- $("gridPanel").innerHTML = ""; //����ԭ�е�Ԫ��
+ $("gridPanel").innerHTML = ""; //���ԭ�е�Ԫ��
  $("gridPanel").appendChild(obj.eleFragment); //����Ԫ��
  }
  obj.score = 0;
  $("score").innerHTML = obj.score;
  $("game").style.display = "none";
  $("gameover").style.display = "none";
- obj.random(); //��ʼ��Ϸ��������������
+ obj.random(); //��ʼ��Ϸ�������������
  obj.random();
  obj.updateView();
  },
@@ -472,19 +470,19 @@
  obj.eleFragment.appendChild(grid);
  obj.eleFragment.appendChild(cell);
  },
- //��������һ���µ���
+ //�������һ���µ���
  random: function() {
  while (1) {
  var row = Math.floor(Math.random() * obj.ROW);
  var cell = Math.floor(Math.random() * obj.CELL);
- if (arr[row][cell] == 0) { //�ж����ɵ�������λ��Ϊ0����������2��4
+ if (arr[row][cell] == 0) { //�ж����ɵ������λ��Ϊ0���������2��4
  arr[row][cell] = (Math.random() > 0.5) ? 4 : 2;
  break;
  }
  }
  // var row = Math.floor(Math.random() * 4);
  // var cell = Math.floor(Math.random() * 4);
- // if (arr[row][cell] == 0) { //�ж����ɵ�������λ��Ϊ0����������2��4
+ // if (arr[row][cell] == 0) { //�ж����ɵ������λ��Ϊ0���������2��4
  // arr[row][cell] = (Math.random() > 0.5) ? 4 : 2;
  // return;
  // }
@@ -497,7 +495,7 @@
  for (c = 0; c < obj.CELL; c++) {
  if (arr[r][c] == 0) { //ֵΪ0�Ĳ���ʾ
  $("c" + r + c).innerHTML = ""; //0����ʾ
- $("c" + r + c).className = "cell" //������ʽ
+ $("c" + r + c).className = "cell" //�����ʽ
  } else {
  $("c" + r + c).innerHTML = arr[r][c];
  $("c" + r + c).className = "cell n" + arr[r][c]; //���Ӳ�ͬ���ֵ���ɫ
@@ -531,9 +529,9 @@
  for (c = 0; c < obj.CELL; c++) {
  if (arr[r][c] == 0) { //��0������gameover
  return false;
- } else if (c != obj.CELL - 1 && arr[r][c] == arr[r][c + 1]) { //������ ǰһ������һ��������
+ } else if (c != obj.CELL - 1 && arr[r][c] == arr[r][c + 1]) { //������ ǰһ������һ�������
  return false;
- } else if (r != obj.ROW - 1 && arr[r][c] == arr[r + 1][c]) { //������ ��һ������һ��������
+ } else if (r != obj.ROW - 1 && arr[r][c] == arr[r + 1][c]) { //������ ��һ������һ�������
  return false;
  }
  }
@@ -579,12 +577,12 @@
  for (c = 0; c < obj.ROW; c++) {
  next = obj.find(r, c, c + 1, obj.CELL, 1); //�ҳ���һ����Ϊ0��λ��
  if (next == null) break; //û���ҵ��ͷ���
- //������ǰλ��Ϊ0
+ //�����ǰλ��Ϊ0
  if (arr[r][c] == 0) {
  arr[r][c] = arr[r][next]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
  arr[r][next] = 0; //�ҵ���λ����0
- c--; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ��
- } else if (arr[r][c] == arr[r][next]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ c--; //�ٴ�ѭ����һ�Σ��鿴�������ֵ���滻���ֵ��ͬ��
+ } else if (arr[r][c] == arr[r][next]) { //�����ǰλ�����ҵ���λ����ֵ��ȣ������
  arr[r][c] *= 2;
  arr[r][next] = 0;
  obj.score += arr[r][c];
@@ -597,7 +595,7 @@
  before = arr.toString();
  itertor(); //ִ��for����
  after = arr.toString();
- if (before != after) { //ǰ���Աȣ�������ͬ��update
+ if (before != after) { //ǰ��Աȣ������ͬ��update
  obj.random();
  obj.updateView();
  }
@@ -610,12 +608,12 @@
  })
  // if ��ǰλ�� ��Ϊ��
  // �ӵ�ǰλ�ã���һ����Ա��ʼ��������
- // �����ҵ����뵱ǰλ�����ȵ�����
- // �������ӣ����Ѳ�Ϊ���ĳ�Ա������Ϊ��
- // ���� ��ǰλ���� ��
+ // ����ҵ����뵱ǰλ����ȵ�����
+ // ������ӣ����Ѳ�Ϊ��ĳ�Ա������Ϊ��
+ // ��� ��ǰλ���� ��
  // �ӵ�ǰλ����һ����Ա��ʼ����
- // �����ҵ� ��һ����Ϊ���ĳ�Ա
- // ��ǰλ����ֵ����Ϊ������Ϊ���ĳ�Ա��ֵ �����Ұ��Ǹ���Ϊ���ĳ�Ա����Ϊ 0
+ // ����ҵ� ��һ����Ϊ��ĳ�Ա
+ // ��ǰλ����ֵ����Ϊ�����Ϊ��ĳ�Ա��ֵ �����Ұ��Ǹ���Ϊ��ĳ�Ա����Ϊ 0
  },
  //�Ұ�������
  dealToRight: function(r) {
@@ -623,12 +621,12 @@
  for (c = obj.CELL - 1; c >= 0; c--) {
  next = obj.find(r, c, c - 1, 0, -1); //�ҳ���һ����Ϊ0��λ��
  if (next == null) break; //û���ҵ��ͷ���
- //������ǰλ��Ϊ0
+ //�����ǰλ��Ϊ0
  if (arr[r][c] == 0) {
  arr[r][c] = arr[r][next]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
  arr[r][next] = 0; //�ҵ���λ����0
- c++; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ��
- } else if (arr[r][c] == arr[r][next]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ c++; //�ٴ�ѭ����һ�Σ��鿴�������ֵ���滻���ֵ��ͬ��
+ } else if (arr[r][c] == arr[r][next]) { //�����ǰλ�����ҵ���λ����ֵ��ȣ������
  arr[r][c] *= 2;
  arr[r][next] = 0;
  obj.score += arr[r][c];
@@ -648,12 +646,12 @@
  for (r = 0; r < obj.ROW; r++) {
  next = obj.find(r, c, r + 1, obj.ROW, 1); //�ҳ���һ����Ϊ0��λ��
  if (next == null) break;
- //������ǰλ��Ϊ0
+ //�����ǰλ��Ϊ0
  if (arr[r][c] == 0) {
  arr[r][c] = arr[next][c]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
  arr[next][c] = 0; //�ҵ���λ����0
- r--; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ
- } else if (arr[r][c] == arr[next][c]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ r--; //�ٴ�ѭ����һ�Σ��鿴�������ֵ���滻���ֵ��ͬ
+ } else if (arr[r][c] == arr[next][c]) { //�����ǰλ�����ҵ���λ����ֵ��ȣ������
  arr[r][c] *= 2;
  arr[next][c] = 0;
  obj.score += arr[r][c];
@@ -675,12 +673,12 @@
  if (next == null) {
  break;
  }
- //������ǰλ��Ϊ0
+ //�����ǰλ��Ϊ0
  if (arr[r][c] == 0) {
  arr[r][c] = arr[next][c]; //���ҵ��Ĳ�Ϊ0����ֵ�滻Ϊ��ǰλ�õ�ֵ
  arr[next][c] = 0; //�ҵ���λ����0
- r++; //�ٴ�ѭ����һ�Σ��鿴��������ֵ���滻����ֵ��ͬ
- } else if (arr[r][c] == arr[next][c]) { //������ǰλ�����ҵ���λ����ֵ���ȣ�������
+ r++; //�ٴ�ѭ����һ�Σ��鿴�������ֵ���滻���ֵ��ͬ
+ } else if (arr[r][c] == arr[next][c]) { //�����ǰλ�����ҵ���λ����ֵ��ȣ������
  arr[r][c] *= 2;
  arr[next][c] = 0;
  obj.score += arr[r][c];
@@ -722,7 +720,7 @@
  // if (isNaN(modelValue)) {
  // modelValue = 4; //Ĭ����4*4
  // }
- // if (modelValue <= 2 || modelValue > 6) return; //2�����ߴ���6����Ч
+ // if (modelValue <= 2 || modelValue > 6) return; //2����ߴ���6����Ч
  // obj.ROW = modelValue;
  // obj.CELL = modelValue;
  // obj.createEle = 1;
@@ -838,7 +836,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 凉城听暖
+    		&copy; 2022 凉城听暖
     	</div>
       	<div class="footer-right">
       		</a> By C.Z.（akui）　　　
@@ -929,15 +927,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cocos2dx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">例题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,11 +995,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://mdb.coding.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tobin_MEng&#39;s blog</a>
+              <a href="https://dogge.top" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Sxy&#39;s blog</a>
             </li>
           
             <li class="search-li">
-              <a href="https://my_snowing.coding.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>WY&#39;s blog</a>
+              <a href="https://dwx-tx.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Dwx&#39;s blog</a>
             </li>
           
             <li class="search-li">

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://FanCYu.coding.me">
   <title>单源最短路——Dijkstra | 凉城听暖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809023.png">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809024.png">
 <meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809025.png">
-<meta property="og:updated_time" content="2018-10-17T07:40:10.580Z">
+<meta property="og:updated_time" content="2022-03-09T01:29:43.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单源最短路——Dijkstra">
 <meta name="twitter:description" content="介绍迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。 算法的思路Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接">
@@ -45,7 +45,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -65,8 +65,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/categories/随笔/">随笔</a></li>
 	        
 				<li><a href="/categories/编程/">编程</a></li>
 	        
@@ -95,6 +93,8 @@
 			<div class="social">
 				
 					<a class="qq" target="_blank" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=365066894&website=www.oicqzone.com" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="http://akui.me/me/WeChat.html/" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=egITGxUlGxEPEzoLC1QZFRc" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -130,14 +130,14 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
 						<a class="qq" target="_blank" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=365066894&website=www.oicqzone.com" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="weixin" target="_blank" href="http://akui.me/me/WeChat.html/" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=egITGxUlGxEPEzoLC1QZFRc" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -148,13 +148,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/编程/">编程</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/编程/">编程</a></li>
-		        
-					<li style="width: 25%"><a href="/games/">游戏</a></li>
+					<li style="width: 33.333333333333336%"><a href="/games/">游戏</a></li>
 		        
 				</ul>
 			</nav>
@@ -194,6 +192,7 @@
 <h2 id="示例演示"><a href="#示例演示" class="headerlink" title="示例演示"></a>示例演示</h2><p>下面我求下图，从顶点v1到其他各个顶点的最短路径<br><img src="/img/2018/0902/201809021.png" alt="整个图"><br>首先第一步，我们先声明一个dis数组，该数组初始化的值为：<br><img src="/img/2018/0902/201809022.png" alt="第一步"><br>我们的顶点集T的初始化为：T={v1}<br>既然是求 v1顶点到其余各个顶点的最短路程，那就先找一个离 1 号顶点最近的顶点。通过数组 dis 可知当前离v1顶点最近是 v3顶点。当选择了 2 号顶点后，dis[2]（下标从0开始）的值就已经从“估计值”变为了“确定值”，即 v1顶点到 v3顶点的最短路程就是当前 dis[2]值。将V3加入到T中。<br>为什么呢？因为目前离 v1顶点最近的是 v3顶点，并且这个图所有的边都是正数，那么肯定不可能通过第三个顶点中转，使得 v1顶点到 v3顶点的路程进一步缩短了。因为 v1顶点到其它顶点的路程肯定没有 v1到 v3顶点短.<br>OK，既然确定了一个顶点的最短路径，下面我们就要根据这个新入的顶点V3会有出度，发现以v3 为弧尾的有： &lt; v3,v4 &gt;,那么我们看看路径：v1–v3–v4的长度是否比v1–v4短，其实这个已经是很明显的了，因为dis[3]代表的就是v1–v4的长度为无穷大，而v1–v3–v4的长度为：10+50=60，所以更新dis[3]的值,得到如下结果：<br><img src="/img/2018/0902/201809023.png" alt="第二步"><br>因此 dis[3]要更新为 60。这个过程有个专业术语叫做“松弛”。即 v1顶点到 v4顶点的路程即 dis[3]，通过 &lt; v3,v4&gt; 这条边松弛成功。这便是 Dijkstra 算法的主要思想：通过“边”来松弛v1顶点到其余各个顶点的路程。<br>然后，我们又从除dis[2]和dis[0]外的其他值中寻找最小值，发现dis[4]的值最小，通过之前是解释的原理，可以知道v1到v5的最短距离就是dis[4]的值，然后，我们把v5加入到集合T中，然后，考虑v5的出度是否会影响我们的数组dis的值，v5有两条出度：&lt; v5,v4&gt;和 &lt; v5,v6&gt;,然后我们发现：v1–v5–v4的长度为：50，而dis[3]的值为60，所以我们要更新dis[3]的值.另外，v1-v5-v6的长度为：90，而dis[5]为100，所以我们需要更新dis[5]的值。更新后的dis数组如下图:<br><img src="/img/2018/0902/201809023.png" alt="第三步"><br>然后，继续从dis中选择未确定的顶点的值中选择一个最小的值，发现dis[3]的值是最小的，所以把v4加入到集合T中，此时集合T={v1,v3,v5,v4},然后，考虑v4的出度是否会影响我们的数组dis的值，v4有一条出度：&lt; v4,v6&gt;,然后我们发现：v1–v5–v4–v6的长度为：60，而dis[5]的值为90，所以我们要更新dis[5]的值，更新后的dis数组如下图：<br><img src="/img/2018/0902/201809024.png" alt="第四步"><br>然后，我们使用同样原理，分别确定了v6和v2的最短路径，最后dis的数组的值如下：<br><img src="/img/2018/0902/201809025.png" alt="第五步"><br>因此，从图中，我们可以发现v1-v2的值为：∞，代表没有路径从v1到达v2。所以我们得到的最后的结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">起点  终点    最短路径    长度</span><br><span class="line">v1    v2     无          ∞    </span><br><span class="line">      v3     &#123;v1,v3&#125;    10</span><br><span class="line">      v4     &#123;v1,v5,v4&#125;  50</span><br><span class="line">      v5     &#123;v1,v5&#125;    30</span><br><span class="line">      v6     &#123;v1，v5,v4,v6&#125; 60</span><br></pre></td></tr></table></figure></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>利用邻接表和stl堆优化，我们可以把时间复杂度优化到O(NlogM),以下是用邻接表和堆优化来优化这个算法的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;queue&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int M=5e5+5;</span><br><span class="line">int head[M],nxt[M],to[M],v[M],dis[M];</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">	int d,k;</span><br><span class="line">	node(int d,int k) : d(d) , k(k) &#123;&#125;</span><br><span class="line">	friend bool operator &lt; (node a,node b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> a.d &gt; b.d;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node&gt; q;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	register int n,m,S,x,y,z,tot=0;</span><br><span class="line">	scanf(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;S);</span><br><span class="line">	<span class="keyword">for</span>(int i=1;i&lt;=m;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;z);</span><br><span class="line">		++tot;</span><br><span class="line">		nxt[tot]=head[x],head[x]=tot,to[tot]=y,v[tot]=z;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;++i)</span><br><span class="line">		dis[i]=1e9;</span><br><span class="line">	dis[S]=0;</span><br><span class="line">	q.push(node(0,S));</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		node t=q.top();q.pop();</span><br><span class="line">		<span class="keyword">for</span>(int i=head[t.k];i;i=nxt[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(dis[to[i]]&gt;dis[t.k]+v[i])</span><br><span class="line">			&#123;</span><br><span class="line">				dis[to[i]]=dis[t.k]+v[i];</span><br><span class="line">				q.push(node(dis[to[i]],to[i]));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;++i)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,dis[i]==1e9 ? -1 : dis[i]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>迪杰斯特拉可以说是图论中求单源最短路最优的算法了(求全图最短路用弗洛里德除外)，所以同志们一定要掌握好这个算法。<br><del>早日放弃SPFA和Floyd吧</del></p>
+<h2 id="2022-3-8更新"><a href="#2022-3-8更新" class="headerlink" title="2022.3.8更新"></a>2022.3.8更新</h2><p>当时不懂struct node里面代码的含义，硬记下来的，想想到现在又学了不少东西啊……</p>
 
       
 
@@ -330,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法的思路"><span class="toc-number">2.</span> <span class="toc-text">算法的思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例演示"><span class="toc-number"></span> <span class="toc-text">示例演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number"></span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法的思路"><span class="toc-number">2.</span> <span class="toc-text">算法的思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例演示"><span class="toc-number"></span> <span class="toc-text">示例演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number"></span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2022-3-8更新"><span class="toc-number"></span> <span class="toc-text">2022.3.8更新</span></a>
                     </div>
                 </span>
             </div>
@@ -359,7 +358,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 凉城听暖
+    		&copy; 2022 凉城听暖
     	</div>
       	<div class="footer-right">
       		</a> By C.Z.（akui）　　　
@@ -450,15 +449,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cocos2dx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">例题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://mdb.coding.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tobin_MEng&#39;s blog</a>
+              <a href="https://dogge.top" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Sxy&#39;s blog</a>
             </li>
           
             <li class="search-li">
-              <a href="https://my_snowing.coding.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>WY&#39;s blog</a>
+              <a href="https://dwx-tx.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Dwx&#39;s blog</a>
             </li>
           
             <li class="search-li">

@@ -4,7 +4,7 @@
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/TEP.ico");
-         document.title = '�q(��A��`)�r ҳ�������� ~';
+         document.title = '�q(��A��`)�r ҳ������� ~';
          clearTimeout(titleTime);
      }
      else {
