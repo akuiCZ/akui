@@ -5,30 +5,30 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://FanCYu.coding.me">
-  <title>单源最短路——Dijkstra | 凉城听暖</title>
+  <link rel="dns-prefetch" href="https://akui.me">
+  <title>单源最短路——Dijkstra | 阿奎的纯净花园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="介绍迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。 算法的思路Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接">
 <meta name="keywords" content="C++,图论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单源最短路——Dijkstra">
-<meta property="og:url" content="http://FanCYu.coding.me/2018/09/02/Dijkstra/index.html">
-<meta property="og:site_name" content="凉城听暖">
+<meta property="og:url" content="https://akui.me/2018/09/02/Dijkstra/index.html">
+<meta property="og:site_name" content="阿奎的纯净花园">
 <meta property="og:description" content="介绍迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。 算法的思路Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809021.png">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809022.png">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809023.png">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809023.png">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809024.png">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/0902/201809025.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809021.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809022.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809023.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809023.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809024.png">
+<meta property="og:image" content="https://akui.me/img/2018/0902/201809025.png">
 <meta property="og:updated_time" content="2022-03-09T01:29:43.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单源最短路——Dijkstra">
 <meta name="twitter:description" content="介绍迪科斯彻算法使用了广度优先搜索解决赋权有向图或者无向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。 算法的思路Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接">
-<meta name="twitter:image" content="http://fancyu.coding.me/img/2018/0902/201809021.png">
+<meta name="twitter:image" content="https://akui.me/img/2018/0902/201809021.png">
   
-    <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="阿奎的纯净花园" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/kui.ico">
@@ -117,7 +117,7 @@
 				<img src="/img/flowers.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">凉城听暖</h1>
+			  <h1 class="header-author js-header-author">阿奎</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Do What You Love，Love What You Do<i class="icon icon-quo-right"></i></p>
@@ -277,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://FanCYu.coding.me/2018/09/02/Dijkstra/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://akui.me/2018/09/02/Dijkstra/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,7 +384,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 凉城听暖
+    		&copy; 2022 阿奎
     	</div>
       	<div class="footer-right">
       		</a> By C.Z.（akui）　　　

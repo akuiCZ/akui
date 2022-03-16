@@ -5,25 +5,25 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://FanCYu.coding.me">
-  <title>最小生成树——Prim | 凉城听暖</title>
+  <link rel="dns-prefetch" href="https://akui.me">
+  <title>最小生成树——Prim | 阿奎的纯净花园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="介绍首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。废话其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。这一">
 <meta name="keywords" content="C++,图论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最小生成树——Prim">
-<meta property="og:url" content="http://FanCYu.coding.me/2018/10/12/Prim/index.html">
-<meta property="og:site_name" content="凉城听暖">
+<meta property="og:url" content="https://akui.me/2018/10/12/Prim/index.html">
+<meta property="og:site_name" content="阿奎的纯净花园">
 <meta property="og:description" content="介绍首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。废话其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。这一">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://fancyu.coding.me/img/2018/1012/2018101201.png">
+<meta property="og:image" content="https://akui.me/img/2018/1012/2018101201.png">
 <meta property="og:updated_time" content="2022-03-15T00:29:22.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最小生成树——Prim">
 <meta name="twitter:description" content="介绍首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。废话其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。这一">
-<meta name="twitter:image" content="http://fancyu.coding.me/img/2018/1012/2018101201.png">
+<meta name="twitter:image" content="https://akui.me/img/2018/1012/2018101201.png">
   
-    <link rel="alternative" href="/atom.xml" title="凉城听暖" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="阿奎的纯净花园" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/kui.ico">
@@ -112,7 +112,7 @@
 				<img src="/img/flowers.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">凉城听暖</h1>
+			  <h1 class="header-author js-header-author">阿奎</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Do What You Love，Love What You Do<i class="icon icon-quo-right"></i></p>
@@ -183,7 +183,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>首先，最小生成树是一副连通加权无向图中一棵权值最小的生成树。<del>废话</del><br>其次，Prim算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。<del>这一小段粘自百度百科</del><br><del>真的没啥可说的</del></p>
-<h2 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路"></a>算法的思路</h2><p><del>我真的不想多说，跟Dijkstra一个样</del><br><a href="https://akui.me/2018/09/02/Dijkstra/" target="_blank" rel="noopener">Dijkstra</a><br><a id="more"></a><br>Dijkstra记录距离的数组更新查找的是所有点到源点的距离，而Prim记录距离的数组更新查找的是所有点到 源点已经连接到的点的距离.<br>而且这两种算法每次往堆里添加的都是 所有已连接点 所能到达的所有边，并且都是每个点只能到达一次，总之，除了上面那一段讲述的 更新查找的东西不同以外，其余的一模一样。</p>
+<h2 id="算法的思路"><a href="#算法的思路" class="headerlink" title="算法的思路"></a>算法的思路</h2><p><del>我真的不想多说，跟Dijkstra一个样</del><br><a href="https://akui.me/2018/09/02/Dijkstra/">Dijkstra</a><br><a id="more"></a><br>Dijkstra记录距离的数组更新查找的是所有点到源点的距离，而Prim记录距离的数组更新查找的是所有点到 源点已经连接到的点的距离.<br>而且这两种算法每次往堆里添加的都是 所有已连接点 所能到达的所有边，并且都是每个点只能到达一次，总之，除了上面那一段讲述的 更新查找的东西不同以外，其余的一模一样。</p>
 <p>值得一提的一点：一定一定记得用堆优化，不用堆的话时间复杂度非常吓人。</p>
 <p>下面给出来一个步骤演示<br><img src="/img/2018/1012/2018101201.png" alt="Prim步骤演示"></p>
 <p>具体实现方法就不再啰嗦了，懂Dijkstra的看完上面一段一定能懂Prim，下面只贴出代码。</p>
@@ -273,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://FanCYu.coding.me/2018/10/12/Prim/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://akui.me/2018/10/12/Prim/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -380,7 +380,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 凉城听暖
+    		&copy; 2022 阿奎
     	</div>
       	<div class="footer-right">
       		</a> By C.Z.（akui）　　　
