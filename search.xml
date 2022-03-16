@@ -61,6 +61,19 @@
       </tags>
   </entry>
   <entry>
+    <title>cocos2dx学习笔记</title>
+    <url>/2021/12/10/cocos2dx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="亿些废话"><a href="#亿些废话" class="headerlink" title="亿些废话"></a><del>亿些废话</del></h3><p>暑假一时冲动买的游戏开发课，从c语言基础到数据结构到c++到游戏引擎，怎么说好呢，不算后悔，毕竟是我真正热爱的东西，前不久才只是跟家里人说买了课，游戏开发……希望以后家里人不会反对吧。<br>直播基本很少去听，为更喜欢录播，顺便把课程视频也都悄咪咪存起来了。c语言没怎么听，数据结构听了一部分，c++都认真听了一遍，因为学校不讲(<em>面向对象只讲java</em>)，觉得讲得还挺不错，但是到了目前正在讲的cocos2dx的课，我觉得课程质量还有待提高……<br>因为cocos2dx网络上能参考的资料十分有限，因此便诞生了此篇文章供我自己参考。<br><del>现在已经讲了12讲了，我才听到第八讲，期末了已经疲了呀</del><br>老师的代码简练得多，我这里没有删除它原本自带的一堆if和else，那些应该是错误处理）？<br><a id="more"></a></p>
+<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto spritebg = Sprite::create(<span class="string">"mainbg.png"</span>);</span><br><span class="line"><span class="keyword">if</span> (spritebg == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'mainbg.png'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    spritebg-&gt;setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));//设置精灵图的位置</span><br><span class="line">    spritebg-&gt;setScale(0.8);//设置缩放</span><br><span class="line">    this-&gt;addChild(spritebg, 0);//添加到层上，优先级为0</span><br><span class="line">    //还有别的透明度啥的回头更新，一定！嗯！</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字幕"><a href="#字幕" class="headerlink" title="字幕"></a>字幕</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto label = Label::createWithTTF(<span class="string">"Hello World"</span>, <span class="string">"fonts/Marker Felt.ttf"</span>, 24);</span><br><span class="line"><span class="keyword">if</span> (label == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'fonts/Marker Felt.ttf'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    // position the label on the center of the screen</span><br><span class="line">    label-&gt;setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - label-&gt;getContentSize().height));</span><br><span class="line"></span><br><span class="line">    // add the label as a child to this layer</span><br><span class="line">    this-&gt;addChild(label, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有好多稍后整理，马上期末考试了</p>
+<h3 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h3><p>2022年3月9日，复刻1月弄丢的文件，这个时候已经将游戏开发作为保研失利的打算了。<br>虽说机会难得，可是这种感觉挺奇怪的，明明是最不努力的我拥有这么好的机会，实在是不公平……<br>欲带皇冠，必承其重，610快乐之王消失了，卷王阿奎诞生了</p>
+]]></content>
+      <tags>
+        <tag>cocos2dx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo的一些操作</title>
     <url>/2018/08/01/hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>这里有两个网站</p>
@@ -76,19 +89,6 @@
     <url>/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<p>这里有个网站，推荐了几个不错的主题，还有预览<br><a href="https://www.jianshu.com/p/bcdbe7347c8d" target="_blank" rel="noopener">click here</a><br><a id="more"></a><br>有两个我很喜欢<br><a href="http://litten.me/" target="_blank" rel="noopener">yilia</a><br><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">Tranquilpeak</a><br>初步打算弄成yilia<br>然后配置yilia主题的步骤在这里<br><a href="http://www.lookk.cn/2017/12/08/hexo-%E9%85%8D%E7%BD%AEyilia%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">click here</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>cocos2dx学习笔记</title>
-    <url>/2021/12/10/cocos2dx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="亿些废话"><a href="#亿些废话" class="headerlink" title="亿些废话"></a><del>亿些废话</del></h3><p>暑假一时冲动买的游戏开发课，从c语言基础到数据结构到c++到游戏引擎，怎么说好呢，不算后悔，毕竟是我真正热爱的东西，前不久才只是跟家里人说买了课，游戏开发……希望以后家里人不会反对吧。<br>直播基本很少去听，为更喜欢录播，顺便把课程视频也都悄咪咪存起来了。c语言没怎么听，数据结构听了一部分，c++都认真听了一遍，因为学校不讲(<em>面向对象只讲java</em>)，觉得讲得还挺不错，但是到了目前正在讲的cocos2dx的课，我觉得课程质量还有待提高……<br>因为cocos2dx网络上能参考的资料十分有限，因此便诞生了此篇文章供我自己参考。<br><del>现在已经讲了12讲了，我才听到第八讲，期末了已经疲了呀</del><br>老师的代码简练得多，我这里没有删除它原本自带的一堆if和else，那些应该是错误处理）？<br><a id="more"></a></p>
-<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto spritebg = Sprite::create(<span class="string">"mainbg.png"</span>);</span><br><span class="line"><span class="keyword">if</span> (spritebg == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'mainbg.png'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    spritebg-&gt;setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));//设置精灵图的位置</span><br><span class="line">    spritebg-&gt;setScale(0.8);//设置缩放</span><br><span class="line">    this-&gt;addChild(spritebg, 0);//添加到层上，优先级为0</span><br><span class="line">    //还有别的透明度啥的回头更新，一定！嗯！</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字幕"><a href="#字幕" class="headerlink" title="字幕"></a>字幕</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto label = Label::createWithTTF(<span class="string">"Hello World"</span>, <span class="string">"fonts/Marker Felt.ttf"</span>, 24);</span><br><span class="line"><span class="keyword">if</span> (label == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'fonts/Marker Felt.ttf'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    // position the label on the center of the screen</span><br><span class="line">    label-&gt;setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - label-&gt;getContentSize().height));</span><br><span class="line"></span><br><span class="line">    // add the label as a child to this layer</span><br><span class="line">    this-&gt;addChild(label, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还有好多稍后整理，马上期末考试了</p>
-<h3 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h3><p>2022年3月9日，复刻1月弄丢的文件，这个时候已经将游戏开发作为保研失利的打算了。<br>虽说机会难得，可是这种感觉挺奇怪的，明明是最不努力的我拥有这么好的机会，实在是不公平……<br>欲带皇冠，必承其重，610快乐之王消失了，卷王阿奎诞生了</p>
-]]></content>
-      <tags>
-        <tag>cocos2dx</tag>
-      </tags>
   </entry>
   <entry>
     <title>加速——卡常</title>
