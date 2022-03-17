@@ -74,12 +74,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于hexo的主题</title>
-    <url>/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p>这里有个网站，推荐了几个不错的主题，还有预览<br><a href="https://www.jianshu.com/p/bcdbe7347c8d" target="_blank" rel="noopener">click here</a><br><a id="more"></a><br>有两个我很喜欢<br><a href="http://litten.me/" target="_blank" rel="noopener">yilia</a><br><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">Tranquilpeak</a><br>初步打算弄成yilia<br>然后配置yilia主题的步骤在这里<br><a href="http://www.lookk.cn/2017/12/08/hexo-%E9%85%8D%E7%BD%AEyilia%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">click here</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>hexo的一些操作</title>
     <url>/2018/08/01/hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>这里有两个网站</p>
@@ -88,6 +82,12 @@
 <h2 id="插入媒体"><a href="#插入媒体" class="headerlink" title="插入媒体"></a>插入媒体</h2><p>可以插入图片，音乐，视频<br><a href="https://blog.csdn.net/qq_26891045/article/details/51693571" target="_blank" rel="noopener">click here</a></p>
 <h2 id="这个厉害"><a href="#这个厉害" class="headerlink" title="这个厉害"></a>这个厉害</h2><p><a href="https://www.cnblogs.com/jarson-7426/p/5515870.html" target="_blank" rel="noopener">click here</a></p>
 <h2 id="相册功能"><a href="#相册功能" class="headerlink" title="相册功能"></a>相册功能</h2><p>看起来好难弄<br><a href="https://zlwis.vip/2016/01/17/hexo%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%86%8C%E5%8A%9F%E8%83%BD/#more" target="_blank" rel="noopener">click here</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关于hexo的主题</title>
+    <url>/2018/08/01/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<p>这里有个网站，推荐了几个不错的主题，还有预览<br><a href="https://www.jianshu.com/p/bcdbe7347c8d" target="_blank" rel="noopener">click here</a><br><a id="more"></a><br>有两个我很喜欢<br><a href="http://litten.me/" target="_blank" rel="noopener">yilia</a><br><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">Tranquilpeak</a><br>初步打算弄成yilia<br>然后配置yilia主题的步骤在这里<br><a href="http://www.lookk.cn/2017/12/08/hexo-%E9%85%8D%E7%BD%AEyilia%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">click here</a></p>
 ]]></content>
   </entry>
   <entry>

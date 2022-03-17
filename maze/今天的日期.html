@@ -296,7 +296,7 @@
             verify: verify,
             app_id: "jHjdbb4PiqMLa2xgH1iCaFjd-gzGzoHsz",
             app_key: "P8819mP2a1Ean1ElcXaHuMTX",
-            placeholder: "ヾﾉ≧∀≦)o   Just go go ~",
+            placeholder: "ヾﾉ≧∀≦)o   来都来了，不留下点足迹吗 ~",
             avatar:"mm"
         });
     }
@@ -315,7 +315,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 阿奎
+    		&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
     	</div>
       	<div class="footer-right">
       		</a> By C.Z.（akui）　　　
@@ -323,6 +323,14 @@
     </div>
   </div>
 </footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- 崩溃欺骗 -->
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -581,7 +589,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   </div>
 </body>
 </html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
-<!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
