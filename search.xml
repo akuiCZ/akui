@@ -46,38 +46,27 @@
       </tags>
   </entry>
   <entry>
-    <title>HEXO折腾记</title>
-    <url>/2022/03/29/HEXO%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%88%E5%A4%8D%E4%BB%B6%EF%BC%89/</url>
-    <content><![CDATA[<p>这里阿奎用的是老版的yilia主题，魔改了很多内容，在这里分享一下，也是给自己备份一下<br><del>不知道新版yilia好不好使啊</del></p>
-<p>首先是别的主题常用的一些小东西</p>
-<h2 id="页面点击小红心"><a href="#页面点击小红心" class="headerlink" title="页面点击小红心"></a>页面点击小红心</h2><p>在yilia/source新建文件夹,命名为js<br>新建clicklove.js文件，里面写入如下内容<br><a href="/download/clicklove.txt">clicklove.js</a><br><a id="more"></a><br>接下来在yilia/layout/_partial添加代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/clicklove.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这样就完成啦！<br>文件名和文件路径可以自行修改</p>
-<h2 id="页面崩溃欺诈"><a href="#页面崩溃欺诈" class="headerlink" title="页面崩溃欺诈"></a>页面崩溃欺诈</h2><p>跟小红心一样的操作</p>
-<p>首先新建js脚本文件<br>在yilia/source新建js文件夹，里面新建crash_cheat.js文件<br>crash_cheat.js写入如下代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line"> var OriginTitle = document.title;</span><br><span class="line"> var titleTime;</span><br><span class="line"> document.addEventListener(<span class="string">'visibilitychange'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">     <span class="keyword">if</span> (document.hidden) &#123;</span><br><span class="line">         document.title = <span class="string">'╭(°A°`)╮ 页面崩溃啦 ~'</span>;</span><br><span class="line">         clearTimeout(titleTime);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">else</span> &#123;</span><br><span class="line">         document.title = <span class="string">'(ฅ&gt;ω&lt;*ฅ) 噫又好了~'</span> + OriginTitle;</span><br><span class="line">         titleTime = setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">             document.title = OriginTitle;</span><br><span class="line">         &#125;, 2000);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>在yilia/layout/_partial添加代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!-- 崩溃欺骗 --&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/crash_cheat.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这样就完成啦！<br>只是需要稍微注意一下，windows默认的编码格式不是utf-8，如果出现乱码，改下编码格式就行了<br>其他博客会有关于ico的代码，但是yilia的ico路径不太一样，这些都删掉就ok啦！</p>
-<h2 id="添加Valine评论系统"><a href="#添加Valine评论系统" class="headerlink" title="添加Valine评论系统"></a>添加Valine评论系统</h2><p>在yilia的配置文件中添加<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  appid: <span class="string">''</span></span><br><span class="line">  appkey: <span class="string">''</span></span><br><span class="line">  notify: <span class="literal">false</span> <span class="comment"># mail notifier , https://github.com/xCss/Valine/wiki评论回复提醒</span></span><br><span class="line">  verify: <span class="literal">false</span> <span class="comment"># Verification code验证码</span></span><br><span class="line">  placeholder: ヾﾉ≧∀≦)o   来都来了，不留下点足迹吗 ~ <span class="comment">#评论框占位符</span></span><br><span class="line">  avatar: mm <span class="comment"># gravatar style评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide</span></span><br><span class="line">  guest_info: nick,mail,link <span class="comment"># custom comment header</span></span><br><span class="line">  pageSize: 10 <span class="comment"># pagination size</span></span><br></pre></td></tr></table></figure></p>
-<p>在yilia/layout/_partial中的article.ejs添加如下代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index)&#123; %&gt;</span><br><span class="line">   &lt;% <span class="keyword">if</span> (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">       &lt;section id=<span class="string">"comments"</span> class=<span class="string">"comments"</span>&gt;</span><br><span class="line">         &lt;style&gt;</span><br><span class="line">           .comments&#123;margin:30px;padding:10px;background:<span class="comment">#fff&#125;</span></span><br><span class="line">           @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:<span class="comment">#fff&#125;&#125;</span></span><br><span class="line">         &lt;/style&gt;</span><br><span class="line">         &lt;%- partial(<span class="string">'post/valine'</span>, &#123;</span><br><span class="line">           key: post.slug,</span><br><span class="line">           title: post.title,</span><br><span class="line">           url: config.url+url_for(post.path)</span><br><span class="line">           &#125;) %&gt;</span><br><span class="line">     &lt;/section&gt;</span><br><span class="line">   &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在yilia/layout/_partial/post中新建valine.ejs文件，写入如下代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"vcomment"</span> class=<span class="string">"comment"</span>&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=<span class="string">"//unpkg.com/valine/dist/Valine.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = <span class="string">'&lt;%= theme.valine.notify %&gt;'</span> == <span class="literal">true</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">   var verify = <span class="string">'&lt;%= theme.valine.verify %&gt;'</span> == <span class="literal">true</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">new Valine(&#123;</span><br><span class="line">            el: <span class="string">'#vcomment'</span>,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: <span class="string">"&lt;%= theme.valine.appid %&gt;"</span>,</span><br><span class="line">            app_key: <span class="string">"&lt;%= theme.valine.appkey %&gt;"</span>,</span><br><span class="line">            placeholder: <span class="string">"&lt;%= theme.valine.placeholder %&gt;"</span>,</span><br><span class="line">            avatar:<span class="string">"&lt;%= theme.valine.avatar %&gt;"</span></span><br><span class="line">        &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p><em>原本这里有两个链接，但是阿奎一直无法正常提交评论，后来把第一个删掉就好了</em><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"//unpkg.com/valine/dist/Valine.min.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这样就完成啦！</p>
-<h2 id="更改代码颜色"><a href="#更改代码颜色" class="headerlink" title="更改代码颜色"></a>更改代码颜色</h2><p>打开yilia/source/main.0cf68a.css Ctrl+F寻找以下字段<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">article-entry pre&#123;background:</span><br></pre></td></tr></table></figure></p>
-<p>后面紧跟着的就是代码背景的颜色，阿奎这里用的是#FFF5F7，粉嫩嫩的背景<br>Ctrl+F搜索以下字段<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">article-entry .highlight .line&#123;color:</span><br></pre></td></tr></table></figure></p>
-<p>后面紧跟着的就是代码字体的颜色，阿奎这里用的是#FC9D9A</p>
-]]></content>
-      <categories>
-        <category>HEXO</category>
-      </categories>
-      <tags>
-        <tag>yilia</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello the cruel world!</title>
     <url>/2018/07/31/Hello%20the%20cruel%20world!/</url>
     <content><![CDATA[<p><img src="/img/2018/life.jpg" alt="Life is colorfull,Do you agree?"></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3882876&auto=0&height=66"></iframe>
 ]]></content>
+  </entry>
+  <entry>
+    <title>单源最短路——SPFA</title>
+    <url>/2018/08/12/SPFA/</url>
+    <content><![CDATA[<p>SPFA的复杂度好像被证明出不太美好，所以个人强烈推荐用Dijkstra求单源最短路<br><a href="https://akui.me/2018/09/02/Dijkstra/">传送门</a><br><del>因为个人认为SPFA远不如Dijkstra，所以这里就稍微懒了些</del></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>什么是SPFA算法呢？<br>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br><a id="more"></a><br>松弛操作的原理是著名的定理：“三角形两边之和大于第三边”，在信息学中我们叫它三角不等式。所谓对结点i,j进行松弛，就是判定是否dis[j]&gt;dis[i]+w[i,j]，如果该式成立则将dis[j]减小到dis[i]+w[i,j]，否则不动。</p>
+<h2 id="和广搜BFS的区别："><a href="#和广搜BFS的区别：" class="headerlink" title="和广搜BFS的区别："></a>和广搜BFS的区别：</h2><p>SPFA 在形式上和广度(宽度)优先搜索非常类似，不同的是BFS中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是一个点改进过其它的点之后，过了一段时间可能本身被改进(重新入队)，于是再次用来改进其它的点，这样反复迭代下去。</p>
+<h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">void  spfa(s);  //求单源点s到其它各顶点的最短距离</span><br><span class="line">    <span class="keyword">for</span> i=1 to n <span class="keyword">do</span> &#123; dis[i]=∞; vis[i]=<span class="literal">false</span>; &#125;   //初始化每点到s的距离，不在队列</span><br><span class="line">    dis[s]=0;  //将dis[源点]设为0</span><br><span class="line">    vis[s]=<span class="literal">true</span>; //源点s入队列</span><br><span class="line">    head=0; tail=1; q[tail]=s; //源点s入队, 头尾指针赋初值</span><br><span class="line">    <span class="keyword">while</span> head&lt;tail <span class="keyword">do</span> &#123;</span><br><span class="line">       head+1;  //队首出队</span><br><span class="line">       v=q[head];  //队首结点v</span><br><span class="line">       vis[v]=<span class="literal">false</span>;  //释放对v的标记，可以重新入队</span><br><span class="line">       <span class="keyword">for</span> 每条边(v,i)  //对于与队首v相连的每一条边</span><br><span class="line">  	  <span class="keyword">if</span> (dis[i]&gt;dis[v]+a[v][i])  //如果不满足三角形性质</span><br><span class="line">	 	dis[i] = dis[v] + a[v][i]   //松弛dis[i]</span><br><span class="line">		<span class="keyword">if</span> (vis[i]=<span class="literal">false</span>) &#123;tail+1; q[tail]=i; vis[i]=<span class="literal">true</span>;&#125; //不在队列，则加入队列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>图论</tag>
+      </tags>
   </entry>
   <entry>
     <title>最小生成树——Prim</title>
@@ -109,22 +98,6 @@
 ]]></content>
       <tags>
         <tag>cocos2dx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单源最短路——SPFA</title>
-    <url>/2018/08/12/SPFA/</url>
-    <content><![CDATA[<p>SPFA的复杂度好像被证明出不太美好，所以个人强烈推荐用Dijkstra求单源最短路<br><a href="https://akui.me/2018/09/02/Dijkstra/">传送门</a><br><del>因为个人认为SPFA远不如Dijkstra，所以这里就稍微懒了些</del></p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>什么是SPFA算法呢？<br>设立一个先进先出的队列q用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。<br><a id="more"></a><br>松弛操作的原理是著名的定理：“三角形两边之和大于第三边”，在信息学中我们叫它三角不等式。所谓对结点i,j进行松弛，就是判定是否dis[j]&gt;dis[i]+w[i,j]，如果该式成立则将dis[j]减小到dis[i]+w[i,j]，否则不动。</p>
-<h2 id="和广搜BFS的区别："><a href="#和广搜BFS的区别：" class="headerlink" title="和广搜BFS的区别："></a>和广搜BFS的区别：</h2><p>SPFA 在形式上和广度(宽度)优先搜索非常类似，不同的是BFS中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是一个点改进过其它的点之后，过了一段时间可能本身被改进(重新入队)，于是再次用来改进其它的点，这样反复迭代下去。</p>
-<h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">void  spfa(s);  //求单源点s到其它各顶点的最短距离</span><br><span class="line">    <span class="keyword">for</span> i=1 to n <span class="keyword">do</span> &#123; dis[i]=∞; vis[i]=<span class="literal">false</span>; &#125;   //初始化每点到s的距离，不在队列</span><br><span class="line">    dis[s]=0;  //将dis[源点]设为0</span><br><span class="line">    vis[s]=<span class="literal">true</span>; //源点s入队列</span><br><span class="line">    head=0; tail=1; q[tail]=s; //源点s入队, 头尾指针赋初值</span><br><span class="line">    <span class="keyword">while</span> head&lt;tail <span class="keyword">do</span> &#123;</span><br><span class="line">       head+1;  //队首出队</span><br><span class="line">       v=q[head];  //队首结点v</span><br><span class="line">       vis[v]=<span class="literal">false</span>;  //释放对v的标记，可以重新入队</span><br><span class="line">       <span class="keyword">for</span> 每条边(v,i)  //对于与队首v相连的每一条边</span><br><span class="line">  	  <span class="keyword">if</span> (dis[i]&gt;dis[v]+a[v][i])  //如果不满足三角形性质</span><br><span class="line">	 	dis[i] = dis[v] + a[v][i]   //松弛dis[i]</span><br><span class="line">		<span class="keyword">if</span> (vis[i]=<span class="literal">false</span>) &#123;tail+1; q[tail]=i; vis[i]=<span class="literal">true</span>;&#125; //不在队列，则加入队列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>图论</tag>
       </tags>
   </entry>
   <entry>
