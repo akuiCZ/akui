@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://akui.me/"/>
-  <updated>2022-04-07T03:12:43.557Z</updated>
+  <updated>2022-04-12T00:20:10.032Z</updated>
   <id>https://akui.me/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu双系统使用笔记</title>
+    <link href="https://akui.me/2022/04/12/Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://akui.me/2022/04/12/Ubuntu双系统使用笔记/</id>
+    <published>2022-04-12T10:06:02.000Z</published>
+    <updated>2022-04-12T00:20:10.032Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="设置开机默认进入Windows"><a href="#设置开机默认进入Windows" class="headerlink" title="设置开机默认进入Windows"></a>设置开机默认进入Windows</h3><p>在Ubuntu的终端输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /boot/grub/grub.fcg</span><br></pre></td></tr></table></figure></p><p>其中set default就是设置系统的默认启动项，把后面的数值改一下就好了，具体改成几，要看你想默认启动的系统在启动菜单的位置序号是几，位置序号从0开始。<br><a id="more"></a></p><p>持续更新 <del>大概</del> ……</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;设置开机默认进入Windows&quot;&gt;&lt;a href=&quot;#设置开机默认进入Windows&quot; class=&quot;headerlink&quot; title=&quot;设置开机默认进入Windows&quot;&gt;&lt;/a&gt;设置开机默认进入Windows&lt;/h3&gt;&lt;p&gt;在Ubuntu的终端输入&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vim /boot/grub/grub.fcg&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;其中set default就是设置系统的默认启动项，把后面的数值改一下就好了，具体改成几，要看你想默认启动的系统在启动菜单的位置序号是几，位置序号从0开始。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://akui.me/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO折腾记</title>
