@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://akui.me/"/>
-  <updated>2022-04-12T00:20:10.032Z</updated>
+  <updated>2022-04-21T01:30:37.226Z</updated>
   <id>https://akui.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://akui.me/2022/04/12/Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>https://akui.me/2022/04/12/Ubuntu双系统使用笔记/</id>
     <published>2022-04-12T10:06:02.000Z</published>
-    <updated>2022-04-12T00:20:10.032Z</updated>
+    <updated>2022-04-21T01:30:37.226Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="设置开机默认进入Windows"><a href="#设置开机默认进入Windows" class="headerlink" title="设置开机默认进入Windows"></a>设置开机默认进入Windows</h3><p>在Ubuntu的终端输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /boot/grub/grub.fcg</span><br></pre></td></tr></table></figure></p><p>其中set default就是设置系统的默认启动项，把后面的数值改一下就好了，具体改成几，要看你想默认启动的系统在启动菜单的位置序号是几，位置序号从0开始。<br><a id="more"></a></p><p>持续更新 <del>大概</del> ……</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="设置开机默认进入Windows"><a href="#设置开机默认进入Windows" class="headerlink" title="设置开机默认进入Windows"></a>设置开机默认进入Windows</h3><p>在Ubuntu的终端输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /boot/grub/grub.fcg</span><br></pre></td></tr></table></figure></p><p>其中set default就是设置系统的默认启动项，把后面的数值改一下就好了，具体改成几，要看你想默认启动的系统在启动菜单的位置序号是几，位置序号从0开始。<br><a id="more"></a></p><h3 id="解决Windows系统时间问题"><a href="#解决Windows系统时间问题" class="headerlink" title="解决Windows系统时间问题"></a>解决Windows系统时间问题</h3><p>使用管理员运行powershell<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add “HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation” /v RealTimeIsUniversal /d 1 /t REG_QWORD /f</span><br></pre></td></tr></table></figure></p><p>跟手动改注册表理论上是一样的，<del>但不知道为什么akui改注册表就行不通</del></p><h3 id="RST存储切换成ACHI"><a href="#RST存储切换成ACHI" class="headerlink" title="RST存储切换成ACHI"></a>RST存储切换成ACHI</h3><p><a href="https://blog.csdn.net/qq_50341530/article/details/120310080" target="_blank" rel="noopener">参考博客</a><br>1.按win+R，在运行窗口中输入msconfig.选择引导-&gt;引导选项-&gt;安全引导，打上勾并保存设置，点击应用-&gt;保存-&gt;会弹出来重启的窗口.<br><img src="https://img-blog.csdnimg.cn/e4a6814544fa40ecb7c382cbb1f74709.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="运行"><br><img src="https://img-blog.csdnimg.cn/e83369e47ccc4e3fabd19999eb39981f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="系统配置"><br>2.重启电脑，进入BIOS设置，改为ACHI.<br>3.重启电脑，会自动进入安全模式（因为改变了设置，无法正常进入win10，所以之前的安全引导可以让电脑自动进入安全模式并且修复硬盘控制器模式改变而出现的问题，就不用使用二维码里面那么麻烦的方法了）.<br>4.再次按win+R，输入msconfig进入系统配置，这次把安全引导选项去掉.再重启电脑，进入ubuntu安装，就会发现可以正常安装了同时win10也可以正常进入.</p><p>之前akui每次换系统都要先进BIOS切换存储模式，非常麻烦，而且还要担心进错系统，电脑发出“嘟”的一声巨响<del>（在教室社死过）</del><br>这个问题网上有很多方法对akui的电脑都不起作用，这个方法还是相当靠谱的<br>另外，akui百度得知，RST在有多块硬盘的时候比ACHI性能好些，一块硬盘的时候并没有区别，所以小伙伴们放心更改设置，多块硬盘的富豪、大佬请忽略。</p><h5 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h5><p>持续更新 <del>大概</del> ……</p>]]></content>
     
     <summary type="html">
     
