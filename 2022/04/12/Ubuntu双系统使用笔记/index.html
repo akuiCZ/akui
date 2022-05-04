@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/e4a6814544fa40ecb7c382cbb1f74709.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/e83369e47ccc4e3fabd19999eb39981f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">
-<meta property="og:updated_time" content="2022-04-21T01:31:39.664Z">
+<meta property="og:updated_time" content="2022-05-04T12:35:20.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu双系统使用笔记">
 <meta name="twitter:description" content="设置开机默认进入Windows在Ubuntu的终端输入1vim /boot/grub/grub.fcg 其中set default就是设置系统的默认启动项，把后面的数值改一下就好了，具体改成几，要看你想默认启动的系统在启动菜单的位置序号是几，位置序号从0开始。">
@@ -189,6 +189,8 @@
 <p>跟手动改注册表理论上是一样的，<del>但不知道为什么akui改注册表就行不通</del></p>
 <h3 id="RST存储切换成ACHI"><a href="#RST存储切换成ACHI" class="headerlink" title="RST存储切换成ACHI"></a>RST存储切换成ACHI</h3><p><a href="https://blog.csdn.net/qq_50341530/article/details/120310080" target="_blank" rel="noopener">参考博客</a><br>1.按win+R，在运行窗口中输入msconfig.选择引导-&gt;引导选项-&gt;安全引导，打上勾并保存设置，点击应用-&gt;保存-&gt;会弹出来重启的窗口.<br><img src="https://img-blog.csdnimg.cn/e4a6814544fa40ecb7c382cbb1f74709.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="运行"><br><img src="https://img-blog.csdnimg.cn/e83369e47ccc4e3fabd19999eb39981f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY6Im65bq3,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="系统配置"><br>2.重启电脑，进入BIOS设置，改为ACHI.<br>3.重启电脑，会自动进入安全模式（因为改变了设置，无法正常进入win10，所以之前的安全引导可以让电脑自动进入安全模式并且修复硬盘控制器模式改变而出现的问题，就不用使用二维码里面那么麻烦的方法了）.<br>4.再次按win+R，输入msconfig进入系统配置，这次把安全引导选项去掉.再重启电脑，进入ubuntu安装，就会发现可以正常安装了同时win10也可以正常进入.</p>
 <p>之前akui每次换系统都要先进BIOS切换存储模式，非常麻烦，而且还要担心进错系统，电脑发出“嘟”的一声巨响<del>（在教室社死过）</del><br>这个问题网上有很多方法对akui的电脑都不起作用，这个方法还是相当靠谱的<br>另外，akui百度得知，RST在有多块硬盘的时候比ACHI性能好些，一块硬盘的时候并没有区别，所以小伙伴们放心更改设置，多块硬盘的富豪、大佬请忽略。</p>
+<h3 id="Ubuntu扩容"><a href="#Ubuntu扩容" class="headerlink" title="Ubuntu扩容"></a>Ubuntu扩容</h3><p>指的是从windows腾一些空间给Ubuntu<br>windows上右击此电脑-&gt;管理-&gt;左侧栏-&gt;磁盘管理<br>分出一些空间,看到的应该是一块未分配的空间<br>进入Ubuntu,安装并启动gparted<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gparted</span><br><span class="line">sudo gparted</span><br></pre></td></tr></table></figure></p>
+<p>因为只能合并相邻的空间,所以需要先移动<br>移动大概就是先将腾出来的空间A合并给它挨着的空间B,然后在这个空间B上边再分A空间那么大的空间<br>具体操作就是,右击B空间-&gt;调整大小/移动<br>然后上面有一个区间滑块,移到最右边就行了,这样子就实现了分区移动<br>最后和我们的Ubuntu所用分区合并的时候,把那个滑块拉满就可以了</p>
 <h5 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h5><p>持续更新 <del>大概</del> ……</p>
 
       
@@ -273,6 +275,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2022/05/04/Linux学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux学习笔记
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/03/29/HEXO折腾记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">HEXO折腾记</div>
@@ -302,7 +313,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置开机默认进入Windows"><span class="toc-number">1.</span> <span class="toc-text">设置开机默认进入Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决Windows系统时间问题"><span class="toc-number">2.</span> <span class="toc-text">解决Windows系统时间问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RST存储切换成ACHI"><span class="toc-number">3.</span> <span class="toc-text">RST存储切换成ACHI</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#另外"><span class="toc-number">3.0.1.</span> <span class="toc-text">另外</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置开机默认进入Windows"><span class="toc-number">1.</span> <span class="toc-text">设置开机默认进入Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决Windows系统时间问题"><span class="toc-number">2.</span> <span class="toc-text">解决Windows系统时间问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RST存储切换成ACHI"><span class="toc-number">3.</span> <span class="toc-text">RST存储切换成ACHI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu扩容"><span class="toc-number">4.</span> <span class="toc-text">Ubuntu扩容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#另外"><span class="toc-number">4.0.1.</span> <span class="toc-text">另外</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
