@@ -180,9 +180,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是换源之后,又说依赖关系不允许……<br>经过一番深思熟虑,阿奎觉得,换源之后,能下载的东西比较多,但是环境依赖处理得非常不好阿奎也不清楚是怎么回事,不管怎么样,先把换源方法记一下.</p>
-<p>首先,稳妥起见,先备份一下原本的源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources_init.list</span><br></pre></td></tr></table></figure></p>
-<p>备份好了就开始编辑文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+        <h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p>这篇文章的内容大(quan)多(bu)都是从网上找的方法,但是网上方法很多,有些不可行,阿奎在这里总结了一下自己使用成功的方法,方便今后自己查阅.由于全都来源于网络,阿奎就不标注来源了,不然会占很多的篇幅</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是把源全部换掉之后,又说依赖关系不允许……<br>之后阿奎才明白,原来换源不能全换掉,在后面添加就好了<del>,那为什么还要备份啊啊啊</del><br>
         
           <a class="article-more-a" href="/2022/05/04/Linux学习笔记/#more">more >></a>
         
@@ -899,15 +898,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">例题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">

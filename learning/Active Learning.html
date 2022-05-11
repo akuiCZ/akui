@@ -6,18 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://akui.me">
-  <title>Archives: 2018 | 阿奎的纯净花园</title>
+  <title>Active Learning note | 阿奎的纯净花园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do What You Love,Love What You Do">
+  <meta name="description" content="Modular Active Learning framework for Python3">
 <meta property="og:type" content="website">
-<meta property="og:title" content="阿奎的纯净花园">
-<meta property="og:url" content="https://akui.me/archives/2018/page/2/index.html">
+<meta property="og:title" content="Active Learning note">
+<meta property="og:url" content="https://akui.me/learning/Active Learning.html">
 <meta property="og:site_name" content="阿奎的纯净花园">
-<meta property="og:description" content="Do What You Love,Love What You Do">
+<meta property="og:description" content="Modular Active Learning framework for Python3">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://modal-python.readthedocs.io/en/latest/_static/modAL_b.png">
+<meta property="og:image" content="https://travis-ci.org/modAL-python/modAL.svg?branch=master">
+<meta property="og:image" content="https://codecov.io/gh/modAL-python/modAL/branch/master/graph/badge.svg">
+<meta property="og:image" content="https://readthedocs.org/projects/modal-python/badge/?version=latest">
+<meta property="og:image" content="https://modal-python.readthedocs.io/en/latest/_images/motivating-example.png">
+<meta property="og:image" content="https://modal-python.readthedocs.io/en/latest/_images/active-learning.png">
+<meta property="og:image" content="https://modal-python.readthedocs.io/en/latest/_images/gp-initial.png">
+<meta property="og:image" content="https://modal-python.readthedocs.io/en/latest/_images/gp-final.png">
+<meta property="og:updated_time" content="2022-05-11T13:17:18.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿奎的纯净花园">
-<meta name="twitter:description" content="Do What You Love,Love What You Do">
+<meta name="twitter:title" content="Active Learning note">
+<meta name="twitter:description" content="Modular Active Learning framework for Python3">
+<meta name="twitter:image" content="https://modal-python.readthedocs.io/en/latest/_static/modAL_b.png">
   
     <link rel="alternative" href="/atom.xml" title="阿奎的纯净花园" type="application/atom+xml">
   
@@ -158,213 +168,231 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Active Learning note
+    </h1>
+  
+
+        
+        <a href="/learning/Active Learning.html" class="archive-article-date">
+  	<time datetime="2099-08-12T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2099-08-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://modal-python.readthedocs.io/en/latest/_static/modAL_b.png" alt="modAL" style="width: 400px;"></p>
+<p>Modular Active Learning framework for Python3<br><a id="more"></a><br><a href="https://travis-ci.org/modAL-python/modAL" target="_blank" rel="noopener"><img src="https://travis-ci.org/modAL-python/modAL.svg?branch=master" alt="travis-ci-master"></a> <a href="https://codecov.io/gh/modAL-python/modAL" target="_blank" rel="noopener"><img src="https://codecov.io/gh/modAL-python/modAL/branch/master/graph/badge.svg" alt="codecov-master"></a> <a href="http://modal-python.readthedocs.io/en/latest/?badge=latest" target="_blank" rel="noopener"><img src="https://readthedocs.org/projects/modal-python/badge/?version=latest" alt="readthedocs"></a></p>
+<h2 id="Page-contents"><a href="#Page-contents" class="headerlink" title="Page contents"></a>Page contents</h2><ul>
+<li><a href="#introduction">Introduction</a>  </li>
+<li><a href="#active-learning">Active learning from bird’s-eye view</a>  </li>
+<li><a href="#modAL-in-action">modAL in action</a><ul>
+<li><a href="#initialization">From zero to one in a few lines of code</a>  </li>
+<li><a href="#replacing-parts">Replacing parts quickly</a>  </li>
+<li><a href="#replacing-parts-with-your-own-solutions">Replacing parts with your own solutions</a>  </li>
+<li><a href="#active-regression">An example with active regression</a></li>
+<li><a href="#additional-examples">Additional examples</a>  </li>
+</ul>
+</li>
+<li><a href="#installation">Installation</a>  </li>
+<li><a href="#documentation">Documentation</a>  </li>
+<li><a href="#citing">Citing</a>  </li>
+<li><a href="#about-the-developer">About the developer</a></li>
+</ul>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction<a name="introduction"></a></h1><p>modAL is an active learning framework for Python3, designed with <em>modularity, flexibility</em> and <em>extensibility</em> in mind. Built on top of scikit-learn, it allows you to rapidly create active learning workflows with nearly complete freedom. What is more, you can easily replace parts with your custom built solutions, allowing you to design novel algorithms with ease.</p>
+<h1 id="Active-learning-from-bird’s-eye-view"><a href="#Active-learning-from-bird’s-eye-view" class="headerlink" title="Active learning from bird’s-eye view"></a>Active learning from bird’s-eye view<a name="active-learning"></a></h1><p>With the recent explosion of available data, you have can have millions of unlabelled examples with a high cost to obtain labels. For instance, when trying to predict the sentiment of tweets, obtaining a training set can require immense manual labour. But worry not, active learning comes to the rescue! In general, AL is a framework allowing you to increase classification performance by intelligently querying you to label the most informative instances. To give an example, suppose that you have the following data and classifier with shaded regions signifying the classification probability.</p>
+<p align="center"><br>  <img src="https://modal-python.readthedocs.io/en/latest/_images/motivating-example.png" height="600px" width="600px"><br></p>
+
+<p>Suppose that you can query the label of an unlabelled instance, but it costs you a lot. Which one would you choose? By querying an instance in the uncertain region, surely you obtain more information than querying by random. Active learning gives you a set of tools to handle problems like this. In general, an active learning workflow looks like the following.</p>
+<p align="center"><br> <img src="https://modal-python.readthedocs.io/en/latest/_images/active-learning.png"><br></p>
+
+<p>The key components of any workflow are the <strong>model</strong> you choose, the <strong>uncertainty</strong> measure you use and the <strong>query</strong> strategy you apply to request labels. With modAL, instead of choosing from a small set of built-in components, you have the freedom to seamlessly integrate scikit-learn or Keras models into your algorithm and easily tailor your custom query strategies and uncertainty measures.</p>
+<h1 id="modAL-in-action"><a href="#modAL-in-action" class="headerlink" title="modAL in action"></a>modAL in action<a name="modAL-in-action"></a></h1><p>Let’s see what modAL can do for you!</p>
+<h2 id="From-zero-to-one-in-a-few-lines-of-code"><a href="#From-zero-to-one-in-a-few-lines-of-code" class="headerlink" title="From zero to one in a few lines of code"></a>From zero to one in a few lines of code<a name="initialization"></a></h2><p>Active learning with a scikit-learn classifier, for instance RandomForestClassifier, can be as simple as the following.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modAL.models <span class="keyword">import</span> ActiveLearner</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"></span><br><span class="line"><span class="comment"># initializing the learner</span></span><br><span class="line">learner = ActiveLearner(</span><br><span class="line">    estimator=RandomForestClassifier(),</span><br><span class="line">    X_training=X_training, y_training=y_training</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># query for labels</span></span><br><span class="line">query_idx, query_inst = learner.query(X_pool)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ...obtaining new labels from the Oracle...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># supply label for queried instance</span></span><br><span class="line">learner.teach(X_pool[query_idx], y_new)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Replacing-parts-quickly"><a href="#Replacing-parts-quickly" class="headerlink" title="Replacing parts quickly"></a>Replacing parts quickly<a name="replacing-parts"></a></h2><p>If you would like to use different uncertainty measures and query strategies than the default uncertainty sampling, you can either replace them with several built-in strategies or you can design your own by following a few very simple design principles. For instance, replacing the default uncertainty measure to classification entropy looks the following.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modAL.models <span class="keyword">import</span> ActiveLearner</span><br><span class="line"><span class="keyword">from</span> modAL.uncertainty <span class="keyword">import</span> entropy_sampling</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"></span><br><span class="line">learner = ActiveLearner(</span><br><span class="line">    estimator=RandomForestClassifier(),</span><br><span class="line">    query_strategy=entropy_sampling,</span><br><span class="line">    X_training=X_training, y_training=y_training</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Replacing-parts-with-your-own-solutions"><a href="#Replacing-parts-with-your-own-solutions" class="headerlink" title="Replacing parts with your own solutions"></a>Replacing parts with your own solutions<a name="replacing-parts-with-your-own-solutions"></a></h2><p>modAL was designed to make it easy for you to implement your own query strategy. For example, implementing and using a simple random sampling strategy is as easy as the following.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_sampling</span><span class="params">(classifier, X_pool)</span>:</span></span><br><span class="line">    n_samples = len(X_pool)</span><br><span class="line">    query_idx = np.random.choice(range(n_samples))</span><br><span class="line">    <span class="keyword">return</span> query_idx, X_pool[query_idx]</span><br><span class="line"></span><br><span class="line">learner = ActiveLearner(</span><br><span class="line">    estimator=RandomForestClassifier(),</span><br><span class="line">    query_strategy=random_sampling,</span><br><span class="line">    X_training=X_training, y_training=y_training</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>For more details on how to implement your custom strategies, visit the page <a href="https://modal-python.readthedocs.io/en/latest/content/overview/Extending-modAL.html" target="_blank" rel="noopener">Extending modAL</a>!</p>
+<h2 id="An-example-with-active-regression"><a href="#An-example-with-active-regression" class="headerlink" title="An example with active regression"></a>An example with active regression<a name="active-regression"></a></h2><p>To see modAL in <em>real</em> action, let’s consider an active regression problem with Gaussian Processes! In this example, we shall try to learn the <em>noisy sine</em> function:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">X = np.random.choice(np.linspace(<span class="number">0</span>, <span class="number">20</span>, <span class="number">10000</span>), size=<span class="number">200</span>, replace=<span class="keyword">False</span>).reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">y = np.sin(X) + np.random.normal(scale=<span class="number">0.3</span>, size=X.shape)</span><br></pre></td></tr></table></figure></p>
+<p>For active learning, we shall define a custom query strategy tailored to Gaussian processes. In a nutshell, a <em>query stategy</em> in modAL is a function taking (at least) two arguments (an estimator object and a pool of examples), outputting the index of the queried instance. In our case, the arguments are <figure class="highlight plain"><figcaption><span>and ```X```.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```python</span><br><span class="line">def GP_regression_std(regressor, X):</span><br><span class="line">    _, std = regressor.predict(X, return_std=True)</span><br><span class="line">    return np.argmax(std)</span><br></pre></td></tr></table></figure></p>
+<p>After setting up the query strategy and the data, the active learner can be initialized.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modAL.models <span class="keyword">import</span> ActiveLearner</span><br><span class="line"><span class="keyword">from</span> sklearn.gaussian_process <span class="keyword">import</span> GaussianProcessRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.gaussian_process.kernels <span class="keyword">import</span> WhiteKernel, RBF</span><br><span class="line"></span><br><span class="line">n_initial = <span class="number">5</span></span><br><span class="line">initial_idx = np.random.choice(range(len(X)), size=n_initial, replace=<span class="keyword">False</span>)</span><br><span class="line">X_training, y_training = X[initial_idx], y[initial_idx]</span><br><span class="line"></span><br><span class="line">kernel = RBF(length_scale=<span class="number">1.0</span>, length_scale_bounds=(<span class="number">1e-2</span>, <span class="number">1e3</span>)) \</span><br><span class="line">         + WhiteKernel(noise_level=<span class="number">1</span>, noise_level_bounds=(<span class="number">1e-10</span>, <span class="number">1e+1</span>))</span><br><span class="line"></span><br><span class="line">regressor = ActiveLearner(</span><br><span class="line">    estimator=GaussianProcessRegressor(kernel=kernel),</span><br><span class="line">    query_strategy=GP_regression_std,</span><br><span class="line">    X_training=X_training.reshape(<span class="number">-1</span>, <span class="number">1</span>), y_training=y_training.reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>The initial regressor is not very accurate.</p>
+<p align="center"><br>  <img src="https://modal-python.readthedocs.io/en/latest/_images/gp-initial.png"><br></p>
+
+<p>The blue band enveloping the regressor represents the standard deviation of the Gaussian process at the given point. Now we are ready to do active learning!<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># active learning</span></span><br><span class="line">n_queries = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> idx <span class="keyword">in</span> range(n_queries):</span><br><span class="line">    query_idx, query_instance = regressor.query(X)</span><br><span class="line">    regressor.teach(X[query_idx].reshape(<span class="number">1</span>, <span class="number">-1</span>), y[query_idx].reshape(<span class="number">1</span>, <span class="number">-1</span>))</span><br></pre></td></tr></table></figure></p>
+<p>After a few queries, we can see that the prediction is much improved.</p>
+<p align="center"><br> <img src="https://modal-python.readthedocs.io/en/latest/_images/gp-final.png"><br></p>
+
+<h2 id="Additional-examples"><a href="#Additional-examples" class="headerlink" title="Additional examples"></a>Additional examples<a name="additional-examples"></a></h2><p>Including this, many examples are available:</p>
+<ul>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/pool-based_sampling.html" target="_blank" rel="noopener">Pool-based sampling</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/stream-based_sampling.html" target="_blank" rel="noopener">Stream-based sampling</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/active_regression.html" target="_blank" rel="noopener">Active regression</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/ensemble_regression.html" target="_blank" rel="noopener">Ensemble regression</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/bayesian_optimization.html" target="_blank" rel="noopener">Bayesian optimization</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/query_by_committee.html" target="_blank" rel="noopener">Query by committee</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/bootstrapping_and_bagging.html" target="_blank" rel="noopener">Bootstrapping and bagging</a>  </li>
+<li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/Keras_integration.html" target="_blank" rel="noopener">Keras integration</a></li>
+</ul>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation<a name="installation"></a></h1><p>modAL requires</p>
+<ul>
+<li>Python &gt;= 3.5</li>
+<li>NumPy &gt;= 1.13</li>
+<li>SciPy &gt;= 0.18</li>
+<li>scikit-learn &gt;= 0.18</li>
+</ul>
+<p>You can install modAL directly with pip:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install modAL</span><br></pre></td></tr></table></figure></p>
+<p>Alternatively, you can install modAL directly from source:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/modAL-python/modAL.git</span><br></pre></td></tr></table></figure></p>
+<h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation<a name="documentation"></a></h1><p>You can find the documentation of modAL at <a href="https://modAL-python.github.io" target="_blank" rel="noopener">https://modAL-python.github.io</a>, where several tutorials and working examples are available, along with a complete API reference. For running the examples, Matplotlib &gt;= 2.0 is recommended.</p>
+<h1 id="Citing"><a href="#Citing" class="headerlink" title="Citing"></a>Citing<a name="citing"></a></h1><p>If you use modAL in your projects, you can cite it as<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;modAL2018,</span><br><span class="line">    title=&#123;mod&#123;AL&#125;: &#123;A&#125; modular active learning framework for &#123;P&#125;ython&#125;,</span><br><span class="line">    author=&#123;Tivadar Danka and Peter Horvath&#125;,</span><br><span class="line">    url=&#123;https://github.com/modAL-python/modAL&#125;,</span><br><span class="line">    note=&#123;available on arXiv at \url&#123;https://arxiv.org/abs/1805.00979&#125;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="About-the-developer"><a href="#About-the-developer" class="headerlink" title="About the developer"></a>About the developer<a name="about-the-developer"></a></h1><p>modAL is developed by me, <a href="https://www.tivadardanka.com" target="_blank" rel="noopener">Tivadar Danka</a> (aka <a href="https://github.com/cosmic-cortex" target="_blank" rel="noopener">cosmic-cortex</a> in GitHub). I have a PhD in pure mathematics, but I fell in love with biology and machine learning right after I finished my PhD. I have changed fields and now I work in the <a href="http://group.szbk.u-szeged.hu/sysbiol/horvath-peter-lab-index.html" target="_blank" rel="noopener">Bioimage Analysis and Machine Learning Group of Peter Horvath</a>, where I am working to develop active learning strategies for intelligent sample analysis in biology. During my work I realized that in Python, creating and prototyping active learning workflows can be made really easy and fast with scikit-learn, so I ended up developing a general framework for this. The result is modAL :) If you have any questions, requests or suggestions, you can contact me at <a href="mailto:85a5187a@opayq.com" target="_blank" rel="noopener">85a5187a@opayq.com</a>! I hope you’ll find modAL useful!</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/02/Dijkstra/" class="archive-article-date">
-  	<time datetime="2018-09-02T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/02/Dijkstra/">单源最短路——Dijkstra</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://akui.me/learning/Active Learning.html" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/22/卡常加速/" class="archive-article-date">
-  	<time datetime="2018-08-22T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/22/卡常加速/">加速——卡常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Page-contents"><span class="toc-number">1.</span> <span class="toc-text">Page contents</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number"></span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Active-learning-from-bird’s-eye-view"><span class="toc-number"></span> <span class="toc-text">Active learning from bird’s-eye view</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#modAL-in-action"><span class="toc-number"></span> <span class="toc-text">modAL in action</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-zero-to-one-in-a-few-lines-of-code"><span class="toc-number">1.</span> <span class="toc-text">From zero to one in a few lines of code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replacing-parts-quickly"><span class="toc-number">2.</span> <span class="toc-text">Replacing parts quickly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replacing-parts-with-your-own-solutions"><span class="toc-number">3.</span> <span class="toc-text">Replacing parts with your own solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#An-example-with-active-regression"><span class="toc-number">4.</span> <span class="toc-text">An example with active regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Additional-examples"><span class="toc-number">5.</span> <span class="toc-text">Additional examples</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Installation"><span class="toc-number"></span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Documentation"><span class="toc-number"></span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Citing"><span class="toc-number"></span> <span class="toc-text">Citing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#About-the-developer"><span class="toc-number"></span> <span class="toc-text">About the developer</span></a>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/12/SPFA/" class="archive-article-date">
-  	<time datetime="2018-08-12T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/12/SPFA/">单源最短路——SPFA</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/Hello the cruel world!/" class="archive-article-date">
-  	<time datetime="2018-07-31T11:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/Hello the cruel world!/">Hello the cruel world!</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
+  
+
+
+
+   
+       <section id="comments" class="comments">
+         <style>
+           .comments{margin:30px;padding:10px;background:#fff}
+           @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+         </style>
+         <div id="vcomment" class="comment"></div> 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "jHjdbb4PiqMLa2xgH1iCaFjd-gzGzoHsz",
+            app_key: "P8819mP2a1Ean1ElcXaHuMTX",
+            placeholder: "ヾﾉ≧∀≦)o   来都来了，不留下点足迹吗 ~",
+            avatar:"mm"
+        });
+</script>
+
+
+     </section>
+   
+
+  
 
           </div>
         </div>
@@ -395,7 +423,7 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

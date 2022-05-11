@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://akui.me">
   <title>Linux学习笔记 | 阿奎的纯净花园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是换源之后,又说依赖关系不允许……经过一番深思熟虑,阿奎觉得,换源之后,能下载的东西比较多,但是环境依赖处理得非常不好阿奎也不清楚是怎么回事,不管怎么样,先把换源方法记一下. 首先,稳妥起见,先备份一下原本的源1sudo cp /etc/apt/sources">
+  <meta name="description" content="说在前面这篇文章的内容大(quan)多(bu)都是从网上找的方法,但是网上方法很多,有些不可行,阿奎在这里总结了一下自己使用成功的方法,方便今后自己查阅.由于全都来源于网络,阿奎就不标注来源了,不然会占很多的篇幅 换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是把源全部换掉之后,又说依赖关系不允许……之后">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习笔记">
 <meta property="og:url" content="https://akui.me/2022/05/04/Linux学习笔记/index.html">
 <meta property="og:site_name" content="阿奎的纯净花园">
-<meta property="og:description" content="换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是换源之后,又说依赖关系不允许……经过一番深思熟虑,阿奎觉得,换源之后,能下载的东西比较多,但是环境依赖处理得非常不好阿奎也不清楚是怎么回事,不管怎么样,先把换源方法记一下. 首先,稳妥起见,先备份一下原本的源1sudo cp /etc/apt/sources">
+<meta property="og:description" content="说在前面这篇文章的内容大(quan)多(bu)都是从网上找的方法,但是网上方法很多,有些不可行,阿奎在这里总结了一下自己使用成功的方法,方便今后自己查阅.由于全都来源于网络,阿奎就不标注来源了,不然会占很多的篇幅 换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是把源全部换掉之后,又说依赖关系不允许……之后">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-05-04T12:48:13.213Z">
+<meta property="og:updated_time" content="2022-05-05T09:33:09.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习笔记">
-<meta name="twitter:description" content="换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是换源之后,又说依赖关系不允许……经过一番深思熟虑,阿奎觉得,换源之后,能下载的东西比较多,但是环境依赖处理得非常不好阿奎也不清楚是怎么回事,不管怎么样,先把换源方法记一下. 首先,稳妥起见,先备份一下原本的源1sudo cp /etc/apt/sources">
+<meta name="twitter:description" content="说在前面这篇文章的内容大(quan)多(bu)都是从网上找的方法,但是网上方法很多,有些不可行,阿奎在这里总结了一下自己使用成功的方法,方便今后自己查阅.由于全都来源于网络,阿奎就不标注来源了,不然会占很多的篇幅 换源Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是把源全部换掉之后,又说依赖关系不允许……之后">
   
     <link rel="alternative" href="/atom.xml" title="阿奎的纯净花园" type="application/atom+xml">
   
@@ -180,10 +180,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是换源之后,又说依赖关系不允许……<br>经过一番深思熟虑,阿奎觉得,换源之后,能下载的东西比较多,但是环境依赖处理得非常不好阿奎也不清楚是怎么回事,不管怎么样,先把换源方法记一下.</p>
-<p>首先,稳妥起见,先备份一下原本的源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources_init.list</span><br></pre></td></tr></table></figure></p>
+        <h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p>这篇文章的内容大(quan)多(bu)都是从网上找的方法,但是网上方法很多,有些不可行,阿奎在这里总结了一下自己使用成功的方法,方便今后自己查阅.由于全都来源于网络,阿奎就不标注来源了,不然会占很多的篇幅</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>Ubuntu自带的输入法太蹩脚了,阿奎在装搜狗输入法和geogle输入法时遇到了一些问题,大意是连接不上,网上的解决方案大多都是换源,但是把源全部换掉之后,又说依赖关系不允许……<br>之后阿奎才明白,原来换源不能全换掉,在后面添加就好了<del>,那为什么还要备份啊啊啊</del><br><a id="more"></a><br>首先,稳妥起见,先备份一下原本的源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources_init.list</span><br></pre></td></tr></table></figure></p>
 <p>备份好了就开始编辑文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>清华源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span></span><br></pre></td></tr></table></figure></p>
 <p>阿里源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse  </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse  </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse  </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse  </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse  </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse  </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse  </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse  </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse  </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure></p>
 <p>更新源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
@@ -210,6 +209,10 @@
 <h2 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h2><p>geogle拼音<br><a href="https://blog.csdn.net/a805607966/article/details/105874756" target="_blank" rel="noopener">网页链接</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx-googlepinyin</span><br></pre></td></tr></table></figure></p>
 <p>还有搜狗拼音,自行百度进入官网下载安装即可</p>
 <h2 id="conda自动进入base环境"><a href="#conda自动进入base环境" class="headerlink" title="conda自动进入base环境"></a>conda自动进入base环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --show</span><br><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="firefox浏览器安装flash插件"><a href="#firefox浏览器安装flash插件" class="headerlink" title="firefox浏览器安装flash插件"></a>firefox浏览器安装flash插件</h2><p>更新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>插件下载安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install flashplugin-installer</span><br></pre></td></tr></table></figure></p>
+<p>链接到浏览器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install browser-plugin-freshplayer-pepperflash</span><br></pre></td></tr></table></figure></p>
+<p>重启浏览器,失败的话，就尝试：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install browser-plugin-freshplayer-pepperflash --fix-missing</span><br></pre></td></tr></table></figure></p>
 <h5 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h5><p>持续更新 <del>大概</del> ……</p>
 
       
@@ -323,7 +326,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#换源"><span class="toc-number">1.</span> <span class="toc-text">换源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理依赖问题"><span class="toc-number">2.</span> <span class="toc-text">处理依赖问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境"><span class="toc-number">3.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速启动pycharm"><span class="toc-number">4.</span> <span class="toc-text">快速启动pycharm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装node"><span class="toc-number">5.</span> <span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node更换版本"><span class="toc-number">6.</span> <span class="toc-text">node更换版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim使用笔记"><span class="toc-number">7.</span> <span class="toc-text">Vim使用笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入法"><span class="toc-number">8.</span> <span class="toc-text">输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda自动进入base环境"><span class="toc-number">9.</span> <span class="toc-text">conda自动进入base环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#另外"><span class="toc-number">9.0.0.1.</span> <span class="toc-text">另外</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说在前面"><span class="toc-number">1.</span> <span class="toc-text">说在前面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换源"><span class="toc-number"></span> <span class="toc-text">换源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理依赖问题"><span class="toc-number"></span> <span class="toc-text">处理依赖问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境"><span class="toc-number"></span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速启动pycharm"><span class="toc-number"></span> <span class="toc-text">快速启动pycharm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装node"><span class="toc-number"></span> <span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node更换版本"><span class="toc-number"></span> <span class="toc-text">node更换版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim使用笔记"><span class="toc-number"></span> <span class="toc-text">Vim使用笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入法"><span class="toc-number"></span> <span class="toc-text">输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda自动进入base环境"><span class="toc-number"></span> <span class="toc-text">conda自动进入base环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#firefox浏览器安装flash插件"><span class="toc-number"></span> <span class="toc-text">firefox浏览器安装flash插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#另外"><span class="toc-number">0.0.1.</span> <span class="toc-text">另外</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -492,15 +495,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">例题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
