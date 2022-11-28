@@ -147,6 +147,19 @@
       </tags>
   </entry>
   <entry>
+    <title>cocos2dx学习笔记</title>
+    <url>/2021/12/10/cocos2dx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="亿些废话"><a href="#亿些废话" class="headerlink" title="亿些废话"></a><del>亿些废话</del></h3><p>暑假一时冲动买的游戏开发课，从c语言基础到数据结构到c++到游戏引擎，怎么说好呢，不算后悔，毕竟是我真正热爱的东西，前不久才只是跟家里人说买了课，游戏开发……希望以后家里人不会反对吧。<br>直播基本很少去听，为更喜欢录播，顺便把课程视频也都悄咪咪存起来了。c语言没怎么听，数据结构听了一部分，c++都认真听了一遍，因为学校不讲(<em>面向对象只讲java</em>)，觉得讲得还挺不错，但是到了目前正在讲的cocos2dx的课，我觉得课程质量还有待提高……<br>因为cocos2dx网络上能参考的资料十分有限，因此便诞生了此篇文章供我自己参考。<br><del>现在已经讲了12讲了，我才听到第八讲，期末了已经疲了呀</del><br>老师的代码简练得多，我这里没有删除它原本自带的一堆if和else，那些应该是错误处理）？<br><a id="more"></a></p>
+<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto spritebg = Sprite::create(<span class="string">"mainbg.png"</span>);</span><br><span class="line"><span class="keyword">if</span> (spritebg == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'mainbg.png'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    spritebg-&gt;setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));//设置精灵图的位置</span><br><span class="line">    spritebg-&gt;setScale(0.8);//设置缩放</span><br><span class="line">    this-&gt;addChild(spritebg, 0);//添加到层上，优先级为0</span><br><span class="line">    //还有别的透明度啥的回头更新，一定！嗯！</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字幕"><a href="#字幕" class="headerlink" title="字幕"></a>字幕</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto label = Label::createWithTTF(<span class="string">"Hello World"</span>, <span class="string">"fonts/Marker Felt.ttf"</span>, 24);</span><br><span class="line"><span class="keyword">if</span> (label == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'fonts/Marker Felt.ttf'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    // position the label on the center of the screen</span><br><span class="line">    label-&gt;setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - label-&gt;getContentSize().height));</span><br><span class="line"></span><br><span class="line">    // add the label as a child to this layer</span><br><span class="line">    this-&gt;addChild(label, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有好多稍后整理，马上期末考试了</p>
+<h3 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h3><p>2022年3月9日，复刻1月弄丢的文件，这个时候已经将游戏开发作为保研失利的打算了。<br>虽说机会难得，可是这种感觉挺奇怪的，明明是最不努力的我拥有这么好的机会，实在是不公平……<br>欲带皇冠，必承其重，610快乐之王消失了，卷王阿奎诞生了</p>
+]]></content>
+      <tags>
+        <tag>cocos2dx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>加速——卡常</title>
     <url>/2018/08/22/%E5%8D%A1%E5%B8%B8%E5%8A%A0%E9%80%9F/</url>
     <content><![CDATA[<p>代码中加速非常重要 <del>废话</del><br>然而我入坑了才意识到</p>
@@ -161,19 +174,6 @@
       <tags>
         <tag>C++</tag>
         <tag>优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cocos2dx学习笔记</title>
-    <url>/2021/12/10/cocos2dx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="亿些废话"><a href="#亿些废话" class="headerlink" title="亿些废话"></a><del>亿些废话</del></h3><p>暑假一时冲动买的游戏开发课，从c语言基础到数据结构到c++到游戏引擎，怎么说好呢，不算后悔，毕竟是我真正热爱的东西，前不久才只是跟家里人说买了课，游戏开发……希望以后家里人不会反对吧。<br>直播基本很少去听，为更喜欢录播，顺便把课程视频也都悄咪咪存起来了。c语言没怎么听，数据结构听了一部分，c++都认真听了一遍，因为学校不讲(<em>面向对象只讲java</em>)，觉得讲得还挺不错，但是到了目前正在讲的cocos2dx的课，我觉得课程质量还有待提高……<br>因为cocos2dx网络上能参考的资料十分有限，因此便诞生了此篇文章供我自己参考。<br><del>现在已经讲了12讲了，我才听到第八讲，期末了已经疲了呀</del><br>老师的代码简练得多，我这里没有删除它原本自带的一堆if和else，那些应该是错误处理）？<br><a id="more"></a></p>
-<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto spritebg = Sprite::create(<span class="string">"mainbg.png"</span>);</span><br><span class="line"><span class="keyword">if</span> (spritebg == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'mainbg.png'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    spritebg-&gt;setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));//设置精灵图的位置</span><br><span class="line">    spritebg-&gt;setScale(0.8);//设置缩放</span><br><span class="line">    this-&gt;addChild(spritebg, 0);//添加到层上，优先级为0</span><br><span class="line">    //还有别的透明度啥的回头更新，一定！嗯！</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字幕"><a href="#字幕" class="headerlink" title="字幕"></a>字幕</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto label = Label::createWithTTF(<span class="string">"Hello World"</span>, <span class="string">"fonts/Marker Felt.ttf"</span>, 24);</span><br><span class="line"><span class="keyword">if</span> (label == nullptr)</span><br><span class="line">&#123;</span><br><span class="line">    problemLoading(<span class="string">"'fonts/Marker Felt.ttf'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    // position the label on the center of the screen</span><br><span class="line">    label-&gt;setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - label-&gt;getContentSize().height));</span><br><span class="line"></span><br><span class="line">    // add the label as a child to this layer</span><br><span class="line">    this-&gt;addChild(label, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还有好多稍后整理，马上期末考试了</p>
-<h3 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h3><p>2022年3月9日，复刻1月弄丢的文件，这个时候已经将游戏开发作为保研失利的打算了。<br>虽说机会难得，可是这种感觉挺奇怪的，明明是最不努力的我拥有这么好的机会，实在是不公平……<br>欲带皇冠，必承其重，610快乐之王消失了，卷王阿奎诞生了</p>
-]]></content>
-      <tags>
-        <tag>cocos2dx</tag>
       </tags>
   </entry>
   <entry>
@@ -206,6 +206,26 @@
         <tag>C++</tag>
         <tag>数论</tag>
         <tag>例题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实用的网站</title>
+    <url>/2018/10/17/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>这里盘点一些阿奎收集的几个很不错的网站。<br>对程序员来说真的能省掉许多不必要的功夫。<br><em>我真的不是在打广告，没有任何人给我钱的。</em></p>
+<h3 id="图论构图"><a href="#图论构图" class="headerlink" title="图论构图"></a>图论构图</h3><p><a href="https://csacademy.com/app/graph_editor/" target="_blank" rel="noopener">传送门</a><br>PS:这是个歪果网站，所以翻墙食用更佳。</p>
+<p>操作简单，对于图论画图这方面非常非常非常好用。<br><del>也挺好玩的</del><br><a id="more"></a><br>预览:<br><img src="/img/2018/1017/2018101701.jpg" alt="鼠标左键点击一个点可以把它固定，不让它乱跑"></p>
+<h3 id="数论公式-amp-amp-函数图像"><a href="#数论公式-amp-amp-函数图像" class="headerlink" title="数论公式&amp;&amp;函数图像"></a>数论公式&amp;&amp;函数图像</h3><p><a href="https://www.wolframalpha.com/" target="_blank" rel="noopener">传送门</a><br>PS:这也是个歪果网站，所以翻墙食用更佳。</p>
+<p>这个网站是真的强大。<br>对于一个函数呢，它能给你变形和它的几组解，还能把图像给你画出来。<br>对于一个数列呢，它能往后给出好多项，还能把通项公式告诉你。<br>除了这些，还会给你一大堆你看不懂的东西。<em>好吧，是我看不懂。</em><br><del>也是好玩又好用。</del></p>
+<p>预览:<br>输入(x^2+y^2-1)^3-(x^2)*(y^3)=0<br><img src="/img/2018/1017/2018101702.jpg" alt="小心心~"></p>
+<p>输入Catalan数的前几项<br><img src="/img/2018/1017/2018101703.jpg" alt="输入卡特兰数的前几项会出来什么呢"></p>
+<p>下面还有<br><img src="/img/2018/1017/2018101704.jpg" alt="虽然很多看不懂，但是就是感觉很强"></p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>目前阿奎手里也就这些<del>好玩</del>好用的网站。<em>真的没有更多了。</em><br>以后再发现其它<del>好玩</del>好用的网站呢，我一定会更新的。<br>所以，记得时不时来这里看一看哦。</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -245,26 +265,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实用的网站</title>
-    <url>/2018/10/17/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>这里盘点一些阿奎收集的几个很不错的网站。<br>对程序员来说真的能省掉许多不必要的功夫。<br><em>我真的不是在打广告，没有任何人给我钱的。</em></p>
-<h3 id="图论构图"><a href="#图论构图" class="headerlink" title="图论构图"></a>图论构图</h3><p><a href="https://csacademy.com/app/graph_editor/" target="_blank" rel="noopener">传送门</a><br>PS:这是个歪果网站，所以翻墙食用更佳。</p>
-<p>操作简单，对于图论画图这方面非常非常非常好用。<br><del>也挺好玩的</del><br><a id="more"></a><br>预览:<br><img src="/img/2018/1017/2018101701.jpg" alt="鼠标左键点击一个点可以把它固定，不让它乱跑"></p>
-<h3 id="数论公式-amp-amp-函数图像"><a href="#数论公式-amp-amp-函数图像" class="headerlink" title="数论公式&amp;&amp;函数图像"></a>数论公式&amp;&amp;函数图像</h3><p><a href="https://www.wolframalpha.com/" target="_blank" rel="noopener">传送门</a><br>PS:这也是个歪果网站，所以翻墙食用更佳。</p>
-<p>这个网站是真的强大。<br>对于一个函数呢，它能给你变形和它的几组解，还能把图像给你画出来。<br>对于一个数列呢，它能往后给出好多项，还能把通项公式告诉你。<br>除了这些，还会给你一大堆你看不懂的东西。<em>好吧，是我看不懂。</em><br><del>也是好玩又好用。</del></p>
-<p>预览:<br>输入(x^2+y^2-1)^3-(x^2)*(y^3)=0<br><img src="/img/2018/1017/2018101702.jpg" alt="小心心~"></p>
-<p>输入Catalan数的前几项<br><img src="/img/2018/1017/2018101703.jpg" alt="输入卡特兰数的前几项会出来什么呢"></p>
-<p>下面还有<br><img src="/img/2018/1017/2018101704.jpg" alt="虽然很多看不懂，但是就是感觉很强"></p>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>目前阿奎手里也就这些<del>好玩</del>好用的网站。<em>真的没有更多了。</em><br>以后再发现其它<del>好玩</del>好用的网站呢，我一定会更新的。<br>所以，记得时不时来这里看一看哦。</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
